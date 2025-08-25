@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   EmbeddedCheckout,
   EmbeddedCheckoutProvider,
@@ -19,11 +19,12 @@ const stripePublishKey =
 const stripePromise = loadStripe(stripePublishKey);
 
 const StripeDonation = () => {
-  const { execute, data: clientSecret, error } = useServerAction(stripeAction);
+  const [clientSecret, setClientSecret] = React.useState<string | null>(null);
+  const { execute, error } = useServerAction(stripeAction);
   useEffect(() => {
     const fetchStripeClientSecret = async () => {
       const [secretKey] = await execute();
-      console.log(secretKey);
+      setClientSecret(secretKey);
     };
     fetchStripeClientSecret();
   }, [execute]);
