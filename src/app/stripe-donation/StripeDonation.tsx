@@ -13,8 +13,8 @@ import { useServerAction } from "zsa-react";
 
 const stripePublishKey =
   process.env.NODE_ENV === "production"
-    ? process.env.NEXT_PUBLIC_TEST_STRIPE_PUBLISH_KEY!
-    : process.env.NEXT_PUBLIC_LIVE_STRIPE_PUBLISH_KEY!;
+    ? process.env.NEXT_PUBLIC_LIVE_STRIPE_PUBLISH_KEY!
+    : process.env.NEXT_PUBLIC_TEST_STRIPE_PUBLISH_KEY!;
 
 const stripePromise = loadStripe(stripePublishKey);
 
