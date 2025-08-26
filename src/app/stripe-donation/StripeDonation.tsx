@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, Suspense } from "react";
+import React, { useEffect } from "react";
 import {
   EmbeddedCheckout,
   EmbeddedCheckoutProvider,
@@ -19,38 +19,44 @@ const stripePublishKey =
 const stripePromise = loadStripe(stripePublishKey);
 
 const StripeDonation = () => {
-  const { execute, error, data } = useServerAction(stripeAction);
+  const { execute, error } = useServerAction(stripeAction);
+
+  const [clientSecret, setClientSecret] = React.useState<string | null>(null);
+
   useEffect(() => {
     const fetchStripeClientSecret = async () => {
       const [secretKey] = await execute();
+      setClientSecret(secretKey); // store it in state
     };
     fetchStripeClientSecret();
   }, [execute]);
 
-  return (
-    <Suspense
-      fallback={
-        <div className="flex justify-center flex-col items-center space-x-4">
-          <Skeleton className="h-12 w-12 rounded-full" />
-          <div className="space-y-2">
-            <Skeleton className="h-4 w-[250px]" />
-            <Skeleton className="h-4 w-[200px]" />
-          </div>
+  if (error) {
+    toast.error("Something Went Wrong");
+  }
+
+  if (!clientSecret)
+    return (
+      <div className="flex flex-col justify-center items-center space-x-4">
+        <Skeleton className="h-12 w-12 rounded-full" />
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-[250px]" />
+          <Skeleton className="h-4 w-[200px]" />
         </div>
-      }
-    >
-      <div className="md:p-16 p-4 min-h-[50vh]" id="checkout">
-        {/* {error && toast.error("Something Went Wrong")}  */}
-        <EmbeddedCheckoutProvider
-          stripe={stripePromise}
-          options={{
-            clientSecret: data,
-          }}
-        >
-          <EmbeddedCheckout />
-        </EmbeddedCheckoutProvider>
       </div>
-    </Suspense>
+    );
+
+  return (
+    <div className="md:p-16 p-4 min-h-[50vh]" id="checkout">
+      <EmbeddedCheckoutProvider
+        stripe={stripePromise}
+        options={{
+          clientSecret: clientSecret,
+        }}
+      >
+        <EmbeddedCheckout />
+      </EmbeddedCheckoutProvider>
+    </div>
   );
 };
 
