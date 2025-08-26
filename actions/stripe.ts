@@ -1,10 +1,13 @@
 "use server";
-import { headers } from "next/headers";
+
 import { stripe } from "../providers/stripe/stripe";
 import { createServerAction } from "zsa";
 
 export const stripeAction = createServerAction().handler(async () => {
-  const origin = (await headers()).get("origin");
+  const origin =
+    process.env.NODE_ENV === "production"
+      ? "https://sgmchurch.com"
+      : "http://localhost:3000";
 
   const session = await stripe.checkout.sessions.create({
     ui_mode: "embedded",

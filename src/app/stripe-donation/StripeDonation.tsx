@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import {
   EmbeddedCheckout,
   EmbeddedCheckoutProvider,
@@ -8,8 +8,8 @@ import {
 import { loadStripe } from "@stripe/stripe-js";
 import { toast } from "sonner";
 // server action
-import { stripeAction } from "../../../actions/stripe";
-import { useServerAction } from "zsa-react";
+// import { stripeAction } from "../../../actions/stripe";
+// import { useServerAction } from "zsa-react";
 import { Skeleton } from "@/components/ui/skeleton";
 const stripePublishKey =
   process.env.NODE_ENV === "production"
@@ -17,10 +17,14 @@ const stripePublishKey =
     : process.env.NEXT_PUBLIC_TEST_STRIPE_PUBLISH_KEY!;
 
 const stripePromise = loadStripe(stripePublishKey);
+import { inferReturnStripeType } from "../../../zodtypes/zodTypes";
 
-const StripeDonation = () => {
-  const { execute, error } = useServerAction(stripeAction);
+type StripeDonationTypes = {
+  clientSecret: inferReturnStripeType | null;
+};
 
+const StripeDonation = ({ clientSecret }: StripeDonationTypes) => {
+  /*
   const [clientSecret, setClientSecret] = React.useState<string | null>(null);
 
   useEffect(() => {
@@ -34,6 +38,7 @@ const StripeDonation = () => {
   if (error) {
     toast.error("Something Went Wrong");
   }
+  
 
   if (!clientSecret)
     return (
@@ -45,6 +50,8 @@ const StripeDonation = () => {
         </div>
       </div>
     );
+
+    */
 
   return (
     <div className="md:p-16 p-4 min-h-[50vh]" id="checkout">
