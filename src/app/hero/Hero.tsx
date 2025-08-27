@@ -2,14 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import { Button } from "@/components/ui/button";
-// import { ArrowRightIcon } from "lucide-react";
 import { motion } from "framer-motion";
-// import PaypalProvider from "../../../providers/paypal/PaypalProvider";
-// import { Input } from "@/components/ui/input";
-
-// import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-// import PaypalReducerWrapperButton from "../../../providers/paypal/PaypalReducerWrapper";
-// import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 
 type HeroTypes = {
@@ -56,45 +49,6 @@ const btnVariant = {
 };
 
 const Hero = ({ title, description, btnText, heroImg }: HeroTypes) => {
-  /*
- 
-   const [deferLoad, setDeferLoad] = useState<boolean>(true);
-   const [isActive, setIsActive] = useState<boolean>(false);
-    const [amount, setAmount] = useState("");
-    const [isValidAmount, setIsValidAmount] = useState(false);
-    const [errorMsg, setErrMsg] = useState("");
-
-
-  const donationAmountSchema = z
-    .number()
-    .positive({ message: "Amount must be greater than 0" })
-    .min(1, {
-      message: "Amount must be greater than 1",
-    });
-
-  function handleClick() {
-    setDeferLoad(false);
-    setIsActive(!isActive);
-  }
-    *
-
-  /*
-  function handleAmountChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const value = e.target.value;
-    setAmount(value);
-    const parsedAmount = parseFloat(value);
-    const validatedAmount = donationAmountSchema.safeParse(parsedAmount);
-    if (validatedAmount.success) {
-      setIsValidAmount(true);
-      setErrMsg("");
-    } else {
-      setIsValidAmount(false);
-      setErrMsg("Add Amount to Donate");
-    }
-  }
-
-  */
-
   return (
     <motion.div
       variants={containerVariant}
@@ -110,7 +64,6 @@ const Hero = ({ title, description, btnText, heroImg }: HeroTypes) => {
         className="object-cover"
       />
 
-      {/* Overlay text */}
       <div className="absolute inset-0 flex flex-col justify-center items-start text-left px-4 sm:px-8 lg:px-24 bg-black/40">
         <motion.h1
           variants={fadeInDownTopVariant}
@@ -123,10 +76,7 @@ const Hero = ({ title, description, btnText, heroImg }: HeroTypes) => {
         </p>
 
         <motion.div variants={btnVariant} className="btn my-4">
-          <Button
-            // onClick={handleClick}
-            className="w-full md:w-[500px] h-[70px] cursor-pointer rounded-2xl px-12 py-4 z-99 hover:bg-pink-400 bg-teal-500 transition-colors duration-300 ease-in-out text-white text-xl font-bold flex items-center justify-center gap-4"
-          >
+          <Button className="w-full md:w-[500px] h-[70px] cursor-pointer rounded-2xl px-12 py-4 z-99 hover:bg-pink-400 bg-teal-500 transition-colors duration-300 ease-in-out text-white text-xl font-bold flex items-center justify-center gap-4">
             <Link
               className="w-full"
               target="_blank"
@@ -134,46 +84,7 @@ const Hero = ({ title, description, btnText, heroImg }: HeroTypes) => {
             >
               {btnText}
             </Link>
-
-            {/* <ArrowRightIcon size={36} /> */}
           </Button>
-          {/* <PaypalProvider deferLoad={deferLoad}>
-            <Dialog open={isActive} onOpenChange={setIsActive}>
-              <DialogTitle hidden={true}>Paypal</DialogTitle>
-              <DialogContent className="p-10">
-                {isValidAmount && !errorMsg && (
-                  <Badge
-                    className="bg-teal-500 p-2 text-white"
-                    variant="secondary"
-                  >
-                    Select Donation Option
-                  </Badge>
-                )}
-                <Input
-                  type="number"
-                  value={amount}
-                  onChange={(e) => handleAmountChange(e)}
-                  placeholder="Enter donation amount"
-                />
-                {!deferLoad && (
-                  <PaypalReducerWrapperButton
-                    isValidAmount={isValidAmount}
-                    amount={amount}
-                    errorMsg={errorMsg}
-                    setAmount={setAmount}
-                  />
-                )}
-              </DialogContent>
-            </Dialog>
-
-            <Button
-              onClick={handleClick}
-              className="w-full md:w-[500px] h-[70px] cursor-pointer rounded-2xl px-12 py-4 z-99 hover:bg-pink-400 bg-teal-500 transition-colors duration-300 ease-in-out text-white text-xl font-bold flex items-center justify-center gap-4"
-            >
-              {btnText}
-              <ArrowRightIcon size={36} />
-            </Button>
-          </PaypalProvider> */}
         </motion.div>
       </div>
     </motion.div>

@@ -58,7 +58,8 @@ const Service = () => {
             <motion.div
               variants={cardVariant}
               initial="start"
-              animate="end"
+              whileInView="end" // <-- animate when in view
+              viewport={{ once: true }} // <-- animate only once
               custom={idx}
               key={service.title}
             >

@@ -11,7 +11,7 @@ const imageVariants = {
   end: (idx: number) => ({
     opacity: 1,
     x: 0,
-    transition: { duration: 0.5, delay: idx * 0.3 },
+    transition: { duration: 0.4, delay: idx * 0.25 },
   }),
 };
 
@@ -51,8 +51,8 @@ const About = () => {
         </h1>
         <section className="pastors-section grid grid-cols-1 xl:grid-cols-2 my-20 place-items-center gap-8">
           <Card className="w-full max-w-4xl my-20">
-            <CardContent className="flex flex-col md:flex-row h-auto md:h-[400px] justify-center items-center gap-6 p-6">
-              <div className="relative w-full md:w-[1600px] h-[360px]">
+            <CardContent className="flex flex-col md:flex-row h-auto md:h-[400px] justify-center items-center gap-12 ">
+              <div className="relative w-full md:w-[1800px] h-[340px]">
                 <Image
                   src="/images/steven.PNG"
                   alt="Pastor Steven Lee"
@@ -69,9 +69,9 @@ const About = () => {
               </p>
             </CardContent>
           </Card>
-          <Card className="w-full max-w-4xl">
-            <CardContent className="flex flex-col md:flex-row h-auto md:h-[400px] justify-center items-center gap-6 p-6">
-              <div className="relative w-full sm:w-[1600px] h-[360px]">
+          <Card className="w-full max-w-4xl ">
+            <CardContent className="flex flex-col md:flex-row h-auto md:h-[400px] justify-center items-center gap-12 ">
+              <div className="relative w-full sm:w-[1800px] h-[340px]">
                 <Image
                   src="/images/soon.PNG"
                   alt="Pastor Soon Keum Lee"
@@ -98,10 +98,11 @@ const About = () => {
           <motion.div
             variants={imageVariants}
             initial="start"
-            animate="end"
+            whileInView="end" // <-- animate when in view
+            viewport={{ once: true }} // <-- animate only once
             custom={idx}
             key={img}
-            className="relative w-full max-w-[460px] h-[440px]"
+            className="relative w-full max-w-[400px] h-[420px]"
           >
             <Image
               src={img}

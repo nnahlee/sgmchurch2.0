@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="overflow-x-hidden">
       <Hero
         title={title}
         description={description}

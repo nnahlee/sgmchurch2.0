@@ -1,2 +1,4 @@
-
-
+#fix mobile phone
+#fix stripe scroll to top
+#fix animations on viewport
+#fix pastor cards

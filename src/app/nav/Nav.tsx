@@ -27,7 +27,7 @@ const linkVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.1, // stagger links by index
+      delay: i * 0.1, // stagger links
       duration: 0.3,
     },
   }),
@@ -37,7 +37,7 @@ export default function Nav() {
   const [isMobile, setIsMobile] = useState(false);
 
   return (
-    <nav className="w-full flex sticky top-0 z-50 items-center justify-between md:px-12 p-4 bg-background shadow-md">
+    <nav className="w-full flex sticky top-0 z-50 items-center justify-between md:px-12 p-2 bg-background shadow-md">
       {/* Logo */}
       <Link href="/">
         <div className="relative w-[200px] h-[70px] md:w-[360px] md:h-[125px]">
@@ -93,14 +93,15 @@ export default function Nav() {
               onClick={() => setIsMobile(false)}
             />
 
-            {/* mobile nav horizontoal drawer  */}
+            {/* Centered Mobile Nav */}
             <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className="fixed top-0 right-0 h-screen w-full bg-background shadow-2xl flex flex-col items-center justify-center gap-8 text-2xl z-50"
+              className="fixed inset-0 bg-background shadow-2xl flex flex-col items-center justify-center gap-8 text-2xl z-50"
             >
+              {/* Close Button */}
               <div
                 className="absolute top-4 right-4 p-2 text-black cursor-pointer"
                 onClick={() => setIsMobile(false)}

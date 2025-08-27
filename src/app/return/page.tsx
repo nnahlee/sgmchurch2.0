@@ -5,15 +5,6 @@ import DonationSuccess from "@/app/donation-success/DonationSuccess";
 
 // https://nextjs.org/docs/app/api-reference/file-conventions/dynamic-routes
 
-// type ReturnPageTypes = {
-//   params: Promise<{ session_id: string }>;
-// };
-
-// type ReturnPageTypes = {
-//   searchParams: {
-//     session_id: string;
-//   };
-// };
 type ReturnPageTypes = {
   searchParams: Promise<{ session_id?: string }>;
 };

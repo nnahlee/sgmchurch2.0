@@ -7,7 +7,17 @@ import { contactImages } from "../../../types";
 import { MdOutlineEmail } from "react-icons/md";
 import { MdOutlinePhone } from "react-icons/md";
 import ContactForm from "./ContactForm";
+import { motion } from "framer-motion";
+
 const Contact = () => {
+  const imageVariants = {
+    start: { opacity: 0, x: -100 },
+    end: (idx: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.4, delay: idx * 0.28 },
+    }),
+  };
   return (
     <div>
       <div className="contactwrapper flex flex-col items-center justify-center gap-6">
@@ -21,18 +31,27 @@ const Contact = () => {
       </div>
 
       <div className="contactimgwrapper grid lg:grid-cols-2 grid-cols-1 gap-6 my-12 mx-auto place-items-center max-w-[1250px]">
-        {contactImages.map((img) => (
-          <Card className="p-8" key={img}>
-            <CardContent className="flex relative w-[400px] h-[400px] justify-center items-center">
-              <Image
-                src={img}
-                alt="Contact Image"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="rounded-xl object-cover"
-              />
-            </CardContent>
-          </Card>
+        {contactImages.map((img, idx) => (
+          <motion.div
+            variants={imageVariants}
+            initial="start"
+            whileInView="end" // <-- animate when in view
+            viewport={{ once: true }} // <-- animate only once
+            custom={idx}
+            key={img}
+          >
+            <Card className="p-8">
+              <CardContent className="flex relative w-[400px] h-[400px] justify-center items-center">
+                <Image
+                  src={img}
+                  alt="Contact Image"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="rounded-xl object-cover"
+                />
+              </CardContent>
+            </Card>
+          </motion.div>
         ))}
       </div>
 
