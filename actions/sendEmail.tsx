@@ -34,13 +34,16 @@ export const sendEmailAction = createServerAction()
       html: emailHtml,
     };
 
-    await transporter
+    const returnData = await transporter
       .sendMail(emailOptions)
       .then((info) => {
         // status 250 sent success
         console.log(`email sent`, info.response);
+        return info.response;
       })
       .catch((error) => {
         console.log(`error - ${error}`);
       });
+
+    return returnData;
   });

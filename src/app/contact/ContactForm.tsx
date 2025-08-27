@@ -42,14 +42,13 @@ const ContactForm = () => {
 
     // const emailData = await sendEmailAction(data);
     const [data, err] = await execute(values);
-
-    if (data) {
-      toast.success(`Email Sent Successfully`);
-    }
+    console.log(data);
 
     if (err) {
       return toast.error(`Something Went Wrong`);
     }
+
+    toast.success(`Email sent Successfully`);
 
     form.reset({
       name: "",
