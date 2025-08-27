@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 const ContactPage = () => {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Contact />
     </div>
   );
