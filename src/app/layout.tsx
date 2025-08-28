@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], weight: "700" });
 
@@ -36,6 +37,23 @@ export default function RootLayout({
       >
         <Nav />
         <main>{children}</main>
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17481348096"
+          strategy="beforeInteractive"
+        />
+        <Script
+          id="google-ads-gtag"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17481348096');
+            `,
+          }}
+        />
 
         <Toaster richColors />
         <Footer />

@@ -9,6 +9,7 @@ import { MdOutlinePhone } from "react-icons/md";
 import ContactForm from "./ContactForm";
 import { motion } from "framer-motion";
 
+
 const Contact = () => {
   const imageVariants = {
     start: { opacity: 0, x: -100 },
