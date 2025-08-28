@@ -39,6 +39,7 @@ export default function RootLayout({
         <main>{children}</main>
 
         <Script
+          async
           src="https://www.googletagmanager.com/gtag/js?id=AW-17481348096"
           strategy="beforeInteractive"
         />
