@@ -14,4 +14,6 @@ if (!stripeSecretKey) {
 
 // non-null
 // export const stripe = new Stripe(process.env.TEST_STRIPE_SECRET_KEY!);
-export const stripe = new Stripe(stripeSecretKey);
+export const stripe = new Stripe(stripeSecretKey, {
+  apiVersion: "2025-07-30.basil",
+});
