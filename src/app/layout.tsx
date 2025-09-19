@@ -32,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <Script
+        async
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}`}
         strategy="afterInteractive"
       />
