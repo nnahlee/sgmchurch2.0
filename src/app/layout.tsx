@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
-
+import { GoogleTagManager } from "@next/third-parties/google";
 const inter = Inter({ subsets: ["latin"], weight: "700" });
 
 // comps
@@ -31,6 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.className}>
+      <GoogleTagManager gtmId={process.env.GOOGLE_TAG_ID!} />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
