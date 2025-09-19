@@ -3,12 +3,12 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
-import { GoogleTagManager } from "@next/third-parties/google";
 const inter = Inter({ subsets: ["latin"], weight: "700" });
 
 // comps
 import Nav from "./nav/Nav";
 import Footer from "./footer/Footer";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +31,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.className}>
-      <GoogleTagManager gtmId={process.env.GOOGLE_TAG_ID!} />
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-ads-init" strategy="afterInteractive">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}');
+          `}
+      </Script>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
