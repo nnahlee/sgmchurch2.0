@@ -33,15 +33,14 @@ export default function RootLayout({
     <html lang="en" className={inter.className}>
       <Script
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}`}
+        src="https://www.googletagmanager.com/gtag/js?id=AW-17476185400"
         strategy="afterInteractive"
       />
       <Script id="google-ads-init" strategy="afterInteractive">
-        {`
-            window.dataLayer = window.dataLayer || [];
+        {`window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}');
+            gtag('config', 'AW-17476185400');
           `}
       </Script>
       <body
