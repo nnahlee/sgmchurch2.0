@@ -6,6 +6,7 @@ import {
   EmbeddedCheckoutProvider,
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { Skeleton } from "../../components/ui/skeleton";
 
 const stripePublishKey =
   process.env.NODE_ENV === "production"
@@ -23,6 +24,18 @@ const StripeDonation = ({ clientSecret }: StripeDonationTypes) => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
+  if (!clientSecret) {
+    return (
+      <div className="flex  min-h-[70vh] justify-center items-center gap-8">
+        <Skeleton className="size-16 shrink-0 rounded-full" />
+        <div className="grid gap-2">
+          <Skeleton className="h-6 w-[450px]" />
+          <Skeleton className="h-6 w-[400px]" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="md:p-16 p-4 min-h-[50vh]" id="checkout">

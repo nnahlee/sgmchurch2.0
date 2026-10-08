@@ -1,3 +1,4 @@
+// import redirect from "next";
 import { redirect } from "next/navigation";
 
 import { stripe } from "../../../providers/stripe/stripe";
@@ -10,18 +11,16 @@ type ReturnPageTypes = {
 };
 
 export default async function ReturnPage({ searchParams }: ReturnPageTypes) {
-  // const { session_id } = await searchParams;
   const { session_id } = await searchParams;
 
-  if (!session_id)
-    throw new Error("Please provide a valid session_id (`cs_test_...`)");
+  if (!session_id) throw new Error("Missing Stripe Checkout session ID.");
 
   const { status } = await stripe.checkout.sessions.retrieve(session_id, {
     expand: ["line_items", "payment_intent"],
   });
 
-  if (status === "open") {
-    return redirect("/");
+  if (status === "open" || status === "expired") {
+    return redirect("/donate");
   }
 
   if (status === "complete") {
