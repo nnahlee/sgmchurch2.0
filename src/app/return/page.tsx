@@ -6,9 +6,15 @@ import DonationSuccess from "@/app/donation-success/DonationSuccess";
 
 // https://nextjs.org/docs/app/api-reference/file-conventions/dynamic-routes
 
+// id session be different for every user on request
 type ReturnPageTypes = {
   searchParams: Promise<{ session_id?: string }>;
 };
+
+// This route reads searchParams, but keep it explicitly dynamic so it can
+// never be statically cached with a stale checkout status.
+// Run the server code for every request
+export const dynamic = "force-dynamic";
 
 export default async function ReturnPage({ searchParams }: ReturnPageTypes) {
   const { session_id } = await searchParams;
