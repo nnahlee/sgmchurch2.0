@@ -1,3 +1,4 @@
+/*
 import type { ReactNode } from "react";
 
 import { Fixed, View } from "@/lib/pdf-primitives";
@@ -26,3 +27,5 @@ export const MaybeFixed = ({
   }
   return <Fixed position={position}>{view}</Fixed>;
 };
+
+*/
