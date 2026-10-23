@@ -1,9 +1,11 @@
 import DonationSuccess from "./DonationSuccess";
-
+import { Suspense } from "react";
 const DonationSuccessPage = () => {
   return (
     <div>
-      <DonationSuccess />
+      <Suspense fallback={<p>Loading donation details...</p>}>
+        <DonationSuccess />
+      </Suspense>
     </div>
   );
 };
