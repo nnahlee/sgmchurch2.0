@@ -15,6 +15,13 @@ export type InfoTypes = {
   btnUrl?: string | undefined;
 };
 
+export type ImageGalleryTypes = {
+  src: string;
+  alt: string;
+  // width: number;
+  // height: number;
+};
+
 export type DonatePaymentTypes = InfoTypes;
 export type SlideInfoTypes = InfoTypes;
 
@@ -101,5 +108,93 @@ export const slideInfos: SlideInfoTypes[] = [
     title: "Making a Difference",
     description: `focus on community outreach and gospel-centered worship, they are a shining example of what it means to live out the love of Christ in the world.`,
     src: "/images/slide3.PNG",
+  },
+];
+
+export const gallerySlides: ImageGalleryTypes[] = [
+  {
+    src: "/images/slide1.PNG",
+    alt: "Slide 1",
+  },
+  {
+    src: "/images/slide2.PNG",
+    alt: "Slide 1",
+  },
+  {
+    src: "/images/slide3.PNG",
+    alt: "Slide 1",
+  },
+  {
+    src: "/images/slide4.PNG",
+    alt: "Slide 1",
+  },
+  {
+    src: "/images/newgal1.jpg",
+    alt: "Street Gospel Mission Church community gathering",
+  },
+  {
+    src: "/images/newgal2.jpg",
+    alt: "Church members worshiping together",
+  },
+  {
+    src: "/images/newgal3.jpg",
+    alt: "Church community sharing fellowship",
+  },
+  {
+    src: "/images/newgal4.jpg",
+    alt: "Congregation participating in a church service",
+  },
+  {
+    src: "/images/newgal5.jpg",
+    alt: "Church members serving the local community",
+  },
+  {
+    src: "/images/newgal6.jpg",
+    alt: "Community members gathering at church",
+  },
+  {
+    src: "/images/newgal7.jpg",
+    alt: "Church volunteers working together",
+  },
+  {
+    src: "/images/newgal8.jpg",
+    alt: "Members of Street Gospel Mission Church in fellowship",
+  },
+  {
+    src: "/images/newgal9.jpg",
+    alt: "Church gathering celebrating faith and community",
+  },
+  {
+    src: "/images/newgal10.jpg",
+    alt: "Church members participating in a group activity",
+  },
+  {
+    src: "/images/newgal11.jpg",
+    alt: "Volunteers helping others through community service",
+  },
+  {
+    src: "/images/newgal12.jpg",
+    alt: "Congregation gathered for worship and prayer",
+  },
+  {
+    src: "/images/newgal13.jpg",
+    alt: "Church community coming together in fellowship",
+  },
+
+  {
+    src: "/images/newgal14.jpg",
+    alt: "Street Gospel Mission Church members serving together",
+  },
+  {
+    src: "/images/newgal15.jpg",
+    alt: "Church community celebrating together",
+  },
+  {
+    src: "/images/newgal16.jpg",
+    alt: "Church volunteers supporting their community",
+  },
+  {
+    src: "/images/newgal17.jpg",
+    alt: "Street Gospel Mission Church community in fellowship",
   },
 ];

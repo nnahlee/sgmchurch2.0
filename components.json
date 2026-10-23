@@ -17,5 +17,9 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
+
+  "registries": {
+    "@pdfcn": "https://pdfcn.vercel.app/r/{name}.json"
+  },
   "iconLibrary": "lucide"
 }

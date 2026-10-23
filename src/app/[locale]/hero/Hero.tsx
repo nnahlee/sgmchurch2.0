@@ -1,0 +1,104 @@
+"use client";
+// live - https://www.paypal.com/donate/buttons/manage?fromLanding=true
+// test - https://sandbox.paypal.com/donate/buttons/manage?fromLanding=true
+//     href="https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN"
+
+// https://www.paypal.com/unifiedsettings/webPreferences
+import Image from "next/image";
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
+type HeroTypes = {
+  section: "home" | "about" | "donate";
+  title: string;
+  description: string;
+  btnText: string;
+  heroImg: string;
+};
+
+const containerVariant = {
+  start: {
+    opacity: 0,
+  },
+  end: {
+    opacity: 1,
+  },
+  transition: {
+    // wait between children animation
+    staggerChildren: 0.3,
+  },
+};
+
+const fadeInDownTopVariant = {
+  start: { opacity: 0, y: -40 },
+  end: { opacity: 1, y: 0 },
+  transition: {
+    duration: 0.4,
+  },
+};
+
+const btnVariant = {
+  start: {
+    opacity: 0,
+    x: -20,
+  },
+  end: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: 0.1,
+      duration: 0.4,
+    },
+  },
+};
+
+const Hero = ({ title, description, btnText, heroImg, section }: HeroTypes) => {
+  const t = useTranslations("Hero");
+
+  return (
+    <motion.div
+      variants={containerVariant}
+      initial="start"
+      animate="end"
+      className="relative w-full h-[1000px] sm:h-[600px] lg:h-[700px]"
+    >
+      <Image
+        src={heroImg}
+        alt="Hero Image"
+        fill
+        loading="eager"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        className="object-cover"
+      />
+
+      <div className="absolute inset-0 flex flex-col justify-center items-start text-left px-4 sm:px-8 lg:px-24 bg-black/40">
+        <motion.h1
+          variants={fadeInDownTopVariant}
+          className="text-4xl sm:text-4xl lg:text-6xl text-center font-bold text-white mb-4"
+        >
+          {/* {title} */}
+          {t(`${section}.title`) || title}
+        </motion.h1>
+        <p className="m-4 text-white text-base sm:text-lg lg:text-xl max-w-3xl leading-relaxed sm:leading-loose">
+          {t(`${section}.description`) || description}
+        </p>
+
+        <motion.div variants={btnVariant} className="btn my-4">
+          <Button className="w-full md:w-[500px] h-[70px] cursor-pointer rounded-2xl px-12 py-4 z-99 hover:bg-pink-400 bg-teal-500 transition-colors duration-300 ease-in-out text-white text-xl font-bold flex items-center justify-center gap-4">
+            <Link
+              className="w-full"
+              target="_blank"
+              href="https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN"
+            >
+              {t(`${section}.btnText`) || btnText}
+            </Link>
+          </Button>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
+export default Hero;

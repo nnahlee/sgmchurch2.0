@@ -1,0 +1,69 @@
+1. SSG — Static Site Generation
+Benefits
+- Very fast responses because HTML is already generated.
+- Lower server workload and often lower hosting costs.
+- Excellent for public pages and SEO.
+Tradeoffs
+- Content can become outdated until revalidation or a rebuild.
+large content can increase build time
+
+2. SSR — Server-Side Rendering
+
+Best for request-specific content
+Benefits
+- Can use current data at request time.
+- Can personalize HTML using cookies, headers, and session information.
+- Changes in the data source can appear on the next request without rebuilding the page.
+
+Tradeoffs
+- The server must do work for each request, unless caching
+- A slow database or API can delay the response i.e slower.
+- More runtime resource usage and potential hosting cost.
+
+
+Browser fullscreen operations return Promises, so they can succeed or fail asynchronously.
+
+next config used to change build behavior/customization (plugins)
+ex: images from ext domains, redirects, header configs,
+enable experimental
+
+locale: scope of language preference in user
+
+locale routing -> used to share url on preffered language
+beter seo ko / english versions are index seperately for search engines
+ssr with correct language
+
+import * as means import entire package
+
+nextjs caching -> ssg pages are cached
+fetches are not cached by default
+
+cookie - small data webpage stores in browser to remember user info
+ex: user pref of korean is remembered on return request
+
+proxy in nextjs i.e was called middleware - middleman between user and server that modifies request before reaching destination
+i.e you can run custom logic before a qreuset reaches page
+
+ex - user visits about page request -> proxy check request-> redirect custom etc response
+
+next/root-params is a Next.js API that lets you access dynamic route parameters from the root layout.
+new folder structure -> app/[locale]/layout.tsx
+https://next-intl.dev/docs/routing/setup
+
+[locale] is a dynamic route must configure 
+https://nextjs.org/docs/app/api-reference/functions/generate-static-params
+
+default behavior not staticgly generated for dynamic routes must configure
+
+params must be strings
+@/ = src path starting point
+
+toggle locale 
+https://next-intl.dev/docs/usage/configuration#use-locale
+
+next image loading=eager loads immediately instead of lazy load good for hero images
+
+
+sensitive logic on server
+
+node buffer = store in server memory

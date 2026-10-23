@@ -1,0 +1,178 @@
+{
+  "Hero": {
+    "home": {
+      "title": "Welcome to Street Gospel Mission Church",
+      "description": "Our community is built on love, faith, and service, and we welcome all who seek to grow in their relationship with God. Come as you are and experience the power of transformation in our inclusive and supportive environment. Together, we can make a positive impact on our world and bring light to the darkest corners of our city.",
+      "btnText": "Donate Now",
+      "imageAlt": "Street Gospel Mission Church"
+    },
+    "about": {
+      "title": "Our Story and Mission",
+      "description": "We work in order to achieve Advanced Contemporary Evangelization for fallen-away nearest Christian neighbors who no longer practice or consider themselves Christians. We are not to look for mission to the nations and to Christian communities. Love them enough to share the good news of Jesus Christ with them.",
+      "btnText": "Help Support Us",
+      "imageAlt": "About Street Gospel Mission Church"
+    },
+    "donate": {
+      "title": "Donate and Partner with Us",
+      "description": "We rely on the generosity of our supporters to continue our work and make a positive impact. Thank you for considering a donation to Street Gospel Mission Church. Together, we can make a difference and bring hope to those in need.",
+      "btnText": "Donate Now",
+      "imageAlt": "Support Street Gospel Mission Church"
+    }
+  },
+  "Video": {
+    "videoTitle": "Worship Lives on the Streets"
+  },
+  "Services": {
+    "serviceTitle": "Service Days"
+  },
+  "Volunteer": {
+    "volunteerTitle": "Volunteer",
+    "description": "Use your unique gifts & talents to invest in the community around you. Whether you love to pour into the next generation, have a musical skillset, or simply love welcoming & encouraging guests every week, volunteering is at the heart of Street Gospel Mission Church."
+  },
+  "VolunteerD": {
+    "quote": "We believe that God has called us to reach and bless people from one to many.",
+    "description": "Our heartfelt thanks goes to you for standing with us in your donations to help the church to fulfil its mission and vision. You may wish to know more on how to contribute to the work of Renewal, please scroll down for the four ways you can support by giving financially."
+  },
+  "Socials": {
+    "title": "Follow us to stay connected with our community!",
+    "socialDescriptions": [
+      {
+        "description": "Stay connected with our church community on Facebook. Get the latest news, event information, and more."
+      },
+      {
+        "description": "Follow us on Instagram for inspiring photos, stories, and the latest updates from our church community."
+      },
+      {
+        "description": "Subscribe to our YouTube channel for sermons, worship services, and highlights from our church community."
+      }
+    ]
+  },
+  "About": {
+    "title": "Street Gospel Mission Church",
+    "description": "The primary focus of SGMC Corps is the proclamation and the demonstration of the Gospel of Jesus Christ for our nearest neighbors. We embrace the spiritual principle that the greatest goal of the believer is to grow in the grace and the holy spirit of living Christ as we learn, teach, apply, and exercise Gods blessed words in our daily life. This spiritual empowerment results in the evangelization of the lost and the demonstration of the love of Christ. We are openly encouraged to engage, invite and believe in Christ and to learn and grow in the grace of Christ through the real exercise of the Gospel of Jesus Christ. Our daily outreach is to bridge between our near neighbors who are lost/last/least and those who have a compassion to love our neighbors as ourselves in Christ. Our nearest neighbors are the poor in need who crosses our path as we journey through life",
+    "pastor1": "Pastor Steven Lee is an influential religious leader and public figure who has dedicated his life to spreading the teachings of the Christian faith. He is widely respected for his thoughtful and compassionate approach to ministry, and is known for his ability to connect with people from all walks of life.",
+    "pastor2": "Pastor Soon Keum Lee is a highly respected spiritual leader and devoted servant of God who has dedicated her life to spreading the teachings of the Christian faith. With a kind and compassionate spirit, she has touched the lives of countless individuals and inspired them to deepen their faith and seek a closer relationship with God."
+  },
+  "Contact": {
+    "title": "Get Involved",
+    "description": "There are many ways you can get involved with Street Gospel Mission Church.",
+    "subtitle": "Our Address & Contact Details"
+  },
+  "ContactForm": {
+    "title": "Contact"
+  },
+  "Donate": {
+    "payments": [
+      {
+        "src": "/images/paypal.png",
+        "title": "Paypal",
+        "description": "To make a donation, simply visit our website and select the \"Donate Now\" button. From there, you will be directed to our donation page, where you can choose PayPal as your payment option",
+        "btnText": "Donate With Paypal"
+      },
+      {
+        "src": "/images/creditcardmain.png",
+        "title": "Credit or Debit Card",
+        "description": "To make a donation, simply click \"Donate with card\" button below.",
+        "btnText": "Donate with Credit Card",
+        "btnUrl": "/stripe-donation"
+      },
+      {
+        "src": "/images/zelle.png",
+        "title": "Zelle",
+        "description": "Zelle is a fast, safe, and easy way to send and receive money with friends, family, and other contacts within minutes using email or phone offered by many banks",
+        "btnText": "Donate with Zelle"
+      }
+    ],
+    "zelleMessage": "Send using Zelle to",
+    "zelleEmail": "lsoonkeum@gmail.com",
+
+    "donateCard1Title": "Donate Today and Join Our Mission.",
+    "donateCard1Description": "Street Gospel Mission Church is a faith-based organization dedicated to spreading the Gospel of Jesus Christ and supporting those in need within our community. Our mission is to help individuals and families overcome life's challenges and find hope and restoration through faith, fellowship, and service.",
+    "donateCard2Title": "Bringing Hope to the Homeless",
+    "donateCard2Description": "Thank you for considering supporting Street Gospel Mission Church. Together, we can make a difference and bring hope to those in need."
+  },
+  "Faq": {
+    "title": "FAQ - Frequently Asked Questions",
+    "faqContent": [
+      {
+        "itemTrigger": "How can I make a donation?",
+        "itemContent": "You can make a donation through our website using our online giving options. Simply visit our donation page, choose your contribution amount, and follow the instructions to complete your donation."
+      },
+      {
+        "itemTrigger": "Are donations tax-deductible?",
+        "itemContent": "Donations are tax deductible depending on your individual tax situation. Please contact us if you need information about donation receipts or tax-deductible contributions. Generally, donations above $300 will generate a receipt with special written acknowledgment."
+      },
+      {
+        "itemTrigger": "How can I contact your organization?",
+        "itemContent": "You can reach us through the contact form on our website, by emailing sgmchurch1@gmail.com, or by phone at 650-995-3336."
+      },
+      {
+        "itemTrigger": "How can I get a receipt for my donation?",
+        "itemContent": "Please check your email for a donation confirmation or receipt after completing your contribution. If you cannot find it, contact us with your donation details so we can help."
+      },
+      {
+        "itemTrigger": "How long does it take to receive a response?",
+        "itemContent": "We aim to respond to inquiries as soon as possible. Response times may vary depending on the nature of your question and our current availability."
+      }
+    ]
+  },
+  "Slider": {
+    "sliderDatas": [
+      {
+        "title": "Make the Most",
+        "description": "Street Gospel Mission Church is a vibrant and welcoming community of believers located in the heart of the city. Their mission is to spread the gospel and provide hope to those who are struggling, marginalized, or in need. Through their various programs and services, they strive to make a positive impact on the lives of those around them."
+      },
+
+      {
+        "title": "Spreading the Gospel",
+        "description": "Our church's worship services are lively and inspiring, featuring music that ranges from traditional hymns to contemporary Christian songs. Our preaching is rooted in the Bible and relevant to the challenges of everyday life. In addition to our regular worship services, we offer a variety of programs for children, youth, and adults."
+      },
+      {
+        "title": "Providing Hope",
+        "description": "We regularly post updates about their services, events, and outreach programs. From feeding the homeless to providing shelter to those in need, the church is committed to serving others with love and compassion."
+      },
+      {
+        "title": "Making a Difference",
+        "description": "focus on community outreach and gospel-centered worship, they are a shining example of what it means to live out the love of Christ in the world."
+      }
+    ]
+  },
+  "ServeAndVolunteer": {
+    "title": "Serve and Volunteer",
+    "secondaryTitle": "Make a difference Through Service",
+    "description": "At Street Gospel Mission Church, we believe in sharing God’s love through serving others. Whether you’re volunteering for the first time or looking for new ways to get involved, there’s a place for you. Join us in strengthening our community, uplifting those in need, and making a meaningful difference through acts of service.",
+    "btnText1": "Serve - Volunteer",
+    "btnText2": "Learn More",
+    "signUpBadge": "Sign Up And Get Involved",
+    "signUpDescription": "Ready to make a difference? Sign up to volunteer with Street Gospel Mission Church and become part of a community dedicated to serving others and sharing God's love. Fill out the form below to let us know how you'd like to get involved, and we'll contact you about upcoming volunteer opportunities.",
+    "formTitleMessage": "Message Us"
+  },
+  "Nav": {
+    "linkTitles": [
+      {
+        "title": "Home"
+      },
+      {
+        "title": "About"
+      },
+      {
+        "title": "Contact"
+      }
+    ],
+    "donateBtn": "Donate",
+    "watchOnlineBtn": "Watch Online",
+    "moreInfoBtn": "More",
+    "moreInfos": [
+      {
+        "title": "FAQ - Frequently Asked Questions"
+      },
+      {
+        "title": "Gallery"
+      },
+      {
+        "title": "Serve - Volunteer"
+      }
+    ],
+    "localeSelectTitle": "Change Language"
+  }
+}

@@ -1,4 +1,32 @@
-#fix mobile phone
-#fix stripe scroll to top
-#fix animations on viewport
-#fix pastor cards
+#korean translate (you provide translations)
+#internalization = prepare multi language
+next intl = navigation helpers and formaters
+https://next-intl.dev/docs/routing/navigation?utm_source=chatgpt.com
+#localization = provide local translation actual process
+https://next-intl.dev/examples
+https://nextjs.org/docs/app/guides/internationalization?utm_source=chatgpt.com
+#pdf https://react-pdf.org/docs/v4
+
+
+
+
+FAQ donation - (DONATION RECEIPT) auto generate
+
+
+IRS REQUIREMENTS
+A $50 donation → generate a regular donation receipt.
+A $300 donation → generate a receipt that also serves as the special written acknowledgment.
+
+
+1. Donor makes a donation
+The donor pays through Stripe or PayPal.
+
+2. Your backend confirms the payment
+A verified webhook from the payment provider confirms the donation succeeded. This prevents someone from generating a document just by visiting a URL
+
+3. Generate a PDF acknowledgment
+Include the nonprofit's legal name, donation date and amount, donor information if available, and the required tax acknowledgment language.
+
+4. Email the document
+Send the PDF to the donor using your existing email setup, with an option to download it from the confirmation page.
+
