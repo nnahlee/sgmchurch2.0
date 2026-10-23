@@ -37,7 +37,7 @@ const Faq = () => {
       value: "item-4",
       trigger: "How can I get a receipt for my donation?",
       content:
-        "Please check your email for a donation confirmation or receipt after completing your contribution. If you cannot find it, contact us with your donation details so we can help.",
+        "If you used paypal click return to Street Gospel Mission Church Button after payment and you will get a downloadable pdf. If you used stripe(credit card) you will get receipt after payment A receipt will be provided to your email as well for a donation confirmation or receipt after completing your contribution. If you cannot find it, contact us with your donation details so we can help.",
     },
     {
       value: "item-5",
