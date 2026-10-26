@@ -72,7 +72,8 @@ const GalleryPagination = () => {
               href={`gallery/${index}`}
             >
               <Image
-                sizes="(max-width: 639px) 23vw, (max-width: 1023px) 22vw, 280px"
+                sizes="(max-width: 639px) 32vw, (max-width: 767px) 30vw, (max-width: 1023px) 23vw, 19vw"
+                quality={100}
                 className="object-cover transition-transform duration-300 hover:scale-105"
                 src={src}
                 alt={alt}
