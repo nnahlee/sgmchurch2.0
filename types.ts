@@ -113,119 +113,211 @@ export const slideInfos: SlideInfoTypes[] = [
 
 export const gallerySlides: ImageGalleryTypes[] = [
   {
-    src: "/images/slide1.PNG",
+    src: "/images/compressed/slide1-compressed.webp",
     alt: "Slide 1",
   },
   {
-    src: "/images/slide2.PNG",
+    src: "/images/compressed/slide2-compressed.webp",
     alt: "Slide 1",
   },
   {
-    src: "/images/slide3.PNG",
+    src: "/images/compressed/slide3-compressed.webp",
     alt: "Slide 1",
   },
   {
-    src: "/images/slide4.PNG",
+    src: "/images/compressed/slide4-compressed.webp",
     alt: "Slide 1",
   },
   {
-    src: "/images/newgal1.jpg",
-    alt: "Street Gospel Mission Church community gathering",
+    src: "/images/compressed/newgal1-compressed.webp",
+    alt: "Gallery image 1",
   },
   {
-    src: "/images/newgal2.jpg",
-    alt: "Church members worshiping together",
+    src: "/images/compressed/newgal2-compressed.webp",
+    alt: "Gallery image 2",
   },
   {
-    src: "/images/newgal3.jpg",
-    alt: "Church community sharing fellowship",
+    src: "/images/compressed/newgal3-compressed.webp",
+    alt: "Gallery image 3",
   },
   {
-    src: "/images/newgal4.jpg",
-    alt: "Congregation participating in a church service",
+    src: "/images/compressed/newgal4-compressed.webp",
+    alt: "Gallery image 4",
   },
   {
-    src: "/images/newgal5.jpg",
-    alt: "Church members serving the local community",
+    src: "/images/compressed/newgal5-compressed.webp",
+    alt: "Gallery image 5",
   },
   {
-    src: "/images/newgal6.jpg",
-    alt: "Community members gathering at church",
+    src: "/images/compressed/newgal6-compressed.webp",
+    alt: "Gallery image 6",
   },
   {
-    src: "/images/newgal7.jpg",
-    alt: "Church volunteers working together",
+    src: "/images/compressed/newgal7-compressed.webp",
+    alt: "Gallery image 7",
   },
   {
-    src: "/images/newgal8.jpg",
-    alt: "Members of Street Gospel Mission Church in fellowship",
+    src: "/images/compressed/newgal8-compressed.webp",
+    alt: "Gallery image 8",
   },
   {
-    src: "/images/newgal9.jpg",
-    alt: "Church gathering celebrating faith and community",
+    src: "/images/compressed/newgal9-compressed.webp",
+    alt: "Gallery image 9",
   },
   {
-    src: "/images/newgal10.jpg",
-    alt: "Church members participating in a group activity",
+    src: "/images/compressed/newgal10-compressed.webp",
+    alt: "Gallery image 10",
   },
   {
-    src: "/images/newgal11.jpg",
-    alt: "Volunteers helping others through community service",
+    src: "/images/compressed/newgal11-compressed.webp",
+    alt: "Gallery image 11",
   },
   {
-    src: "/images/newgal12.jpg",
-    alt: "Congregation gathered for worship and prayer",
+    src: "/images/compressed/newgal12-compressed.webp",
+    alt: "Gallery image 12",
   },
   {
-    src: "/images/newgal13.jpg",
-    alt: "Church community coming together in fellowship",
-  },
-
-  {
-    src: "/images/newgal14.jpg",
-    alt: "Street Gospel Mission Church members serving together",
+    src: "/images/compressed/newgal13-compressed.webp",
+    alt: "Gallery image 13",
   },
   {
-    src: "/images/newgal15.jpg",
-    alt: "Church community celebrating together",
+    src: "/images/compressed/newgal14-compressed.webp",
+    alt: "Gallery image 14",
   },
   {
-    src: "/images/newgal16.jpg",
-    alt: "Church volunteers supporting their community",
+    src: "/images/compressed/newgal15-compressed.webp",
+    alt: "Gallery image 15",
   },
   {
-    src: "/images/newgal17.jpg",
-    alt: "Street Gospel Mission Church community in fellowship",
+    src: "/images/compressed/newgal16-compressed.webp",
+    alt: "Gallery image 16",
   },
-  { src: "/images/newgal18.jpg", alt: "Church community gathering" },
-  { src: "/images/newgal19.jpg", alt: "Church worship service" },
-  { src: "/images/newgal20.jpg", alt: "Community fellowship" },
-  { src: "/images/newgal21.jpg", alt: "Church members together" },
-  { src: "/images/newgal22.jpg", alt: "Sunday worship" },
-  { src: "/images/newgal23.jpg", alt: "Church event" },
-  { src: "/images/newgal24.jpg", alt: "Community gathering" },
-  { src: "/images/newgal25.jpg", alt: "Church celebration" },
-  { src: "/images/newgal26.jpg", alt: "Worship and fellowship" },
-  { src: "/images/newgal27.jpg", alt: "Church community event" },
-  { src: "/images/newgal28.jpg", alt: "Congregation gathering" },
-  { src: "/images/newgal29.jpg", alt: "Church service" },
-  { src: "/images/newgal30.jpg", alt: "Community fellowship event" },
-  { src: "/images/newgal31.jpg", alt: "Church members worshipping" },
-  { src: "/images/newgal32.jpg", alt: "Church gathering" },
-  { src: "/images/newgal33.jpg", alt: "Sunday fellowship" },
-  { src: "/images/newgal34.jpg", alt: "Church community celebration" },
-  { src: "/images/newgal35.jpg", alt: "Congregation in fellowship" },
-  { src: "/images/newgal36.jpg", alt: "Church ministry event" },
-  { src: "/images/newgal37.jpg", alt: "Community worship gathering" },
-  { src: "/images/newgal38.jpg", alt: "Church fellowship gathering" },
-  { src: "/images/newgal39.jpg", alt: "Church community activity" },
-  { src: "/images/newgal40.jpg", alt: "Congregational event" },
-  { src: "/images/newgal41.jpg", alt: "Church worship and prayer" },
-  { src: "/images/newgal42.jpg", alt: "Church members at an event" },
-  { src: "/images/newgal43.jpg", alt: "Community celebration" },
-  { src: "/images/newgal44.jpg", alt: "Church gathering and fellowship" },
-  { src: "/images/newgal45.jpg", alt: "Church ministry gathering" },
-  { src: "/images/newgal46.jpg", alt: "Church community fellowship" },
-  { src: "/images/newgal47.jpg", alt: "Church event and worship" },
-  { src: "/images/newgal48.jpg", alt: "Church community together" },
+  {
+    src: "/images/compressed/newgal17-compressed.webp",
+    alt: "Gallery image 17",
+  },
+  {
+    src: "/images/compressed/newgal18-compressed.webp",
+    alt: "Gallery image 18",
+  },
+  {
+    src: "/images/compressed/newgal19-compressed.webp",
+    alt: "Gallery image 19",
+  },
+  {
+    src: "/images/compressed/newgal20-compressed.webp",
+    alt: "Gallery image 20",
+  },
+  {
+    src: "/images/compressed/newgal21-compressed.webp",
+    alt: "Gallery image 21",
+  },
+  {
+    src: "/images/compressed/newgal22-compressed.webp",
+    alt: "Gallery image 22",
+  },
+  {
+    src: "/images/compressed/newgal23-compressed.webp",
+    alt: "Gallery image 23",
+  },
+  {
+    src: "/images/compressed/newgal24-compressed.webp",
+    alt: "Gallery image 24",
+  },
+  {
+    src: "/images/compressed/newgal25-compressed.webp",
+    alt: "Gallery image 25",
+  },
+  {
+    src: "/images/compressed/newgal26-compressed.webp",
+    alt: "Gallery image 26",
+  },
+  {
+    src: "/images/compressed/newgal27-compressed.webp",
+    alt: "Gallery image 27",
+  },
+  {
+    src: "/images/compressed/newgal28-compressed.webp",
+    alt: "Gallery image 28",
+  },
+  {
+    src: "/images/compressed/newgal29-compressed.webp",
+    alt: "Gallery image 29",
+  },
+  {
+    src: "/images/compressed/newgal30-compressed.webp",
+    alt: "Gallery image 30",
+  },
+  {
+    src: "/images/compressed/newgal31-compressed.webp",
+    alt: "Gallery image 31",
+  },
+  {
+    src: "/images/compressed/newgal32-compressed.webp",
+    alt: "Gallery image 32",
+  },
+  {
+    src: "/images/compressed/newgal33-compressed.webp",
+    alt: "Gallery image 33",
+  },
+  {
+    src: "/images/compressed/newgal34-compressed.webp",
+    alt: "Gallery image 34",
+  },
+  {
+    src: "/images/compressed/newgal35-compressed.webp",
+    alt: "Gallery image 35",
+  },
+  {
+    src: "/images/compressed/newgal36-compressed.webp",
+    alt: "Gallery image 36",
+  },
+  {
+    src: "/images/compressed/newgal37-compressed.webp",
+    alt: "Gallery image 37",
+  },
+  {
+    src: "/images/compressed/newgal38-compressed.webp",
+    alt: "Gallery image 38",
+  },
+  {
+    src: "/images/compressed/newgal39-compressed.webp",
+    alt: "Gallery image 39",
+  },
+  {
+    src: "/images/compressed/newgal40-compressed.webp",
+    alt: "Gallery image 40",
+  },
+  {
+    src: "/images/compressed/newgal41-compressed.webp",
+    alt: "Gallery image 41",
+  },
+  {
+    src: "/images/compressed/newgal42-compressed.webp",
+    alt: "Gallery image 42",
+  },
+  {
+    src: "/images/compressed/newgal43-compressed.webp",
+    alt: "Gallery image 43",
+  },
+  {
+    src: "/images/compressed/newgal44-compressed.webp",
+    alt: "Gallery image 44",
+  },
+  {
+    src: "/images/compressed/newgal45-compressed.webp",
+    alt: "Gallery image 45",
+  },
+  {
+    src: "/images/compressed/newgal46-compressed.webp",
+    alt: "Gallery image 46",
+  },
+  {
+    src: "/images/compressed/newgal47-compressed.webp",
+    alt: "Gallery image 47",
+  },
+  {
+    src: "/images/compressed/newgal48-compressed.webp",
+    alt: "Gallery image 48",
+  },
 ];
