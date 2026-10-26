@@ -63,13 +63,13 @@ const GalleryPagination = () => {
 
       {/* grid 4 cols 3 rows */}
       <div className=" grid w-full py-12  gap-12  sm:gap-5 2xl:grid-cols-4 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1">
-        {currentImageItems.map(({ src, alt }, index) => {
+        {currentImageItems.map(({ src, alt, id }) => {
           return (
             <Link
               key={src}
               className="relative aspect-square overflow-hidden rounded-2xl"
               aria-label={`View image: ${alt}`}
-              href={`gallery/${index}`}
+              href={`gallery/${id}`}
             >
               <Image
                 sizes="(max-width: 639px) 33vw, (max-width: 767px) 33vw, (max-width: 1023px) 25vw, 20vw"

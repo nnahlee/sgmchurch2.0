@@ -18,6 +18,7 @@ export type InfoTypes = {
 export type ImageGalleryTypes = {
   src: string;
   alt: string;
+  id: string;
   // width: number;
   // height: number;
 };
@@ -113,210 +114,262 @@ export const slideInfos: SlideInfoTypes[] = [
 
 export const gallerySlides: ImageGalleryTypes[] = [
   {
+    id: "0",
     src: "/images/compressed/slide1-compressed.webp",
     alt: "Slide 1",
   },
   {
+    id: "1",
     src: "/images/compressed/slide2-compressed.webp",
-    alt: "Slide 1",
+    alt: "Slide 2",
   },
   {
+    id: "2",
     src: "/images/compressed/slide3-compressed.webp",
-    alt: "Slide 1",
+    alt: "Slide 3",
   },
   {
+    id: "3",
     src: "/images/compressed/slide4-compressed.webp",
-    alt: "Slide 1",
+    alt: "Slide 4",
   },
   {
+    id: "4",
     src: "/images/compressed/newgal1-compressed.webp",
     alt: "Gallery image 1",
   },
   {
+    id: "5",
     src: "/images/compressed/newgal2-compressed.webp",
     alt: "Gallery image 2",
   },
   {
+    id: "6",
     src: "/images/compressed/newgal3-compressed.webp",
     alt: "Gallery image 3",
   },
   {
+    id: "7",
     src: "/images/compressed/newgal4-compressed.webp",
     alt: "Gallery image 4",
   },
   {
+    id: "8",
     src: "/images/compressed/newgal5-compressed.webp",
     alt: "Gallery image 5",
   },
   {
+    id: "9",
     src: "/images/compressed/newgal6-compressed.webp",
     alt: "Gallery image 6",
   },
   {
+    id: "10",
     src: "/images/compressed/newgal7-compressed.webp",
     alt: "Gallery image 7",
   },
   {
+    id: "11",
     src: "/images/compressed/newgal8-compressed.webp",
     alt: "Gallery image 8",
   },
   {
+    id: "12",
     src: "/images/compressed/newgal9-compressed.webp",
     alt: "Gallery image 9",
   },
   {
+    id: "13",
     src: "/images/compressed/newgal10-compressed.webp",
     alt: "Gallery image 10",
   },
   {
+    id: "14",
     src: "/images/compressed/newgal11-compressed.webp",
     alt: "Gallery image 11",
   },
   {
+    id: "15",
     src: "/images/compressed/newgal12-compressed.webp",
     alt: "Gallery image 12",
   },
   {
+    id: "16",
     src: "/images/compressed/newgal13-compressed.webp",
     alt: "Gallery image 13",
   },
   {
+    id: "17",
     src: "/images/compressed/newgal14-compressed.webp",
     alt: "Gallery image 14",
   },
   {
+    id: "18",
     src: "/images/compressed/newgal15-compressed.webp",
     alt: "Gallery image 15",
   },
   {
+    id: "19",
     src: "/images/compressed/newgal16-compressed.webp",
     alt: "Gallery image 16",
   },
   {
+    id: "20",
     src: "/images/compressed/newgal17-compressed.webp",
     alt: "Gallery image 17",
   },
   {
+    id: "21",
     src: "/images/compressed/newgal18-compressed.webp",
     alt: "Gallery image 18",
   },
   {
+    id: "22",
     src: "/images/compressed/newgal19-compressed.webp",
     alt: "Gallery image 19",
   },
   {
+    id: "23",
     src: "/images/compressed/newgal20-compressed.webp",
     alt: "Gallery image 20",
   },
   {
+    id: "24",
     src: "/images/compressed/newgal21-compressed.webp",
     alt: "Gallery image 21",
   },
   {
+    id: "25",
     src: "/images/compressed/newgal22-compressed.webp",
     alt: "Gallery image 22",
   },
   {
+    id: "26",
     src: "/images/compressed/newgal23-compressed.webp",
     alt: "Gallery image 23",
   },
   {
+    id: "27",
     src: "/images/compressed/newgal24-compressed.webp",
     alt: "Gallery image 24",
   },
   {
+    id: "28",
     src: "/images/compressed/newgal25-compressed.webp",
     alt: "Gallery image 25",
   },
   {
+    id: "29",
     src: "/images/compressed/newgal26-compressed.webp",
     alt: "Gallery image 26",
   },
   {
+    id: "30",
     src: "/images/compressed/newgal27-compressed.webp",
     alt: "Gallery image 27",
   },
   {
+    id: "31",
     src: "/images/compressed/newgal28-compressed.webp",
     alt: "Gallery image 28",
   },
   {
+    id: "32",
     src: "/images/compressed/newgal29-compressed.webp",
     alt: "Gallery image 29",
   },
   {
+    id: "33",
     src: "/images/compressed/newgal30-compressed.webp",
     alt: "Gallery image 30",
   },
   {
+    id: "34",
     src: "/images/compressed/newgal31-compressed.webp",
     alt: "Gallery image 31",
   },
   {
+    id: "35",
     src: "/images/compressed/newgal32-compressed.webp",
     alt: "Gallery image 32",
   },
   {
+    id: "36",
     src: "/images/compressed/newgal33-compressed.webp",
     alt: "Gallery image 33",
   },
   {
+    id: "37",
     src: "/images/compressed/newgal34-compressed.webp",
     alt: "Gallery image 34",
   },
   {
+    id: "38",
     src: "/images/compressed/newgal35-compressed.webp",
     alt: "Gallery image 35",
   },
   {
+    id: "39",
     src: "/images/compressed/newgal36-compressed.webp",
     alt: "Gallery image 36",
   },
   {
+    id: "40",
     src: "/images/compressed/newgal37-compressed.webp",
     alt: "Gallery image 37",
   },
   {
+    id: "41",
     src: "/images/compressed/newgal38-compressed.webp",
     alt: "Gallery image 38",
   },
   {
+    id: "42",
     src: "/images/compressed/newgal39-compressed.webp",
     alt: "Gallery image 39",
   },
   {
+    id: "43",
     src: "/images/compressed/newgal40-compressed.webp",
     alt: "Gallery image 40",
   },
   {
+    id: "44",
     src: "/images/compressed/newgal41-compressed.webp",
     alt: "Gallery image 41",
   },
   {
+    id: "45",
     src: "/images/compressed/newgal42-compressed.webp",
     alt: "Gallery image 42",
   },
   {
+    id: "46",
     src: "/images/compressed/newgal43-compressed.webp",
     alt: "Gallery image 43",
   },
   {
+    id: "47",
     src: "/images/compressed/newgal44-compressed.webp",
     alt: "Gallery image 44",
   },
   {
+    id: "48",
     src: "/images/compressed/newgal45-compressed.webp",
     alt: "Gallery image 45",
   },
   {
+    id: "49",
     src: "/images/compressed/newgal46-compressed.webp",
     alt: "Gallery image 46",
   },
   {
+    id: "50",
     src: "/images/compressed/newgal47-compressed.webp",
     alt: "Gallery image 47",
   },
   {
+    id: "51",
     src: "/images/compressed/newgal48-compressed.webp",
     alt: "Gallery image 48",
   },
