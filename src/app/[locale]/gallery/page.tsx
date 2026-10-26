@@ -1,4 +1,3 @@
-import Gallery from "./Gallery";
 import GalleryPagination from "./GalleryPagination";
 
 const GalleryPage = () => {
