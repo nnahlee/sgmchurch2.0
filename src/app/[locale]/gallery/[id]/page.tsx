@@ -8,7 +8,7 @@ type ParamTypes = {
 
 // generate prebuilt pages for dynamic routes
 export function generateStaticParams() {
-  return gallerySlides.map((_, idx) => ({ id: idx.toString() }));
+  return gallerySlides.map(({ id }) => ({ id }));
 }
 
 const GalleryIdPage = async ({ params }: ParamTypes) => {
