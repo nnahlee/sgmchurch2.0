@@ -73,7 +73,7 @@ const GalleryPagination = () => {
             >
               <Image
                 sizes="(max-width: 639px) 33vw, (max-width: 767px) 33vw, (max-width: 1023px) 25vw, 20vw"
-                quality={100}
+                quality={85}
                 className="object-cover transition-transform duration-300 hover:scale-105"
                 src={src}
                 alt={alt}
@@ -94,6 +94,7 @@ const GalleryPagination = () => {
             return (
               <PaginationItem key={item}>
                 <PaginationLink
+                  isActive={item === currentPage}
                   onClick={() => handlePaginationClick(item)}
                   href={`/gallery`}
                 >
