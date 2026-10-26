@@ -1,8 +1,5 @@
 import { PaypalDonationPreview } from "./PaypalDonationPreview";
 import type { DonationReceiptData } from "@/components/pdf/blocks/invoice-modern/invoice-modern";
-// type DonationPaypalReceiptPageTypes = {
-//   searchParams: Promise<{ token?: string }>;
-// };
 
 const now = new Date();
 const formattedDate = new Intl.DateTimeFormat("en-US", {

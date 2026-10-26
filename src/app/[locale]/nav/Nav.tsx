@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { HeartIcon } from "lucide-react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
@@ -12,6 +11,7 @@ import WatchNavigationMenuBtn from "./WatchNavigationMenuBtn";
 import MoreInfoDropDown from "./MoreInfoDropDown";
 import LocaleSwitcher from "../LocaleSwitcher";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 type NavLinkTypes = {
   name: string;

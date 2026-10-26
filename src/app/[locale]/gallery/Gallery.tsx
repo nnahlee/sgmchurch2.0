@@ -12,7 +12,7 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { gallerySlides } from "../../../../types";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 const Gallery = () => {
   const plugin = React.useRef(
@@ -21,10 +21,6 @@ const Gallery = () => {
 
   return (
     <section className="w-full px-4 py-8 sm:px-6 md:py-8 lg:px-8">
-      <h2 className=" text-center text-3xl font-bold sm:text-4xl md:text-5xl">
-        Gallery
-      </h2>
-
       <Carousel
         opts={{
           align: "start",

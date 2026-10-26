@@ -1,16 +1,20 @@
-#korean translate (you provide translations)
+
 #internalization = prepare multi language
 next intl = navigation helpers and formaters
 https://next-intl.dev/docs/routing/navigation?utm_source=chatgpt.com
 #localization = provide local translation actual process
 https://next-intl.dev/examples
 https://nextjs.org/docs/app/guides/internationalization?utm_source=chatgpt.com
-#pdf https://react-pdf.org/docs/v4
+
+
+data transfer token docs below
+https://www.paypal.com/unifiedsettings/webPreferences
+#paypal pdf -> email -> 
+#SEO
+#pagination on gallery more photos
 
 
 
-
-FAQ donation - (DONATION RECEIPT) auto generate
 
 
 IRS REQUIREMENTS

@@ -6,6 +6,7 @@ import VolunteerDescription from "./volunteer/VolunteerDescription";
 import Socials from "./socials/Socials";
 import { heroContent } from "../../../types";
 import Slider from "./slider/Slider";
+import Gallery from "./gallery/Gallery";
 import type { Metadata } from "next";
 const {
   home: { title, description, btnText, heroImg },
@@ -50,7 +51,9 @@ export default function Home() {
       <Volunteer />
       <VolunteerDescription />
       <Socials />
+
       <Slider />
+      <Gallery />
     </div>
   );
 }

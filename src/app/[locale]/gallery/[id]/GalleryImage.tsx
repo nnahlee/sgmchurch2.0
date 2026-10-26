@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { gallerySlides } from "../../../../../types";
-import Link from "next/link";
+
+import { Link } from "@/i18n/navigation";
 import { Maximize2, Images } from "lucide-react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";

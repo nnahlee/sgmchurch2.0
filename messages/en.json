@@ -108,7 +108,7 @@
       },
       {
         "itemTrigger": "How can I get a receipt for my donation?",
-        "itemContent": "Please check your email for a donation confirmation or receipt after completing your contribution. If you cannot find it, contact us with your donation details so we can help."
+        "itemContent": "For all payment options Please check your email for a donation confirmation or receipt after completing your contribution. If you used paypal you can check immediately after completing donation click return to sgmchurch and you will be provided a pdf downloadable. If you used credit card(stripe) you can get auto pdf download as well. If you cannot find it, contact us with your donation details so we can help."
       },
       {
         "itemTrigger": "How long does it take to receive a response?",

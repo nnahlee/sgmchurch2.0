@@ -11,8 +11,8 @@ import {
 } from "@/components/ui/popover";
 import { FaRegCopy } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
-import { useRouter, useSearchParams } from "next/navigation";
-
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 const DonationSuccess = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
