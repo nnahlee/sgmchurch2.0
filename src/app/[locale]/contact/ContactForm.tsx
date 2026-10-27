@@ -69,7 +69,7 @@ const ContactForm = () => {
   return (
     <div className="md:p-24 p:0 bg-green-500 text-white flex xl:flex-row flex-col justify-center items-center gap-24">
       <Image
-        src="/images/contactform.PNG"
+        src="/images/compressed/contactform-compressed.webp"
         alt="Contact Form Image"
         width={500}
         height={500}

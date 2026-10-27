@@ -11,7 +11,7 @@ const Volunteer = () => {
         <div className="img-container relative min-w-[240px] w-full h-[420px]">
           <Image
             fill
-            src="/images/volunteer.jpg"
+            src="/images/compressed/volunteer-compressed.webp"
             alt="volunteer-img"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover rounded-xl"

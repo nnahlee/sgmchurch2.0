@@ -33,19 +33,19 @@ const Service = () => {
       title: "San Francisco",
       description: "Sunday at 7:00am",
       btnText: "Learn More",
-      imgUrl: "sf2.jpg",
+      imgUrl: "sf2-compressed.webp",
     },
     {
       title: "Oakland & Berkeley",
       description: "Tuesday at 9:00am",
       btnText: "Learn More",
-      imgUrl: "oakland2.jpg",
+      imgUrl: "oakland2-compressed.webp",
     },
     {
       title: "San Jose",
       description: "Thursday at 8:00am",
       btnText: "Learn More",
-      imgUrl: "sanjose.jpg",
+      imgUrl: "sanjose-compressed.webp",
     },
   ];
 
@@ -74,7 +74,7 @@ const Service = () => {
                     className="object-cover rounded-xl"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    src={`/images/${service.imgUrl}`}
+                    src={`/images/compressed/${service.imgUrl}`}
                     alt="service-img"
                   />
                 </div>
