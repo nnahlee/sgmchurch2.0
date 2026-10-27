@@ -27,15 +27,15 @@ const containerVariant = {
   },
   transition: {
     // wait between children animation
-    staggerChildren: 0.3,
+    staggerChildren: 0.2,
   },
 };
 
 const fadeInDownTopVariant = {
-  start: { opacity: 0, y: -40 },
+  start: { opacity: 0, y: -30 },
   end: { opacity: 1, y: 0 },
   transition: {
-    duration: 0.4,
+    duration: 0.3,
   },
 };
 
@@ -49,7 +49,7 @@ const btnVariant = {
     x: 0,
     transition: {
       delay: 0.1,
-      duration: 0.4,
+      duration: 0.3,
     },
   },
 };
