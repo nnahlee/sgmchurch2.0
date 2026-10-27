@@ -5,7 +5,6 @@
 
 // https://www.paypal.com/unifiedsettings/webPreferences
 import Image from "next/image";
-import React from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -35,7 +34,7 @@ const fadeInDownTopVariant = {
   start: { opacity: 0, y: -30 },
   end: { opacity: 1, y: 0 },
   transition: {
-    duration: 0.3,
+    duration: 0.2,
   },
 };
 
@@ -49,7 +48,7 @@ const btnVariant = {
     x: 0,
     transition: {
       delay: 0.1,
-      duration: 0.3,
+      duration: 0.2,
     },
   },
 };

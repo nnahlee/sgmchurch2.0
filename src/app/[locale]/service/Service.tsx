@@ -19,8 +19,8 @@ const cardVariant = {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.5,
-      delay: i * 0.5, // delay based on index
+      duration: 0.4,
+      delay: i * 0.4, // delay based on index
     },
   }),
 };
