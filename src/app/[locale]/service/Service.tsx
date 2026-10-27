@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import React from "react";
 import { Card, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -45,52 +44,54 @@ const Service = () => {
       title: "San Jose",
       description: "Thursday at 8:00am",
       btnText: "Learn More",
-      imgUrl: "sanjose-compressed.webp",
+      imgUrl: "sanjose.webp",
     },
   ];
 
   return (
     <div>
       <h1 className="md:text-6xl text-4xl font-bold text-center my-20">
-        {t(`serviceTitle`)}
+        {t("serviceTitle")}
       </h1>
-      <div className="grid-container grid  lg:grid-cols-2 xl:grid-cols-3 grid-cols-1 my-30 place-items-center  gap-8">
-        {services.map((service, idx: number) => {
-          return (
-            <motion.div
-              variants={cardVariant}
-              initial="start"
-              whileInView="end" // <-- animate when in view
-              viewport={{ once: true }} // <-- animate only once
-              custom={idx}
-              key={service.title}
-            >
-              <Card className="flex items-center justify-center p-6 min-w-[420px] min-h-[400px] max-w-[400px] max-h-[500px] relative">
-                <CardTitle className="text-2xl mt-3 font-bold">
-                  {service.title}
-                </CardTitle>
-                <div className="img-container w-[240px] h-[320px] relative">
-                  <Image
-                    className="object-cover rounded-xl"
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    src={`/images/compressed/${service.imgUrl}`}
-                    alt="service-img"
-                  />
-                </div>
 
-                <CardDescription className="text-lg text-secondary-foreground font-bold">
-                  {service.description}
-                </CardDescription>
-                <Link href="/contact">
-                  <Button className="cursor-pointer px-8" size="lg">
-                    {service.btnText}
-                  </Button>
-                </Link>
-              </Card>
-            </motion.div>
-          );
-        })}
+      <div className="grid-container grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 my-30 place-items-center gap-8">
+        {services.map((service, idx) => (
+          <motion.div
+            variants={cardVariant}
+            initial="start"
+            whileInView="end"
+            viewport={{ once: true }}
+            custom={idx}
+            key={service.title}
+          >
+            <Card className="relative flex min-h-[420px] max-h-[520px] min-w-0 w-full max-w-[400px] items-center justify-center p-12">
+              <CardTitle className="mt-3 text-2xl font-bold">
+                {service.title}
+              </CardTitle>
+
+              <div className="img-container relative h-[420px] w-[250px]">
+                <Image
+                  className="rounded-xl object-cover"
+                  fill
+                  sizes="240px"
+                  quality={65}
+                  src={`/images/compressed/${service.imgUrl}`}
+                  alt={service.title}
+                />
+              </div>
+
+              <CardDescription className="text-lg font-bold text-secondary-foreground">
+                {service.description}
+              </CardDescription>
+
+              <Link href="/contact">
+                <Button className="cursor-pointer px-8" size="lg">
+                  {service.btnText}
+                </Button>
+              </Link>
+            </Card>
+          </motion.div>
+        ))}
       </div>
     </div>
   );

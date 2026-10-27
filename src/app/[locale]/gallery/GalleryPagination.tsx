@@ -72,7 +72,7 @@ const GalleryPagination = () => {
                   <Skeleton className="h-4 w-3/5 max-w-48" />
                   <Skeleton className="h-3 w-4/5 max-w-64" />
                 </div>
-                {/* Content placeholder */}
+
                 <Skeleton className="h-24 w-full rounded-xl" />
               </div>
             </div>
