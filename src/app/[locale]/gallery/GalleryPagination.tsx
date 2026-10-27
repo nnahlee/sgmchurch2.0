@@ -10,7 +10,8 @@ import {
 } from "@/components/ui/pagination";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 import { gallerySlides } from "@/../types";
 
@@ -28,10 +29,9 @@ const GalleryPagination = () => {
   );
   //   array starting 0-11 , length 12
   //   slice is taking portions based on start and end of state
-  console.log(currentImageItems);
+  // console.log(currentImageItems);
 
   const handleNext = () => {
-    // last page check
     if (currentPage === totalPages) {
       return;
     }
@@ -47,7 +47,6 @@ const GalleryPagination = () => {
 
   const handlePaginationClick = (pageNumber: number) => {
     if (pageNumber <= 0 || pageNumber > 5) return;
-    // console.log(`current page ${pageNumber}`);
     setCurrentPage(pageNumber);
   };
 
@@ -62,26 +61,43 @@ const GalleryPagination = () => {
       </h2>
 
       {/* grid 4 cols 3 rows */}
+
       <div className=" grid w-full py-12  gap-12  sm:gap-5 2xl:grid-cols-4 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1">
-        {currentImageItems.map(({ src, alt, id }) => {
-          return (
-            <Link
-              key={src}
-              className="relative aspect-square overflow-hidden rounded-2xl"
-              aria-label={`View image: ${alt}`}
-              href={`gallery/${id}`}
-            >
-              <Image
-                sizes="(max-width: 639px) 33vw, (max-width: 767px) 33vw, (max-width: 1023px) 25vw, 20vw"
-                quality={85}
-                className="object-cover transition-transform duration-300 hover:scale-105"
-                src={src}
-                alt={alt}
-                fill
-              />
-            </Link>
-          );
-        })}
+        <Suspense
+          fallback={
+            <div className="flex min-h-[50vh] w-full items-center justify-center px-4 sm:min-h-[60vh]">
+              <div className="flex w-full max-w-sm flex-col items-center gap-4">
+                <Skeleton className="h-12 w-12 rounded-full" />
+                <div className="flex w-full flex-col items-center gap-2">
+                  <Skeleton className="h-4 w-3/5 max-w-48" />
+                  <Skeleton className="h-3 w-4/5 max-w-64" />
+                </div>
+                {/* Content placeholder */}
+                <Skeleton className="h-24 w-full rounded-xl" />
+              </div>
+            </div>
+          }
+        >
+          {currentImageItems.map(({ src, alt, id }) => {
+            return (
+              <Link
+                key={src}
+                className="relative aspect-square overflow-hidden rounded-2xl"
+                aria-label={`View image: ${alt}`}
+                href={`gallery/${id}`}
+              >
+                <Image
+                  sizes="(max-width: 639px) 33vw, (max-width: 767px) 33vw, (max-width: 1023px) 25vw, 20vw"
+                  quality={85}
+                  className="object-cover"
+                  src={src}
+                  alt={alt}
+                  fill
+                />
+              </Link>
+            );
+          })}
+        </Suspense>
       </div>
 
       <Pagination>

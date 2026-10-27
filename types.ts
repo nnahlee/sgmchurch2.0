@@ -35,54 +35,54 @@ export const heroContent: HeroContentTypes = {
           environment. Together, we can make a positive impact on our world and
           bring light to the darkest corners of our city.`,
     btnText: "Donate Now",
-    heroImg: "/images/heroimg.jpg",
+    heroImg: "/images/compressed/heroimg-compressed.webp",
   },
   about: {
     title: "Our Story and Mission",
     description: `We work in order to achieve Advanced Contemporary Evangelization for fallen-away nearest Christian neighbors who no longer practice/consider themselves as Christians. We are not to look for mission "to the nations" and to Christian communities. Love them enough to share the good news of Jesus Christ with them.`,
     btnText: "Help Support Us",
-    heroImg: "/images/aboutimg.jpg",
+    heroImg: "/images/compressed/aboutimg-compressed.webp",
   },
   donate: {
     title: "Donate and Partner with Us",
     description: `We rely on the generosity of our supporters to continue our work and make a positive impact. Thank you for considering a donation to Street Gospel Mission Church. Together, we can make a difference and bring hope to those in need.`,
     btnText: "Donate Now",
-    heroImg: "/images/donatebanner.jpg",
+    heroImg: "/images/compressed/donatebanner-compressed.webp",
   },
 };
 
 export const aboutGalleryImages = [
-  "/images/aboutone.PNG",
-  "/images/about2.PNG",
-  "/images/about3.PNG",
-  "/images/about4.PNG",
-  "/images/about5.PNG",
-  "/images/about6.PNG",
+  "/images/compressed/aboutone-compressed.webp",
+  "/images/compressed/about2-compressed.webp",
+  "/images/compressed/about3-compressed.webp",
+  "/images/compressed/about4-compressed.webp",
+  "/images/compressed/about5-compressed.webp",
+  "/images/compressed/about6-compressed.webp",
 ];
 
 export const contactImages = [
-  "/images/contact1.jpg",
-  "/images/contact2.jpg",
-  "/images/contact3.jpg",
-  "/images/contact4.jpg",
+  "/images/compressed/contact1-compressed.webp",
+  "/images/compressed/contact2-compressed.webp",
+  "/images/compressed/contact3-compressed.webp",
+  "/images/compressed/contact4-compressed.webp",
 ];
 
 export const donatePayments: DonatePaymentTypes[] = [
   {
-    src: "/images/paypal.png",
+    src: "/images/compressed/paypal-compressed.webp",
     title: "Paypal",
     description: `To make a donation, simply visit our website and select the "Donate Now" button. From there, you will be directed to our donation page, where you can choose PayPal as your payment option`,
     btnText: "Donate With Paypal",
   },
   {
-    src: "/images/creditcardmain.png",
+    src: "/images/compressed/creditcardmain-compressed.webp",
     title: "Credit or Debit Card",
     description: `To make a donation, simply click "Donate with card" button below.`,
     btnText: "Donate with Credit Card",
     btnUrl: "/stripe-donation",
   },
   {
-    src: "/images/zelle.png",
+    src: "/images/compressed/zelle-compressed.webp",
     title: "Zelle",
     description: `Zelle is a fast, safe, and easy way to send and receive money with friends, family, and other contacts within minutes using email or phone offered by many banks`,
     btnText: "Donate with Zelle",
@@ -93,22 +93,22 @@ export const slideInfos: SlideInfoTypes[] = [
   {
     title: "Make the most",
     description: `Welcome Gospel Street Mission Church is a vibrant and welcoming community of believers located in the heart of the city. Their mission is to spread the gospel and provide hope to those who are struggling, marginalized, or in need. Through their various programs and services, they strive to make a positive impact on the lives of those around them.`,
-    src: "/images/slide4.PNG",
+    src: "/images/compressed/slide4-compressed.webp",
   },
   {
     title: "Spreading the Gospel",
     description: `Our church's worship services are lively and inspiring, with music that ranges from traditional hymns to contemporary Christian songs. The preaching is rooted in the Bible and relevant to the challenges of everyday life. In addition to their regular worship services, the church offers a variety of programs for children, youth, and adults.`,
-    src: "/images/slide1.PNG",
+    src: "/images/compressed/slide1-compressed.webp",
   },
   {
     title: "Providing Hope",
     description: `We regularly post updates about their services, events, and outreach programs. From feeding the homeless to providing shelter to those in need, the church is committed to serving others with love and compassion.`,
-    src: "/images/slide2.PNG",
+    src: "/images/compressed/slide2-compressed.webp",
   },
   {
     title: "Making a Difference",
     description: `focus on community outreach and gospel-centered worship, they are a shining example of what it means to live out the love of Christ in the world.`,
-    src: "/images/slide3.PNG",
+    src: "/images/compressed/slide3-compressed.webp",
   },
 ];
 

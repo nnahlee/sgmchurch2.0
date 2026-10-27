@@ -44,7 +44,7 @@ const About = () => {
             <CardContent className="flex flex-col md:flex-row h-auto md:h-[400px] justify-center items-center gap-12 ">
               <div className="relative w-full md:w-[1800px] h-[340px]">
                 <Image
-                  src="/images/steven.PNG"
+                  src="/images/compressed/steven-compressed.webp"
                   alt="Pastor Steven Lee"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -60,7 +60,7 @@ const About = () => {
             <CardContent className="flex flex-col md:flex-row h-auto md:h-[400px] justify-center items-center gap-12 ">
               <div className="relative w-full sm:w-[1800px] h-[340px]">
                 <Image
-                  src="/images/soon.PNG"
+                  src="/images/compressed/soon-compressed.webp"
                   alt="Pastor Soon Keum Lee"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

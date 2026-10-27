@@ -6,12 +6,17 @@ https://next-intl.dev/docs/routing/navigation?utm_source=chatgpt.com
 https://next-intl.dev/examples
 https://nextjs.org/docs/app/guides/internationalization?utm_source=chatgpt.com
 
-
+https://nextjs.org/docs/app/guides/third-party-libraries
 data transfer token docs below
 https://www.paypal.com/unifiedsettings/webPreferences
 #paypal pdf -> email -> 
-#SEO
-#pagination on gallery more photos
+# add sitemap, meta descriptions, titles, alt text, google analytics
+# size and performance (pagespeed insights)
+#add custom favicon
+# add alts to btns  and forms
+
+
+
 
 
 

@@ -24,7 +24,7 @@ const Slider = () => {
     <div className="md:p-24 py-12">
       <Carousel className="w-full max-w-[1650px] mx-auto">
         <CarouselContent>
-          {slideInfos.map(({ title, description, src }, index) => (
+          {slideInfos.map(({ title, src }, index) => (
             <CarouselItem key={index}>
               <div>
                 <Card className="grid lg:grid-cols-2 grid-cols-1 place-items-center gap-12">
