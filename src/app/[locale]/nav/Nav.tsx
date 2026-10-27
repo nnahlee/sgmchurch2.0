@@ -47,7 +47,7 @@ export default function Nav() {
       <Link href="/">
         <div className="relative w-[200px] h-[70px] md:w-[360px] md:h-[125px]">
           <Image
-            src="/images/icontwo.png"
+            src="/images/compressed/icontwo-compressed.webp"
             alt="Homepage Icon"
             fill
             loading="eager"
