@@ -1,14 +1,17 @@
 "use client";
+
 // live - https://www.paypal.com/donate/buttons/manage?fromLanding=true
 // test - https://sandbox.paypal.com/donate/buttons/manage?fromLanding=true
-//     href="https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN"
+// href="https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN"
 
 // https://www.paypal.com/unifiedsettings/webPreferences
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+
 type HeroTypes = {
   section: "home" | "about" | "donate";
   title: string;
@@ -25,7 +28,6 @@ const containerVariant = {
     opacity: 1,
   },
   transition: {
-    // wait between children animation
     staggerChildren: 0.2,
   },
 };
@@ -57,12 +59,7 @@ const Hero = ({ title, description, btnText, heroImg, section }: HeroTypes) => {
   const t = useTranslations("Hero");
 
   return (
-    <motion.div
-      variants={containerVariant}
-      initial="start"
-      animate="end"
-      className="relative w-full h-[1000px] sm:h-[600px] lg:h-[700px]"
-    >
+    <div className="relative w-full h-[1000px] sm:h-[600px] lg:h-[700px]">
       <Image
         src={heroImg}
         alt="Hero Image"
@@ -75,30 +72,40 @@ const Hero = ({ title, description, btnText, heroImg, section }: HeroTypes) => {
       />
 
       <div className="absolute inset-0 flex flex-col justify-center items-start text-left px-4 sm:px-8 lg:px-24 bg-black/40">
-        <motion.h1
-          variants={fadeInDownTopVariant}
-          className="text-4xl sm:text-4xl lg:text-6xl text-center font-bold text-white mb-4"
+        <motion.div
+          variants={containerVariant}
+          initial="start"
+          animate="end"
+          className="flex flex-col items-start"
         >
-          {/* {title} */}
-          {t(`${section}.title`) || title}
-        </motion.h1>
-        <p className="m-4 text-white text-base sm:text-lg lg:text-xl max-w-3xl leading-relaxed sm:leading-loose">
-          {t(`${section}.description`) || description}
-        </p>
+          <motion.h1
+            variants={fadeInDownTopVariant}
+            className="text-4xl sm:text-4xl lg:text-6xl text-center font-bold text-white mb-4"
+          >
+            {t(`${section}.title`) || title}
+          </motion.h1>
 
-        <motion.div variants={btnVariant} className="btn my-4">
-          <Button className="w-full md:w-[500px] h-[70px] cursor-pointer rounded-2xl px-12 py-4 z-99 hover:bg-pink-400 bg-teal-500 transition-colors duration-300 ease-in-out text-white text-xl font-bold flex items-center justify-center gap-4">
-            <Link
-              className="w-full"
-              target="_blank"
-              href="https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN"
-            >
-              {t(`${section}.btnText`) || btnText}
-            </Link>
-          </Button>
+          <motion.p
+            variants={fadeInDownTopVariant}
+            className="m-4 text-white text-base sm:text-lg lg:text-xl max-w-3xl leading-relaxed sm:leading-loose"
+          >
+            {t(`${section}.description`) || description}
+          </motion.p>
+
+          <motion.div variants={btnVariant} className="btn my-4">
+            <Button className="w-full md:w-[500px] h-[70px] cursor-pointer rounded-2xl px-12 py-4 z-99 hover:bg-pink-400 bg-teal-500 transition-colors duration-300 ease-in-out text-white text-xl font-bold flex items-center justify-center gap-4">
+              <Link
+                className="w-full"
+                target="_blank"
+                href="https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN"
+              >
+                {t(`${section}.btnText`) || btnText}
+              </Link>
+            </Button>
+          </motion.div>
         </motion.div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
