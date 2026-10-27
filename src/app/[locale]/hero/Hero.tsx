@@ -68,7 +68,8 @@ const Hero = ({ title, description, btnText, heroImg, section }: HeroTypes) => {
         src={heroImg}
         alt="Hero Image"
         fill
-        loading="eager"
+        priority
+        fetchPriority="high"
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className="object-cover"
       />
