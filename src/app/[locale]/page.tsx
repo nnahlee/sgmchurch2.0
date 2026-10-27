@@ -8,33 +8,58 @@ import { heroContent } from "../../../types";
 import Slider from "./slider/Slider";
 import Gallery from "./gallery/Gallery";
 import type { Metadata } from "next";
+
+const siteUrl = "https://www.sgmchurch.com";
+
 const {
   home: { title, description, btnText, heroImg },
 } = heroContent;
 
-export const metadata: Metadata = {
-  title: "Street Gospel Mission Church - Faith, Service & Community",
-  description:
-    "Welcome to Street Gospel Mission Church. Join us in sharing faith, hope, and love through worship, community, and outreach programs that serve the homeless and those in need.",
-  keywords: [
-    "Street Gospel Mission Church",
-    "Christian nonprofit",
-    "homeless outreach ministry",
-    "faith community",
-    "volunteer church programs",
-    "charity giving",
-  ],
-  openGraph: {
-    title: "Street Gospel Mission Church - Faith, Service & Community",
-    description:
-      "Street Gospel Mission Church is dedicated to spreading the Gospel and serving the homeless through faith-driven outreach, worship, and community support.",
-    url: "https://www.sgmchurch.com",
-    siteName: "Street Gospel Mission Church",
-
-    locale: "en_US",
-    type: "website",
-  },
+type HomeProps = {
+  params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: HomeProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKorean = locale === "ko";
+  const canonicalUrl = `${siteUrl}/${locale}`;
+
+  const pageTitle = "Street Gospel Mission Church - Faith, Service & Community";
+
+  const pageDescription =
+    "Welcome to Street Gospel Mission Church. Join us in sharing faith, hope, and love through worship, community, and outreach programs that serve the homeless and those in need.";
+
+  return {
+    title: pageTitle,
+    description: pageDescription,
+    keywords: [
+      "Street Gospel Mission Church",
+      "Christian nonprofit",
+      "homeless outreach ministry",
+      "faith community",
+      "volunteer church programs",
+      "charity giving",
+    ],
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        en: `${siteUrl}/en`,
+        ko: `${siteUrl}/ko`,
+      },
+    },
+    openGraph: {
+      title: pageTitle,
+      description:
+        "Street Gospel Mission Church is dedicated to spreading the Gospel and serving the homeless through faith-driven outreach, worship, and community support.",
+      url: canonicalUrl,
+      siteName: "Street Gospel Mission Church",
+      locale: isKorean ? "ko_KR" : "en_US",
+      type: "website",
+    },
+  };
+}
 
 export default function Home() {
   return (
@@ -51,7 +76,6 @@ export default function Home() {
       <Volunteer />
       <VolunteerDescription />
       <Socials />
-
       <Slider />
       <Gallery />
     </div>
