@@ -74,7 +74,7 @@ const Service = () => {
                   className="rounded-xl object-cover"
                   fill
                   sizes="240px"
-                  quality={65}
+                  quality={75}
                   src={`/images/compressed/${service.imgUrl}`}
                   alt={service.title}
                 />
