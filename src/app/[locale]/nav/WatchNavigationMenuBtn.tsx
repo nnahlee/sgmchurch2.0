@@ -50,7 +50,7 @@ const WatchNavigationMenuBtn = () => {
                       alt="pulse-img"
                       width={20}
                       height={20}
-                      src="/images/pulse.gif"
+                      src="/images/compressed/pulse.webp"
                     />{" "}
                     {title}
                   </NavigationMenuLink>
