@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  experimental: {
+    inlineCss: true,
+  },
 };
 
 const withNextIntl = createNextIntlPlugin();
