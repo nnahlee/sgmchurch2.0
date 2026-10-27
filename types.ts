@@ -69,7 +69,7 @@ export const contactImages = [
 
 export const donatePayments: DonatePaymentTypes[] = [
   {
-    src: "/images/compressed/paypal-compressed.webp",
+    src: "/images/compressed/paypal.webp",
     title: "Paypal",
     description: `To make a donation, simply visit our website and select the "Donate Now" button. From there, you will be directed to our donation page, where you can choose PayPal as your payment option`,
     btnText: "Donate With Paypal",
