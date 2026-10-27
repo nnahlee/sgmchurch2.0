@@ -68,6 +68,7 @@ const Hero = ({ title, description, btnText, heroImg, section }: HeroTypes) => {
         src={heroImg}
         alt="Hero Image"
         fill
+        quality={75}
         priority
         fetchPriority="high"
         sizes="100vw"
