@@ -19,6 +19,7 @@ type HomeProps = {
   params: Promise<{ locale: string }>;
 };
 
+// dynamic metadata generation for SEO and social sharing
 export async function generateMetadata({
   params,
 }: HomeProps): Promise<Metadata> {
@@ -57,6 +58,20 @@ export async function generateMetadata({
       siteName: "Street Gospel Mission Church",
       locale: isKorean ? "ko_KR" : "en_US",
       type: "website",
+      images: [
+        {
+          url: "/images/compressed/opengraphsearch.webp",
+          width: 1200,
+          height: 630,
+          alt: "Street Gospel Mission Church",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/images/compressed/opengraphsearch.webp"],
     },
   };
 }

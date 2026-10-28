@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     default: "Street Gospel Mission Church",
     template: "%s | Street Gospel Mission Church",
   },
+  other: {
+    google: "notranslate",
+  },
 };
 
 export function generateStaticParams() {
