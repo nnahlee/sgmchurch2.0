@@ -66,7 +66,7 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
               alt={id}
               fill
               quality={75}
-              fetchPriority="high"
+              preload={true}
               sizes="(max-width: 639px) calc(100vw - 2rem), (max-width: 767px) calc(100vw - 3rem), (max-width: 1279px) calc(100vw - 4rem), 1216px"
               className="object-contain"
             />
@@ -128,8 +128,8 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
               </div>
 
               <Link
-                aria-label={`gallery image - ${id}`}
-                href={`/gallery/${id}`}
+                aria-label={`gallery`}
+                href={`/gallery`}
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold transition hover:bg-muted"
               >
                 <Images className="h-4 w-4" />
