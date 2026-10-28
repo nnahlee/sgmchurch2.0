@@ -57,10 +57,11 @@ export default async function RootLayout({
       <body
         className={`${inter.className} ${inter.style} antialiased overflow-x-hidden`}
       >
+        <GoogleTagManager gtmId="GTM-K7927WWL" />
         <NextIntlClientProvider>
           <Nav />
           <main>{children}</main>
-          <GoogleTagManager gtmId="GTM-K7927WWL" />
+
           <Toaster richColors />
           <Footer />
         </NextIntlClientProvider>
