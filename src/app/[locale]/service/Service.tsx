@@ -71,6 +71,7 @@ const Service = () => {
 
               <div className="img-container relative h-[420px] w-[250px]">
                 <Image
+                  aria-label={`Service image for ${service.title}`}
                   className="rounded-xl object-cover"
                   fill
                   sizes="240px"
@@ -83,12 +84,14 @@ const Service = () => {
               <CardDescription className="text-lg font-bold text-secondary-foreground">
                 {service.description}
               </CardDescription>
-
-              <Link href="/contact">
-                <Button className="cursor-pointer px-8" size="lg">
+              <Button asChild className="cursor-pointer px-8" size="lg">
+                <Link
+                  aria-label="Contact Street Gospel Mission Church"
+                  href="/contact"
+                >
                   {service.btnText}
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </Card>
           </motion.div>
         ))}

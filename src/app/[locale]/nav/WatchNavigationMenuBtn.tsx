@@ -41,6 +41,7 @@ const WatchNavigationMenuBtn = () => {
               {navigationLinks.map(({ href, title }) => {
                 return (
                   <NavigationMenuLink
+                    aria-label={`Visit ${title}`}
                     key={title}
                     target="_blank"
                     className="flex flex-row items-center justify-center gap-2"

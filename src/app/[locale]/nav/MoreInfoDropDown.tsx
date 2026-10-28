@@ -48,6 +48,7 @@ const MoreInfoDropDown = () => {
               {navigationLinks.map(({ href, title }, idx) => {
                 return (
                   <NavigationMenuLink
+                    aria-label={`Visit ${title}`}
                     key={title}
                     className="flex flex-row items-center justify-center gap-2"
                     href={href}
