@@ -12,7 +12,7 @@ import MoreInfoDropDown from "./MoreInfoDropDown";
 import LocaleSwitcher from "../LocaleSwitcher";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-
+import { sendGTMEvent } from "@next/third-parties/google";
 type NavLinkTypes = {
   name: string;
   href: string;
@@ -62,7 +62,17 @@ export default function Nav() {
         {navLinks.map(({ name, href }, idx) => (
           <li key={name}>
             {name === "Donate" ? (
-              <Button asChild className="w-[160px] py-7 font-bold text-lg">
+              <Button
+                onClick={() =>
+                  sendGTMEvent({
+                    event: "donation_nav_clicked",
+                    btnLocation: "nav",
+                    paymentMethod: "donate",
+                  })
+                }
+                asChild
+                className="w-[160px] py-7 font-bold text-lg"
+              >
                 <Link aria-label={name} href={href}>
                   <HeartIcon size={46} color="red" /> {t("donateBtn")}
                 </Link>
@@ -133,6 +143,13 @@ export default function Nav() {
                 >
                   {name === "Donate" ? (
                     <Button
+                      onClick={() =>
+                        sendGTMEvent({
+                          event: "donation_nav_clicked",
+                          btnLocation: "nav",
+                          paymentMethod: "donate",
+                        })
+                      }
                       asChild
                       className="w-[200px] py-7 font-bold text-lg"
                     >

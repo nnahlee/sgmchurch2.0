@@ -117,6 +117,13 @@ const Donate = () => {
                       passHref
                     >
                       <Button
+                        onClick={() =>
+                          sendGTMEvent({
+                            event: "paypal-btn-clicked",
+                            paymentMethod: "paypal",
+                            btnLocation: "donation page",
+                          })
+                        }
                         className="md:w-[280px] cursor-pointer w-full md:py-7 py-0 md:text-lg text-sm font-bold bg-green-500"
                         size="lg"
                       >
