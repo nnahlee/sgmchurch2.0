@@ -44,7 +44,7 @@ export default function Nav() {
   return (
     <nav className="w-full flex sticky top-0 z-50 items-center justify-between md:px-12 p-2 bg-background shadow-md">
       {/* Logo */}
-      <Link href="/">
+      <Link aria-label="Visit homepage" href="/">
         <div className="relative w-[200px] h-[70px] md:w-[360px] md:h-[125px]">
           <Image
             src="/images/compressed/icontwo-compressed.webp"
@@ -63,12 +63,13 @@ export default function Nav() {
           <li key={name}>
             {name === "Donate" ? (
               <Button asChild className="w-[160px] py-7 font-bold text-lg">
-                <Link href={href}>
+                <Link aria-label={name} href={href}>
                   <HeartIcon size={46} color="red" /> {t("donateBtn")}
                 </Link>
               </Button>
             ) : (
               <Link
+                aria-label={name}
                 href={href}
                 className="hover:text-primary transition-colors duration-200"
               >
@@ -141,6 +142,7 @@ export default function Nav() {
                     </Button>
                   ) : (
                     <Link
+                      aria-label={name}
                       href={href}
                       className="hover:text-primary transition-colors duration-200"
                     >

@@ -95,6 +95,7 @@ const Hero = ({ title, description, btnText, heroImg, section }: HeroTypes) => {
           <motion.div variants={btnVariant} className="btn my-4">
             <Button className="w-full md:w-[500px] h-[70px] cursor-pointer rounded-2xl px-12 py-4 z-99 hover:bg-pink-400 bg-teal-500 transition-colors duration-300 ease-in-out text-white text-xl font-bold flex items-center justify-center gap-4">
               <Link
+                aria-label="Donate using paypal"
                 className="w-full"
                 target="_blank"
                 href="https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN"

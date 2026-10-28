@@ -9,10 +9,12 @@ https://nextjs.org/docs/app/guides/internationalization?utm_source=chatgpt.com
 https://nextjs.org/docs/app/guides/third-party-libraries
 data transfer token docs below
 https://www.paypal.com/unifiedsettings/webPreferences
+google search console
+
 
 #paypal pdf -> email -> 
-google search console
-# add sitemap, google analytics
+# add sitemap,
+# google analytics
 #add custom favicon
 # add llm.txt
 

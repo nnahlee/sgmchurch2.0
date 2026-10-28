@@ -88,7 +88,9 @@ const ContactForm = () => {
             name="name"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="text-lg">Name</FormLabel>
+                <FormLabel htmlFor="name" className="text-lg">
+                  Name
+                </FormLabel>
                 <FormControl>
                   <Input
                     className="bg-white p-5 text-black"
@@ -106,7 +108,9 @@ const ContactForm = () => {
             name="email"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="text-lg">Email</FormLabel>
+                <FormLabel htmlFor="email" className="text-lg">
+                  Email
+                </FormLabel>
                 <FormControl>
                   <Input
                     className="bg-white p-5 text-black"
@@ -124,7 +128,9 @@ const ContactForm = () => {
             name="phone"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="text-lg">Phone Number</FormLabel>
+                <FormLabel htmlFor="phone" className="text-lg">
+                  Phone Number
+                </FormLabel>
                 <FormControl>
                   <Input
                     className="bg-white text-black p-5"
@@ -142,7 +148,9 @@ const ContactForm = () => {
             name="message"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="text-lg">Message</FormLabel>
+                <FormLabel htmlFor="message" className="text-lg">
+                  Message
+                </FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder="Enter your message..."

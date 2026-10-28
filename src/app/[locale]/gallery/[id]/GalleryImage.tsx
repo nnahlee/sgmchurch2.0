@@ -41,6 +41,7 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
           {/* Top navigation */}
           <div className="mb-5 flex items-center justify-between gap-4">
             <Link
+              aria-label="Back to gallery"
               href="/gallery"
               className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition hover:text-foreground"
             >
