@@ -61,6 +61,7 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
             className="group relative isolate aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-950 shadow-xl sm:aspect-[16/9] lg:aspect-[16/8]"
           >
             <Image
+              aria-label={`gallery image - ${id}`}
               src={imgSrc}
               alt={id}
               fill
@@ -89,8 +90,8 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
               return (
                 <Link
                   key={item.src}
-                  href={`/gallery/${index}`}
-                  aria-label={`View image ${index}`}
+                  href={`/gallery/${item.id}`}
+                  aria-label={`View image ${item.id}`}
                   aria-current={isActive ? "page" : undefined}
                   className={`relative h-16 w-24 shrink-0 overflow-hidden rounded-lg border-2 transition sm:h-20 sm:w-28 ${
                     isActive
@@ -99,6 +100,7 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
                   }`}
                 >
                   <Image
+                    aria-label={`gallery thumbnail ${item.alt} - ${item.id}`}
                     src={item.src}
                     alt={item.alt}
                     fill
@@ -126,7 +128,8 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
               </div>
 
               <Link
-                href="/gallery"
+                aria-label={`gallery image - ${id}`}
+                href={`/gallery/${id}`}
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold transition hover:bg-muted"
               >
                 <Images className="h-4 w-4" />
