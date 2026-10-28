@@ -66,7 +66,7 @@ const Hero = ({ title, description, btnText, heroImg, section }: HeroTypes) => {
         alt="Hero Image"
         fill
         quality={75}
-        preload={true}
+        fetchPriority="high"
         sizes="100vw"
         className="object-cover"
       />
