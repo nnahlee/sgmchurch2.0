@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 import "../globals.css";
 
 import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
-const inter = Inter({ subsets: ["latin"], weight: "700" });
 import { routing } from "@/i18n/routing";
 
-// comps
+// Components
 import Nav from "./nav/Nav";
 import Footer from "./footer/Footer";
-import Script from "next/script";
+
+const inter = Inter({ subsets: ["latin"], weight: "700" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.sgmchurch.com"),
@@ -39,29 +40,33 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
+
   return (
     <html lang={locale} className={inter.className}>
-      {/* <link rel="icon" href="/favicon.ico" sizes="any" /> */}
-      <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=AW-17476185400"
-        strategy="lazyOnload"
-      />
-      <Script id="google-ads-init" strategy="lazyOnload">
-        {`window.dataLayer = window.dataLayer || [];
+      <body
+        className={`${inter.className} ${inter.style} antialiased overflow-x-hidden`}
+      >
+        {/* Google Tag Manager */}
+        <GoogleTagManager gtmId="GTM-K7927WWL" />
+
+        {/* Google Ads */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17476185400"
+          strategy="lazyOnload"
+        />
+        <Script id="google-ads-init" strategy="lazyOnload">
+          {`
+            window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-17476185400');
           `}
-      </Script>
-      <body
-        className={`${inter.className} ${inter.style} antialiased overflow-x-hidden`}
-      >
-        <GoogleTagManager gtmId="GTM-K7927WWL" />
+        </Script>
+
         <NextIntlClientProvider>
           <Nav />
           <main>{children}</main>
-
           <Toaster richColors />
           <Footer />
         </NextIntlClientProvider>
