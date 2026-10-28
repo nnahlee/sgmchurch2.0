@@ -63,10 +63,12 @@ const ServeAndVolunteer = () => {
         </Card>
         <Card className="relative h-[400px] md:h-[700px] mb-12">
           <Image
+            aria-label="Serve and Volunteer"
             fill={true}
             className="object-cover rounded-xl md:p-12 p-0"
-            src="/images/serve-volunteer.jpg"
-            alt="place-holder"
+            src="/images/compressed/serve-volunteer-compressed.webp"
+            alt="serve-volunteer"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </Card>
       </div>

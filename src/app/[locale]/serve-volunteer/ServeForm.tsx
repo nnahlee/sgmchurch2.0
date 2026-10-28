@@ -70,7 +70,8 @@ const ServeForm = () => {
     <div className=" bg-slate-800 md:p-12 p-4 text-white 2xl:w-[700px] w-full">
       <div className="relative img-container md:min-h-[480px] h-[400px]">
         <Image
-          src="/images/serve.jpg"
+          aria-label="Serve and Volunteer"
+          src="/images/compressed/serve-compressed.webp"
           alt="Contact Form Image"
           fill={true}
           className="object-cover rounded-xl "
