@@ -13,10 +13,9 @@ google search console
 
 
 #paypal pdf -> email -> 
-# add sitemap,
+
 # google analytics
-#add custom favicon
-# add llm.txt
+
 
 
 

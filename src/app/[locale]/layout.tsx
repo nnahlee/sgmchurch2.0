@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "../globals.css";
 
 import { Inter } from "next/font/google";
@@ -21,6 +22,9 @@ export const metadata: Metadata = {
   other: {
     google: "notranslate",
   },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export function generateStaticParams() {
@@ -37,6 +41,7 @@ export default async function RootLayout({
   const { locale } = await params;
   return (
     <html lang={locale} className={inter.className}>
+      {/* <link rel="icon" href="/favicon.ico" sizes="any" /> */}
       <Script
         async
         src="https://www.googletagmanager.com/gtag/js?id=AW-17476185400"
@@ -55,6 +60,7 @@ export default async function RootLayout({
         <NextIntlClientProvider>
           <Nav />
           <main>{children}</main>
+          <GoogleTagManager gtmId="GTM-K7927WWL" />
           <Toaster richColors />
           <Footer />
         </NextIntlClientProvider>

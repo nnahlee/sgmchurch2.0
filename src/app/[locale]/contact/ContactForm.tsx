@@ -4,7 +4,7 @@ import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
-
+import { sendGTMEvent } from "@next/third-parties/google";
 import {
   Form,
   FormField,
@@ -169,6 +169,12 @@ const ContactForm = () => {
           />
 
           <Button
+            onClick={() => {
+              sendGTMEvent({
+                event: "contact-form-submitted",
+                formLocation: "contact-form",
+              });
+            }}
             disabled={isPending || !capcha}
             size="lg"
             className="w-full p-6 font-bold text-lg cursor-pointer"

@@ -19,6 +19,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useTranslations } from "next-intl";
+import { sendGTMEvent } from "@next/third-parties/google";
 // server action
 import { sendEmailAction } from "../../../../actions/sendEmail";
 import { useServerAction } from "zsa-react";
@@ -172,6 +173,12 @@ const ServeForm = () => {
           />
 
           <Button
+            onClick={() => {
+              sendGTMEvent({
+                event: "serve-volunteer-form-submitted",
+                formLocation: "serve-volunteer-form",
+              });
+            }}
             disabled={isPending || !capcha}
             size="lg"
             className="w-full p-6 font-bold text-lg cursor-pointer"

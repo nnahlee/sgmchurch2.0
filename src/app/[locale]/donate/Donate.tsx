@@ -13,6 +13,7 @@ import { BiDonateHeart } from "react-icons/bi";
 import { BsBalloonHeartFill } from "react-icons/bs";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { sendGTMEvent } from "@next/third-parties/google";
 import {
   Popover,
   PopoverContent,
@@ -51,6 +52,7 @@ const Donate = () => {
           >
             <CardContent className="flex flex-col items-center">
               <Image
+                aria-label={`Donation method ${payment.title}`}
                 src={payment.src}
                 alt={`Donation method ${idx + 1}`}
                 className="rounded-lg object-cover my-12"
@@ -67,8 +69,19 @@ const Donate = () => {
               <CardFooter className="p-4 ">
                 <div className="flex flex-col items-center gap-2">
                   {payment.btnUrl === "/stripe-donation" ? (
-                    <Link href="/stripe-donation" passHref>
+                    <Link
+                      aria-label={`Donation method credit card using stripe`}
+                      href="/stripe-donation"
+                      passHref
+                    >
                       <Button
+                        onClick={() =>
+                          sendGTMEvent({
+                            event: "stripe-btn-clicked",
+                            paymentMethod: "stripe",
+                            btnLocation: "stripe-donation-button",
+                          })
+                        }
                         className="md:w-[280px] cursor-pointer w-full md:py-7 py-0 md:text-lg text-sm font-bold bg-green-500"
                         size="lg"
                       >
@@ -98,6 +111,7 @@ const Donate = () => {
                     </Popover>
                   ) : (
                     <Link
+                      aria-label={`Donation method using paypal`}
                       target="_blank"
                       href="https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN"
                       passHref

@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 type HeroTypes = {
   section: "home" | "about" | "donate";
@@ -92,7 +93,16 @@ const Hero = ({ title, description, btnText, heroImg, section }: HeroTypes) => {
           </motion.p>
 
           <motion.div variants={btnVariant} className="btn my-4">
-            <Button className="w-full md:w-[500px] h-[70px] cursor-pointer rounded-2xl px-12 py-4 z-99 hover:bg-pink-400 bg-teal-500 transition-colors duration-300 ease-in-out text-white text-xl font-bold flex items-center justify-center gap-4">
+            <Button
+              onClick={() =>
+                sendGTMEvent({
+                  event: "paypal-btn-clicked",
+                  paymentMethod: "paypal",
+                  btnLocation: "hero",
+                })
+              }
+              className="w-full md:w-[500px] h-[70px] cursor-pointer rounded-2xl px-12 py-4 z-99 hover:bg-pink-400 bg-teal-500 transition-colors duration-300 ease-in-out text-white text-xl font-bold flex items-center justify-center gap-4"
+            >
               <Link
                 aria-label="Donate using paypal"
                 className="w-full"
