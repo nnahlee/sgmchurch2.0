@@ -69,12 +69,14 @@ const Donate = () => {
               <CardFooter className="p-4 ">
                 <div className="flex flex-col items-center gap-2">
                   {payment.btnUrl === "/stripe-donation" ? (
-                    <Link
-                      aria-label={`Donation method credit card using stripe`}
-                      href="/stripe-donation"
-                      passHref
+                    <Button
+                      asChild
+                      className="md:w-[280px] cursor-pointer w-full md:py-7 py-0 md:text-lg text-sm font-bold bg-green-500"
+                      size="lg"
                     >
-                      <Button
+                      <Link
+                        href="/stripe-donation"
+                        aria-label="Donate by credit or debit card using Stripe"
                         onClick={() =>
                           sendGTMEvent({
                             event: "stripe-btn-clicked",
@@ -82,12 +84,10 @@ const Donate = () => {
                             btnLocation: "stripe-donation-button",
                           })
                         }
-                        className="md:w-[280px] cursor-pointer w-full md:py-7 py-0 md:text-lg text-sm font-bold bg-green-500"
-                        size="lg"
                       >
                         {t(`payments.${idx}.btnText`)}
-                      </Button>
-                    </Link>
+                      </Link>
+                    </Button>
                   ) : payment.title === "Zelle" ? (
                     <Popover>
                       <PopoverTrigger asChild>
@@ -110,13 +110,16 @@ const Donate = () => {
                       </PopoverContent>
                     </Popover>
                   ) : (
-                    <Link
-                      aria-label={`Donation method using paypal`}
-                      target="_blank"
-                      href="https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN"
-                      passHref
+                    <Button
+                      asChild
+                      className="md:w-[280px] cursor-pointer w-full md:py-7 py-0 md:text-lg text-sm font-bold bg-green-500"
+                      size="lg"
                     >
-                      <Button
+                      <Link
+                        aria-label="Donate using PayPal"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN"
                         onClick={() =>
                           sendGTMEvent({
                             event: "paypal-btn-clicked",
@@ -124,12 +127,10 @@ const Donate = () => {
                             btnLocation: "donation page",
                           })
                         }
-                        className="md:w-[280px] cursor-pointer w-full md:py-7 py-0 md:text-lg text-sm font-bold bg-green-500"
-                        size="lg"
                       >
                         {t(`payments.${idx}.btnText`)}
-                      </Button>
-                    </Link>
+                      </Link>
+                    </Button>
                   )}
                 </div>
               </CardFooter>

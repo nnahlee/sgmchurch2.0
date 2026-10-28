@@ -94,6 +94,7 @@ const Hero = ({ title, description, btnText, heroImg, section }: HeroTypes) => {
 
           <motion.div variants={btnVariant} className="btn my-4">
             <Button
+              asChild
               onClick={() =>
                 sendGTMEvent({
                   event: "paypal-btn-clicked",
