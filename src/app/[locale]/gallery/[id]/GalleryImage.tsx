@@ -65,8 +65,9 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
               src={imgSrc}
               alt={id}
               fill
-              quality={70}
-              preload={true}
+              quality={75}
+              priority
+              fetchPriority="high"
               sizes="(max-width: 639px) calc(100vw - 2rem), (max-width: 767px) calc(100vw - 3rem), (max-width: 1279px) calc(100vw - 4rem), 1216px"
               className="object-contain"
             />
