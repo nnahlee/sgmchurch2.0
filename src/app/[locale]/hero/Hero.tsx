@@ -7,6 +7,9 @@
 // https://developer.paypal.com/guides/nextjs-checkout
 // test pdt using ngrok
 // https://www.paypal.com/unifiedsettings/webPreferences
+
+// https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN live hosted button
+
 // setup PDT for client confirmation (incase close early) and IPN for server confirmation
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -64,7 +67,7 @@ const Hero = ({ title, description, btnText, heroImg, section }: HeroTypes) => {
   const paypalPaymentLink =
     process.env.NODE_ENV === "development"
       ? "https://www.sandbox.paypal.com/ncp/payment/XT6GUVFUZQ9DN"
-      : "https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN";
+      : "https://www.paypal.com/ncp/payment/9YX85RCK9BU6J";
 
   return (
     <div className="relative w-full h-[1000px] sm:h-[600px] lg:h-[700px]">

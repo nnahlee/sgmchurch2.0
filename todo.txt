@@ -12,9 +12,7 @@ https://www.paypal.com/unifiedsettings/webPreferences
 google search console
 
 
-#paypal pdf -> email -> 
-
-#add new envs in vercel
+email -> paypal on IPN and PDT
 
 
 
