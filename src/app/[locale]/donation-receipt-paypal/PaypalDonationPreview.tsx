@@ -5,10 +5,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { DonationReceiptData } from "@/components/pdf/blocks/invoice-modern/invoice-modern";
 import takumiWasmUrl from "takumi-pdf/wasm-url";
-
-type Props = {
-  data: DonationReceiptData;
-};
+import { useSearchParams, redirect } from "next/navigation";
 
 type TakumiInitializer = (input: { module_or_path: URL }) => Promise<unknown>;
 
@@ -28,13 +25,36 @@ async function initializeTakumi(initialize: TakumiInitializer) {
   }
 }
 
-export function PaypalDonationPreview({ data }: Props) {
+export function PaypalDonationPreview() {
+  const searchParams = useSearchParams();
   const [pdfUrl, setPdfUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [receiptNumber, setReceiptNumber] = useState("");
 
   useEffect(() => {
     let cancelled = false;
     let objectUrl: string | undefined;
+    const paymentStatus = searchParams.get("st");
+    const amount = searchParams.get("amt");
+    const now = new Date();
+    const formattedDate = new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }).format(now);
+    const data: DonationReceiptData = {
+      amount: Number(amount),
+      receiptNumber: "SGMC-" + now.getTime(),
+      receiptDate: formattedDate,
+      donorName: "MR./MS.",
+      donationDate: formattedDate,
+      currency: "usd",
+    };
+    if (!amount || paymentStatus !== "COMPLETED") {
+      return redirect("/");
+    }
+
+    setReceiptNumber(data.receiptNumber);
 
     async function generatePdf() {
       try {
@@ -83,14 +103,14 @@ export function PaypalDonationPreview({ data }: Props) {
         URL.revokeObjectURL(objectUrl);
       }
     };
-  }, [data]);
+  }, [searchParams]);
 
   if (error) {
     return <p role="alert">PDF generation failed: {error}</p>;
   }
 
   if (!pdfUrl) {
-    return <p>Generating donation receipt...</p>;
+    return <p className="font-bold text-2xl">Loading...</p>;
   }
 
   return (
@@ -100,8 +120,9 @@ export function PaypalDonationPreview({ data }: Props) {
 
         <Button asChild variant="outline" size="sm">
           <a
+            aria-label="donation receipt download"
             href={pdfUrl}
-            download={`donation-receipt-${data.receiptNumber}.pdf`}
+            download={`donation-receipt-${receiptNumber}.pdf`}
           >
             Download PDF
           </a>

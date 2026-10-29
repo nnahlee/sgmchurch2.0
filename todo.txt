@@ -14,6 +14,8 @@ google search console
 
 #paypal pdf -> email -> 
 
+#add new envs in vercel
+
 
 
 

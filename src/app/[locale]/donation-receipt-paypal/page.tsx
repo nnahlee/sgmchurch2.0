@@ -1,26 +1,29 @@
 import { PaypalDonationPreview } from "./PaypalDonationPreview";
-import type { DonationReceiptData } from "@/components/pdf/blocks/invoice-modern/invoice-modern";
+import { redirect } from "next/navigation";
+import { verifyPaypalPdt } from "@/../lib/paypal/paypal-pdt-verify";
+// page 20 reference
+// https://www.paypalobjects.com/en_US/DE/pdf/PP_OrderManagement_IntegrationGuide.pdf
+// A transaction token is passed to the return URL tx=value_of_transaction_token
+// need to use at=identity token value too
 
-const now = new Date();
-const formattedDate = new Intl.DateTimeFormat("en-US", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-}).format(now);
-
-const data: DonationReceiptData = {
-  receiptNumber: "SGMC-" + now.getTime(),
-  receiptDate: formattedDate,
-  donorName: "MR./MS.",
-  donationDate: formattedDate,
-  currency: "usd",
-  amount: 0,
+type PaypalDonationReceiptTypes = {
+  searchParams: Promise<{ tx?: string }>;
 };
 
-const DonationPaypalReceiptPage = () => {
+const DonationPaypalReceiptPage = async ({
+  searchParams,
+}: PaypalDonationReceiptTypes) => {
+  const { tx } = await searchParams;
+
+  if (!tx) {
+    return redirect("/");
+  }
+
+  verifyPaypalPdt(tx);
+
   return (
     <div>
-      <PaypalDonationPreview data={data} />
+      <PaypalDonationPreview />
     </div>
   );
 };

@@ -1,11 +1,13 @@
 "use client";
 
 // live - https://www.paypal.com/donate/buttons/manage?fromLanding=true
+// for sandbox test login using sandbox account from main sgmchurch
 // test - https://sandbox.paypal.com/donate/buttons/manage?fromLanding=true
 // href="https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN"
-
+// https://developer.paypal.com/guides/nextjs-checkout
+// test pdt using ngrok
 // https://www.paypal.com/unifiedsettings/webPreferences
-
+// setup PDT for client confirmation (incase close early) and IPN for server confirmation
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -13,6 +15,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { sendGTMEvent } from "@next/third-parties/google";
 
+// live  https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN
 type HeroTypes = {
   section: "home" | "about" | "donate";
   title: string;
@@ -58,6 +61,10 @@ const btnVariant = {
 
 const Hero = ({ title, description, btnText, heroImg, section }: HeroTypes) => {
   const t = useTranslations("Hero");
+  const paypalPaymentLink =
+    process.env.NODE_ENV === "development"
+      ? "https://www.sandbox.paypal.com/ncp/payment/XT6GUVFUZQ9DN"
+      : "https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN";
 
   return (
     <div className="relative w-full h-[1000px] sm:h-[600px] lg:h-[700px]">
@@ -108,7 +115,7 @@ const Hero = ({ title, description, btnText, heroImg, section }: HeroTypes) => {
                 aria-label="Donate using paypal"
                 className="w-full"
                 target="_blank"
-                href="https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN"
+                href={paypalPaymentLink}
               >
                 {t(`${section}.btnText`) || btnText}
               </Link>

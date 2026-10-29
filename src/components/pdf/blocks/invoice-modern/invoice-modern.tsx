@@ -12,7 +12,7 @@ export type DonationReceiptData = {
   donorName: string;
   amount: number;
   currency: string;
-  donationDate: string;
+  donationDate?: string;
 };
 
 const church = {
