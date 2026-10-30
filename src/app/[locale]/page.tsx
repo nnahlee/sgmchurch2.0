@@ -28,7 +28,6 @@ export async function generateMetadata({
   const canonicalUrl = `${siteUrl}/${locale}`;
 
   const pageTitle = "Street Gospel Mission Church - Faith, Service & Community";
-
   const pageDescription =
     "Welcome to Street Gospel Mission Church. Join us in sharing faith, hope, and love through worship, community, and outreach programs that serve the homeless and those in need.";
 

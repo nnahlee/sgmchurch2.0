@@ -35,15 +35,16 @@ const Gallery = () => {
         className="mx-auto w-full max-w-[1200px]"
       >
         <CarouselContent className="py-4 min-[400px]:py-8 sm:py-12 md:py-16">
-          {gallerySlides.map(({ src, alt }, index) => (
+          {gallerySlides.map(({ src, alt, id }) => (
             <CarouselItem
-              key={index}
+              key={id}
               className="basis-full min-w-0 min-[400px]:basis-1/2 lg:basis-1/3"
             >
-              <Link href={`/gallery/${index}`}>
+              <Link href={`/gallery/${id}`}>
                 <Card className="overflow-hidden p-1 min-[320px]:p-2 sm:p-3">
                   <CardContent className="relative h-[220px] min-[320px]:h-[260px] sm:h-[340px] md:h-[400px] lg:h-[440px] p-0">
                     <Image
+                      quality={85}
                       src={src}
                       alt={alt}
                       fill
