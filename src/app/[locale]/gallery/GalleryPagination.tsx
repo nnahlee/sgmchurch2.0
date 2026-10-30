@@ -12,10 +12,13 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { useState, Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useTranslations } from "next-intl";
 
 import { gallerySlides } from "@/../types";
 
 const GalleryPagination = () => {
+  const t = useTranslations("Gallery");
+  console.log("test");
   const IMAGES_PER_PAGE = 12;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -57,7 +60,7 @@ const GalleryPagination = () => {
   return (
     <div className="w-full px-4 py-8 sm:px-6 md:py-8 lg:px-8">
       <h2 className="text-center text-3xl font-bold sm:text-4xl md:text-5xl">
-        Gallery
+        {t(`title`)}
       </h2>
 
       {/* grid 4 cols 3 rows */}

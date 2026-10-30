@@ -7,14 +7,14 @@ import { Link } from "@/i18n/navigation";
 import { Maximize2, Images } from "lucide-react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 type GalleryImageTypes = {
   id: string;
 };
 
 const GalleryImage = ({ id }: GalleryImageTypes) => {
-  // const currentImageIndex = +id - 1;
-  // console.log(currentImageIndex);
+  const t = useTranslations("Gallery");
   const imgSrc = gallerySlides.map((slide) => slide.src)[+id];
 
   const imageRef = useRef<HTMLDivElement>(null);
@@ -46,7 +46,7 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
               className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition hover:text-foreground"
             >
               <Button className="cursor-pointer" size="lg" variant="secondary">
-                Back to Gallery
+                {t("back-btn")}
               </Button>
             </Link>
 
@@ -121,9 +121,7 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
                 </span>
 
                 <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
-                  Celebrating faith, fellowship, and service at Street Gospel
-                  Mission Church. Each moment reflects our shared commitment to
-                  worship, community, and sharing God&apos;s love.
+                  {t("description")}
                 </p>
               </div>
 
@@ -133,13 +131,10 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold transition hover:bg-muted"
               >
                 <Images className="h-4 w-4" />
-                Explore Gallery
+                {t("title")}
               </Link>
             </div>
           </section>
-
-          {/* Bottom navigation */}
-          <div className="mt-8 flex items-center justify-between border-t border-border pt-5"></div>
         </div>
       </main>
     </div>

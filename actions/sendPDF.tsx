@@ -1,17 +1,23 @@
 "use server";
 import nodemailer from "nodemailer";
 import { createServerAction } from "zsa";
-import { contactFormSchema, FormTypes } from "../zodtypes/zodTypes";
-import ContactEmail from "../emails/ContactEmail";
+import {
+  contactFormSchema,
+  FormTypes,
+  emailPdfSchema,
+  EmailPdfTypes,
+} from "../zodtypes/zodTypes";
+
 import { render } from "@react-email/components";
+import PdfEmail from "@/../emails/PdfEmail";
 // google gmail api
 // https://developers.google.com/oauthplayground to get the refresh token
 // test users -> https://console.cloud.google.com/auth/audience?project=zzzstore
 
-export const sendEmailAction = createServerAction()
-  .input(contactFormSchema)
-  .handler(async ({ input }: { input: FormTypes }) => {
-    const { name, email, message } = input;
+export const sendPdfEmailAction = createServerAction()
+  .input(emailPdfSchema)
+  .handler(async ({ input }: { input: EmailPdfTypes }) => {
+    const { amount, donationDate, receiptUrl } = input;
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -24,11 +30,18 @@ export const sendEmailAction = createServerAction()
     });
 
     const emailHtml = await render(
-      <ContactEmail name={name} email={email} message={message} />,
+      <PdfEmail
+        amount={amount}
+        donationDate={donationDate}
+        receiptUrl={receiptUrl}
+      />,
+
+      // <ContactEmail name={name} email={email} message={message} />,
     );
 
     const emailOptions = {
-      from: email,
+      from: process.env.EMAIL_USER,
+      // to receiptant not this todo
       to: process.env.EMAIL_USER,
       subject: "Contact message for SGM Church",
       html: emailHtml,

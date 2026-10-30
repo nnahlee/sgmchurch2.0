@@ -23,7 +23,8 @@
     "videoTitle": "Worship Lives on the Streets"
   },
   "Services": {
-    "serviceTitle": "Service Days"
+    "serviceTitle": "Service Days",
+    "serviceBtn": "Contact Us"
   },
   "Volunteer": {
     "volunteerTitle": "Volunteer",
@@ -31,10 +32,29 @@
   },
   "VolunteerD": {
     "quote": "We believe that God has called us to reach and bless people from one to many.",
-    "description": "Our heartfelt thanks goes to you for standing with us in your donations to help the church to fulfil its mission and vision. You may wish to know more on how to contribute to the work of Renewal, please scroll down for the four ways you can support by giving financially."
+    "description": "Our heartfelt thanks goes to you for standing with us in your donations to help the church to fulfil its mission and vision. You may wish to know more on how to contribute to the work of Renewal, please scroll down for the four ways you can support by giving financially.",
+    "descriptions": [
+      {
+        "title": "십일조 및 헌금",
+        "text": "하나님의 사역 회복을 위한 교회의 유지와 지속적인 사역을 후원합니다."
+      },
+      {
+        "title": "비전 헌금",
+        "text": "'Make the Most' 건축 프로젝트를 통해 다음 세대에게 복음을 전하고 믿음의 유산을 이어갑니다."
+      },
+      {
+        "title": "지역사회 후원 기금",
+        "text": "도움이 필요한 지역사회 이웃들을 지원합니다."
+      },
+      {
+        "title": "구제 기금",
+        "text": "어려움과 고난을 겪는 교회 공동체 식구들에게 도움과 위로를 전합니다."
+      }
+    ]
   },
   "Socials": {
     "title": "Follow us to stay connected with our community!",
+    "followBtn": "Follow Us",
     "socialDescriptions": [
       {
         "description": "Stay connected with our church community on Facebook. Get the latest news, event information, and more."
@@ -45,13 +65,15 @@
       {
         "description": "Subscribe to our YouTube channel for sermons, worship services, and highlights from our church community."
       }
-    ]
+    ],
+    "footerTitle": "Socials"
   },
   "About": {
     "title": "Street Gospel Mission Church",
     "description": "The primary focus of SGMC Corps is the proclamation and the demonstration of the Gospel of Jesus Christ for our nearest neighbors. We embrace the spiritual principle that the greatest goal of the believer is to grow in the grace and the holy spirit of living Christ as we learn, teach, apply, and exercise Gods blessed words in our daily life. This spiritual empowerment results in the evangelization of the lost and the demonstration of the love of Christ. We are openly encouraged to engage, invite and believe in Christ and to learn and grow in the grace of Christ through the real exercise of the Gospel of Jesus Christ. Our daily outreach is to bridge between our near neighbors who are lost/last/least and those who have a compassion to love our neighbors as ourselves in Christ. Our nearest neighbors are the poor in need who crosses our path as we journey through life",
     "pastor1": "Pastor Steven Lee is an influential religious leader and public figure who has dedicated his life to spreading the teachings of the Christian faith. He is widely respected for his thoughtful and compassionate approach to ministry, and is known for his ability to connect with people from all walks of life.",
-    "pastor2": "Pastor Soon Keum Lee is a highly respected spiritual leader and devoted servant of God who has dedicated her life to spreading the teachings of the Christian faith. With a kind and compassionate spirit, she has touched the lives of countless individuals and inspired them to deepen their faith and seek a closer relationship with God."
+    "pastor2": "Pastor Soon Keum Lee is a highly respected spiritual leader and devoted servant of God who has dedicated her life to spreading the teachings of the Christian faith. With a kind and compassionate spirit, she has touched the lives of countless individuals and inspired them to deepen their faith and seek a closer relationship with God.",
+    "pastorsTitle": "Our Pastors"
   },
   "Contact": {
     "title": "Get Involved",
@@ -59,7 +81,17 @@
     "subtitle": "Our Address & Contact Details"
   },
   "ContactForm": {
-    "title": "Contact"
+    "title": "Contact",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "message": "Message",
+
+    "namep": "Name",
+    "emailp": "Email",
+    "phonep": "Phone Number",
+    "messagep": "Message",
+    "submit": "Submit"
   },
   "Donate": {
     "payments": [
@@ -85,11 +117,12 @@
     ],
     "zelleMessage": "Send using Zelle to ",
     "zelleEmail": "lsoonkeum@gmail.com",
-
     "donateCard1Title": "Donate Today and Join Our Mission.",
     "donateCard1Description": "Street Gospel Mission Church is a faith-based organization dedicated to spreading the Gospel of Jesus Christ and supporting those in need within our community. Our mission is to help individuals and families overcome life's challenges and find hope and restoration through faith, fellowship, and service.",
     "donateCard2Title": "Bringing Hope to the Homeless",
-    "donateCard2Description": "Thank you for considering supporting Street Gospel Mission Church. Together, we can make a difference and bring hope to those in need."
+    "donateCard2Description": "Thank you for considering supporting Street Gospel Mission Church. Together, we can make a difference and bring hope to those in need.",
+    "secondaryTitle": "Ways You Can Give",
+    "secondaryDescription": "If you would like to give towards the work we do, here are ways you can help us."
   },
   "Faq": {
     "title": "FAQ - Frequently Asked Questions",
@@ -145,7 +178,17 @@
     "btnText2": "Learn More",
     "signUpBadge": "Sign Up And Get Involved",
     "signUpDescription": "Ready to make a difference? Sign up to volunteer with Street Gospel Mission Church and become part of a community dedicated to serving others and sharing God's love. Fill out the form below to let us know how you'd like to get involved, and we'll contact you about upcoming volunteer opportunities.",
-    "formTitleMessage": "Message Us"
+    "formTitleMessage": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "message": "Message",
+
+    "namep": "Enter your name",
+    "emailp": "Enter your email",
+    "phonep": "Enter your phone number",
+    "messagep": "Enter your message",
+    "submit": "Submit"
   },
   "Nav": {
     "linkTitles": [
@@ -174,5 +217,10 @@
       }
     ],
     "localeSelectTitle": "Change Language"
+  },
+  "Gallery": {
+    "title": "Gallery",
+    "description": "Celebrating faith, fellowship, and service at Street Gospel Mission Church. Each moment reflects our shared commitment to worship, community, and sharing God's love.",
+    "back-btn": "Back to Gallery"
   }
 }

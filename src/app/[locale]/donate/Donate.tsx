@@ -33,11 +33,10 @@ const Donate = () => {
     <div className=" my-12">
       <div className="text-wrapper flex flex-col items-center gap-12 my-8 sm:mt-24 px-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-green-500 capitalize">
-          Ways you can give
+          {t("secondaryTitle")}
         </h1>
         <p className="text-center text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl">
-          If you would like to give towards the work we do, here are ways you
-          can help us.
+          {t("secondaryDescription")}
         </p>
       </div>
 

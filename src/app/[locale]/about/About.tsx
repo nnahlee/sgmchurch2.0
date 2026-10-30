@@ -37,7 +37,7 @@ const About = () => {
       {/* Pastors section */}
       <div className="sectionwrapper px-6 sm:px-12 lg:px-24">
         <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-center my-20 sm:my-24">
-          Our Pastors
+          {t("pastorsTitle")}
         </h1>
         <section className="pastors-section grid grid-cols-1 xl:grid-cols-2 my-20 place-items-center gap-8">
           <Card className="w-full max-w-4xl my-20">
@@ -60,6 +60,7 @@ const About = () => {
             <CardContent className="flex flex-col md:flex-row h-auto md:h-[400px] justify-center items-center gap-12 ">
               <div className="relative w-full sm:w-[1800px] h-[340px]">
                 <Image
+                  aria-label="pastors"
                   src="/images/compressed/soon-compressed.webp"
                   alt="Pastor Soon Keum Lee"
                   fill

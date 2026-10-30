@@ -1,9 +1,12 @@
 "use server";
 
 function getPaypalPdtUrl(): string {
-  return process.env.NEXT_PUBLIC_PAYPAL_ENVIRONMENT === "sandbox"
-    ? "https://www.sandbox.paypal.com/cgi-bin/webscr"
-    : "https://www.paypal.com/cgi-bin/webscr";
+  const paypalEnvironment =
+    process.env.NODE_ENV === "development"
+      ? "https://www.sandbox.paypal.com/cgi-bin/webscr"
+      : "https://www.paypal.com/cgi-bin/webscr";
+
+  return paypalEnvironment;
 }
 
 export async function verifyPaypalPdt(
@@ -12,11 +15,13 @@ export async function verifyPaypalPdt(
   const identityToken = process.env.PAYPAL_DT_TOKEN;
 
   if (!identityToken || !txToken) {
+    console.log("no id token");
     return null;
   }
 
   //   get values of ? and & and returns object
   const body = new URLSearchParams({
+    cmd: "_notify-synch",
     tx: txToken,
     at: identityToken,
   });
@@ -32,11 +37,14 @@ export async function verifyPaypalPdt(
     cache: "no-store",
   };
   const response = await fetch(getPaypalPdtUrl(), config);
-  // console.log(`this is response ${await response.text()}`);
+  console.log(response);
+
   try {
-    if (!response.ok) {
+    if (!response.ok || response.status !== 200) {
       throw new Error("PayPal PDT verification request failed");
     }
+    // success
+    return true;
     // emailsend here on success and on IPN route
   } catch {
     return null;

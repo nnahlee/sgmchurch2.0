@@ -89,7 +89,7 @@ const Service = () => {
                   aria-label="Contact Street Gospel Mission Church"
                   href="/contact"
                 >
-                  Contact Us
+                  {t("serviceBtn")}
                 </Link>
               </Button>
             </Card>

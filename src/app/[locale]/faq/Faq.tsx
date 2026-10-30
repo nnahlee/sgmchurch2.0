@@ -50,7 +50,7 @@ const Faq = () => {
   return (
     <div className="">
       <h2 className="text-center font-bold md:text-5xl text-2xl">
-        FAQ - Frequently Asked Questions
+        {t(`title`)}
       </h2>
 
       <Accordion type="multiple" className="py-24 max-w-[840px]">

@@ -19,7 +19,13 @@ const DonationPaypalReceiptPage = async ({
     return redirect("/");
   }
 
-  verifyPaypalPdt(tx);
+  const isPdtVerified = await verifyPaypalPdt(tx);
+
+  console.log(`is verified ${isPdtVerified}`);
+
+  if (!isPdtVerified) {
+    redirect("/");
+  }
 
   return (
     <div>

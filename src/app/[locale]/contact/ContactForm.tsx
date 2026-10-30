@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
 import { sendGTMEvent } from "@next/third-parties/google";
+
 import {
   Form,
   FormField,
@@ -89,12 +90,12 @@ const ContactForm = () => {
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormLabel htmlFor="name" className="text-lg">
-                  Name
+                  {t("name")}
                 </FormLabel>
                 <FormControl>
                   <Input
                     className="bg-white p-5 text-black"
-                    placeholder="Enter name..."
+                    placeholder={`${t("namep")}...`}
                     {...field}
                   />
                 </FormControl>
@@ -109,12 +110,12 @@ const ContactForm = () => {
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormLabel htmlFor="email" className="text-lg">
-                  Email
+                  {t("email")}
                 </FormLabel>
                 <FormControl>
                   <Input
                     className="bg-white p-5 text-black"
-                    placeholder="Enter email..."
+                    placeholder={`${t("emailp")}...`}
                     {...field}
                   />
                 </FormControl>
@@ -129,12 +130,12 @@ const ContactForm = () => {
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormLabel htmlFor="phone" className="text-lg">
-                  Phone Number
+                  {t("phone")}
                 </FormLabel>
                 <FormControl>
                   <Input
                     className="bg-white text-black p-5"
-                    placeholder="Enter phone..."
+                    placeholder={`${t("phonep")}...`}
                     {...field}
                   />
                 </FormControl>
@@ -149,11 +150,11 @@ const ContactForm = () => {
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormLabel htmlFor="message" className="text-lg">
-                  Message
+                  {t("message")}
                 </FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder="Enter your message..."
+                    placeholder={`${t("messagep")}...`}
                     className="resize-none bg-white p-5 text-black py-6"
                     {...field}
                   />
@@ -180,7 +181,7 @@ const ContactForm = () => {
             className="w-full p-6 font-bold text-lg cursor-pointer"
             type="submit"
           >
-            Submit <FaArrowRightFromBracket className="ml-1" size={36} />
+            {t("submit")} <FaArrowRightFromBracket className="ml-1" size={36} />
           </Button>
         </form>
       </Form>

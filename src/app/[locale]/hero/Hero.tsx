@@ -6,6 +6,7 @@
 // href="https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN"
 // https://developer.paypal.com/guides/nextjs-checkout
 // test pdt using ngrok
+// change return url here for testing live and development
 // https://www.paypal.com/unifiedsettings/webPreferences
 
 // https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN live hosted button

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { GoogleTagManager } from "@next/third-parties/google";
+import SocialSideBar from "@/app/[locale]/socials/SocialSideBar";
 import Script from "next/script";
 import "../globals.css";
 
@@ -66,7 +67,10 @@ export default async function RootLayout({
 
         <NextIntlClientProvider>
           <Nav />
-          <main>{children}</main>
+          <main>
+            {children}
+            <SocialSideBar />
+          </main>
           <Toaster richColors />
           <Footer />
         </NextIntlClientProvider>

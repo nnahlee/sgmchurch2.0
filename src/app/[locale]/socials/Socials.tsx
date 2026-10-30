@@ -63,7 +63,7 @@ const Socials = () => {
 
               <Button className="bg-orange-500 w-1/2 py-6 cursor-pointer  text-white  rounded-lg px-6  font-bold text-lg flex items-center gap-2">
                 <Link className="w-full" target="_blank" href={url}>
-                  Follow Us
+                  {t("followBtn")}
                 </Link>
               </Button>
             </Card>

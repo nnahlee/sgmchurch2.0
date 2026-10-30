@@ -30,6 +30,16 @@ export const receiptReturnSchema = z.object({
   name: z.string().nullable(),
 });
 
+export const emailPdfSchema = z.object({
+  amount: z.string().min(1, {
+    message: "amount is required",
+  }),
+  donationDate: z.string(),
+  receiptUrl: z.string(),
+});
+
+export type EmailPdfTypes = z.infer<typeof emailPdfSchema>;
+
 export type FormTypes = z.infer<typeof contactFormSchema>;
 export type inferReturnStripeType = inferServerActionReturnData<
   typeof stripeAction

@@ -34,7 +34,6 @@ export function PaypalDonationPreview() {
   useEffect(() => {
     let cancelled = false;
     let objectUrl: string | undefined;
-    const paymentStatus = searchParams.get("st");
     const amount = searchParams.get("amt");
     const now = new Date();
     const formattedDate = new Intl.DateTimeFormat("en-US", {
@@ -50,9 +49,6 @@ export function PaypalDonationPreview() {
       donationDate: formattedDate,
       currency: "usd",
     };
-    if (!amount || paymentStatus !== "COMPLETED") {
-      return redirect("/");
-    }
 
     setReceiptNumber(data.receiptNumber);
 

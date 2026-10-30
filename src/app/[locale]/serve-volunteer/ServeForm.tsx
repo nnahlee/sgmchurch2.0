@@ -95,12 +95,12 @@ const ServeForm = () => {
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormLabel htmlFor="name" className="text-lg">
-                  Name
+                  {t("name")}
                 </FormLabel>
                 <FormControl>
                   <Input
                     className="bg-white p-5 text-black"
-                    placeholder="Enter name..."
+                    placeholder={`${t("namep")}...`}
                     {...field}
                   />
                 </FormControl>
@@ -115,12 +115,12 @@ const ServeForm = () => {
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormLabel htmlFor="email" className="text-lg">
-                  Email
+                  {t("email")}
                 </FormLabel>
                 <FormControl>
                   <Input
                     className="bg-white p-5 text-black"
-                    placeholder="Enter email..."
+                    placeholder={`${t("emailp")}...`}
                     {...field}
                   />
                 </FormControl>
@@ -134,11 +134,11 @@ const ServeForm = () => {
             name="phone"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="text-lg">Phone Number</FormLabel>
+                <FormLabel className="text-lg">{t("phone")}</FormLabel>
                 <FormControl>
                   <Input
                     className="bg-white text-black p-5"
-                    placeholder="Enter phone..."
+                    placeholder={`${t("phonep")}...`}
                     {...field}
                   />
                 </FormControl>
@@ -153,11 +153,11 @@ const ServeForm = () => {
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormLabel htmlFor="message" className="text-lg">
-                  Message
+                  {t("message")}
                 </FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder="Enter your message..."
+                    placeholder={`${t("messagep")}...`}
                     className="resize-none bg-white p-5 text-black py-6"
                     {...field}
                   />
@@ -184,7 +184,8 @@ const ServeForm = () => {
             className="w-full p-6 font-bold text-lg cursor-pointer"
             type="submit"
           >
-            Submit <FaArrowRightFromBracket className="ml-1" size={36} />
+            {t("submit")}
+            <FaArrowRightFromBracket className="ml-1" size={36} />
           </Button>
         </form>
       </Form>

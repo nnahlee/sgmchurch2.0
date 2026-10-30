@@ -50,14 +50,15 @@ const VolunteerDescription = () => {
             className="flex flex-col sm:flex-row sm:justify-center sm:items-center gap-4 text-center sm:text-left"
           >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl text-teal-500 font-bold">
-              {description.title}
+              {/* {description.title} */}
+              {t(`descriptions.${index}.title`)}
             </h2>
             <ChevronLeft
               size={28}
               className="hidden sm:block text-teal-500 flex-shrink-0"
             />
             <p className="text-base sm:text-lg lg:text-xl text-secondary-foreground font-semibold">
-              {description.text}
+              {t(`descriptions.${index}.text`)}
             </p>
           </div>
         ))}
