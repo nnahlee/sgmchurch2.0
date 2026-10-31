@@ -76,9 +76,9 @@ const Hero = ({ title, description, btnText, heroImg, section }: HeroTypes) => {
         src={heroImg}
         alt="Hero Image"
         fill
-        quality={75}
+        quality={95}
         preload={true}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        sizes="100vw"
         className="object-cover"
       />
 
