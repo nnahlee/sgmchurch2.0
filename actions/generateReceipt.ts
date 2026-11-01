@@ -25,5 +25,6 @@ export const generateReceiptAction = createServerAction()
       amount: session.amount_total,
       currency: session.currency,
       name: session.customer_details?.name ?? null,
+      email: session.customer_details?.email ?? null,
     };
   });

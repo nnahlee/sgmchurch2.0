@@ -28,6 +28,7 @@ export const receiptReturnSchema = z.object({
   amount: z.number().nullable(),
   currency: z.string().nullable(),
   name: z.string().nullable(),
+  email: z.email().nullable(),
 });
 
 export const emailPdfSchema = z.object({

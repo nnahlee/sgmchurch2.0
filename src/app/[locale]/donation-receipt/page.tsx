@@ -4,6 +4,7 @@ import { generateReceiptAction } from "@/../actions/generateReceipt";
 import { inferReturnReceiptData } from "@/../zodtypes/zodTypes";
 import { DonationReceiptPreview } from "./DonationPreview";
 import { type DonationReceiptData } from "@/components/pdf/blocks/invoice-modern/invoice-modern";
+import { sendPdfEmailAction } from "@/../actions/sendPDF";
 type DonationReceiptTypes = {
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ session_id?: string }>;
@@ -42,6 +43,18 @@ const DonationReceiptPage = async ({
     amount: receiptDataConfirmed.amount / 100,
     currency: receiptDataConfirmed.currency,
   };
+  // send email
+  const emailDataPayload = {
+    amount: receiptDataConfirmed.amount.toString(),
+    donationDate: formattedDate,
+    receiptUrl: `https://sgmchurch.com/${locale}/donation-receipt?session_id=${session_id}`,
+    email: receiptDataConfirmed.email,
+    transactionId: data.receiptNumber,
+  };
+  if (receiptDataConfirmed.verified && receiptDataConfirmed.amount) {
+    const mailData = await sendPdfEmailAction(emailDataPayload);
+    console.log(mailData);
+  }
 
   return (
     <div>
