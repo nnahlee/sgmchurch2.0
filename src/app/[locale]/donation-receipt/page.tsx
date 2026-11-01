@@ -44,10 +44,15 @@ const DonationReceiptPage = async ({
     currency: receiptDataConfirmed.currency,
   };
   // send email
+
+  const receiptURL =
+    process.env.NODE_ENV === "development"
+      ? `http://localhost:3000/${locale}/return?session_id=${session_id}`
+      : `https://sgmchurch.com/${locale}/return?session_id=${session_id}`;
   const emailDataPayload = {
     amount: receiptDataConfirmed.amount.toString(),
     donationDate: formattedDate,
-    receiptUrl: `https://sgmchurch.com/${locale}/donation-receipt?session_id=${session_id}`,
+    receiptUrl: receiptURL,
     email: receiptDataConfirmed.email,
     transactionId: data.receiptNumber,
   };
