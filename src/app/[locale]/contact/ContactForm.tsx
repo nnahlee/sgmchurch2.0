@@ -37,21 +37,27 @@ const ContactForm = () => {
   });
 
   const [capcha, setCapcha] = React.useState(false);
+  const recaptchaRef = React.useRef<ReCAPTCHA>(null);
 
   const { isPending, execute } = useServerAction(sendEmailAction);
 
-  async function onSubmit(values: FormTypes) {
-    console.log("Form submitted:", values);
+  // reCAPTCHA tokens are single use and expire after ~2 minutes, so the widget
+  // has to be reset after every attempt or the button stays disabled.
+  function resetRecaptcha() {
+    recaptchaRef.current?.reset();
+    setCapcha(false);
+  }
 
-    // const emailData = await sendEmailAction(data);
-    const [data, err] = await execute(values);
-    console.log(data);
+  async function onSubmit(values: FormTypes) {
+    const [, err] = await execute(values);
 
     if (err) {
-      return toast.error(`Something Went Wrong`);
+      toast.error(err.message || "Something went wrong. Please try again.");
+      resetRecaptcha();
+      return;
     }
 
-    toast.success(`Email sent Successfully`);
+    toast.success("Email sent successfully");
 
     form.reset({
       name: "",
@@ -59,13 +65,12 @@ const ContactForm = () => {
       phone: "",
       message: "",
     });
+
+    resetRecaptcha();
   }
 
   function handleRecapcha(value: string | null) {
-    console.log(`capcha value ${value}`);
-    if (value) {
-      setCapcha(true);
-    }
+    setCapcha(Boolean(value));
   }
   return (
     <div className="md:p-24 p:0 bg-green-500 text-white flex xl:flex-row flex-col justify-center items-center gap-24">
@@ -165,6 +170,7 @@ const ContactForm = () => {
             )}
           />
           <ReCAPTCHA
+            ref={recaptchaRef}
             sitekey={process.env.NEXT_PUBLIC_RECAPCHA_CLIENT_KEY!}
             onChange={handleRecapcha}
           />

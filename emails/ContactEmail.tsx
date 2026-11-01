@@ -11,6 +11,7 @@ import {
   Img,
 } from "@react-email/components";
 
+// http://localhost:3000/api/auth/callback/google
 // https://console.cloud.google.com/auth/audience?project=zzzstore
 
 type ContactEmailProps = {

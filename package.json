@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "email": "email dev"
+    "email": "email dev",
+    "google:token": "node scripts/google-refresh-token.mjs"
   },
   "dependencies": {
     "@formepdf/core": "^0.29.0",

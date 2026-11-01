@@ -22,6 +22,10 @@ export default function DonationReceiptEmail({
   email,
   transactionId,
 }: EmailPdfTypes) {
+  const imgUrl =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000/images/compressed/icontwo-compressed.webp"
+      : "https://sgmchurch.com/images/compressed/icontwo-compressed.webp";
   return (
     <Html>
       <Head />
@@ -39,7 +43,7 @@ export default function DonationReceiptEmail({
                 className="rounded-[12px] my-0 mx-auto"
                 width={250}
                 height={250}
-                src="/images/compressed/icontwo-compressed.webp"
+                src={imgUrl}
               />
             </Tailwind>
             <Heading style={headerTitle}>Street Gospel Mission Church</Heading>
