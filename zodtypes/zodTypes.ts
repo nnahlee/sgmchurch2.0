@@ -36,6 +36,8 @@ export const emailPdfSchema = z.object({
   }),
   donationDate: z.string(),
   receiptUrl: z.string(),
+  email: z.email(),
+  transactionId: z.string(),
 });
 
 export type EmailPdfTypes = z.infer<typeof emailPdfSchema>;

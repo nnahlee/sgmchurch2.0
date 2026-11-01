@@ -13,17 +13,15 @@ import {
   Tailwind,
 } from "@react-email/components";
 
-type DonationReceiptEmailProps = {
-  amount: string;
-  donationDate: string;
-  receiptUrl: string;
-};
+import { EmailPdfTypes } from "../zodtypes/zodTypes";
 
 export default function DonationReceiptEmail({
   amount,
   donationDate,
   receiptUrl,
-}: DonationReceiptEmailProps) {
+  email,
+  transactionId,
+}: EmailPdfTypes) {
   return (
     <Html>
       <Head />
@@ -73,9 +71,9 @@ export default function DonationReceiptEmail({
                 <strong>Date:</strong> {donationDate}
               </Text>
 
-              {/* <Text style={detailText}>
+              <Text style={detailText}>
                 <strong>Transaction ID:</strong> {transactionId}
-              </Text> */}
+              </Text>
             </Section>
 
             {/* PDF Download */}
@@ -88,7 +86,7 @@ export default function DonationReceiptEmail({
 
               <Text style={receiptDescription}>
                 Your donation receipt is available to download below. A PDF copy
-                is also attached to this email.
+                is also attached to your email - {email}
               </Text>
 
               <Button href={receiptUrl} style={button}>

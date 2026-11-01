@@ -11,6 +11,8 @@ import {
   Img,
 } from "@react-email/components";
 
+// https://console.cloud.google.com/auth/audience?project=zzzstore
+
 type ContactEmailProps = {
   name: string;
   email: string;

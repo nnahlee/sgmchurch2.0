@@ -8,7 +8,9 @@
 // test pdt using ngrok
 // change return url here for testing live and development
 // https://www.paypal.com/unifiedsettings/webPreferences
-
+// ipn info
+// https://www.paypal.com/merchantnotification/ipn/preference
+// https://www.paypal.com/merchantnotification/ipn/history?utm_source=chatgpt.com
 // https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN live hosted button
 
 // setup PDT for client confirmation (incase close early) and IPN for server confirmation

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { DonationReceiptData } from "@/components/pdf/blocks/invoice-modern/invoice-modern";
 import takumiWasmUrl from "takumi-pdf/wasm-url";
-import { useSearchParams, redirect } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 type TakumiInitializer = (input: { module_or_path: URL }) => Promise<unknown>;
 

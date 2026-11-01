@@ -1,12 +1,7 @@
 "use server";
 import nodemailer from "nodemailer";
 import { createServerAction } from "zsa";
-import {
-  contactFormSchema,
-  FormTypes,
-  emailPdfSchema,
-  EmailPdfTypes,
-} from "../zodtypes/zodTypes";
+import { emailPdfSchema, EmailPdfTypes } from "../zodtypes/zodTypes";
 
 import { render } from "@react-email/components";
 import PdfEmail from "@/../emails/PdfEmail";
@@ -17,7 +12,7 @@ import PdfEmail from "@/../emails/PdfEmail";
 export const sendPdfEmailAction = createServerAction()
   .input(emailPdfSchema)
   .handler(async ({ input }: { input: EmailPdfTypes }) => {
-    const { amount, donationDate, receiptUrl } = input;
+    const { amount, donationDate, receiptUrl, email, transactionId } = input;
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -34,6 +29,8 @@ export const sendPdfEmailAction = createServerAction()
         amount={amount}
         donationDate={donationDate}
         receiptUrl={receiptUrl}
+        email={email}
+        transactionId={transactionId}
       />,
 
       // <ContactEmail name={name} email={email} message={message} />,
@@ -41,9 +38,9 @@ export const sendPdfEmailAction = createServerAction()
 
     const emailOptions = {
       from: process.env.EMAIL_USER,
-      // to receiptant not this todo
+      // change to email
       to: process.env.EMAIL_USER,
-      subject: "Contact message for SGM Church",
+      subject: "Donation Receipt PDF",
       html: emailHtml,
     };
 
