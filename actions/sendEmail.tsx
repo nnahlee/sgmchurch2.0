@@ -4,7 +4,7 @@ import { createServerAction } from "zsa";
 import { contactFormSchema, FormTypes } from "../zodtypes/zodTypes";
 import ContactEmail from "../emails/ContactEmail";
 import { render } from "@react-email/components";
-// google gmail api
+
 // https://developers.google.com/oauthplayground to get the refresh token
 // test users -> https://console.cloud.google.com/auth/audience?project=zzzstore
 
