@@ -43,23 +43,6 @@ const DonationReceiptPage = async ({
     amount: receiptDataConfirmed.amount / 100,
     currency: receiptDataConfirmed.currency,
   };
-  // send email
-
-  const receiptURL =
-    process.env.NODE_ENV === "development"
-      ? `http://localhost:3000/${locale}/return?session_id=${session_id}`
-      : `https://sgmchurch.com/${locale}/return?session_id=${session_id}`;
-  const emailDataPayload = {
-    amount: receiptDataConfirmed.amount.toString(),
-    donationDate: formattedDate,
-    receiptUrl: receiptURL,
-    email: receiptDataConfirmed.email,
-    transactionId: data.receiptNumber,
-  };
-  if (receiptDataConfirmed.verified && receiptDataConfirmed.amount) {
-    const mailData = await sendPdfEmailAction(emailDataPayload);
-    console.log(mailData);
-  }
 
   return (
     <div>
