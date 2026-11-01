@@ -24,7 +24,7 @@ export default function DonationReceiptEmail({
 }: EmailPdfTypes) {
   const imgUrl =
     process.env.NODE_ENV === "development"
-      ? "http://localhost:3000/images/compressed/icontwo-compressed.webp"
+      ? "https://profusely-zigzagged-sneak.ngrok-free.dev/images/compressed/icontwo-compressed.webp"
       : "https://sgmchurch.com/images/compressed/icontwo-compressed.webp";
   return (
     <Html>

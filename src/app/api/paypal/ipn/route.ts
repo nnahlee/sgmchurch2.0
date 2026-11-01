@@ -7,7 +7,10 @@ import { sendPdfEmailAction } from "@/../actions/sendPDF";
 // simulater
 // https://developer.paypal.com/dashboard/ipnSimulator
 
-const sandbox = true;
+// const sandbox = true;
+
+const paypalTestType =
+  process.env.NODE_ENV === "development" ? "sandbox" : "production";
 
 /** Production Postback URL */
 const PRODUCTION_VERIFY_URI = "https://ipnpb.paypal.com/cgi-bin/webscr";
@@ -15,7 +18,9 @@ const PRODUCTION_VERIFY_URI = "https://ipnpb.paypal.com/cgi-bin/webscr";
 const SANDBOX_VERIFY_URI = "https://ipnpb.sandbox.paypal.com/cgi-bin/webscr";
 
 function getPaypalURI() {
-  return sandbox ? SANDBOX_VERIFY_URI : PRODUCTION_VERIFY_URI;
+  return paypalTestType === "sandbox"
+    ? SANDBOX_VERIFY_URI
+    : PRODUCTION_VERIFY_URI;
 }
 
 export async function POST(request: Request) {

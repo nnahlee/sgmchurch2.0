@@ -24,6 +24,9 @@ export const sendPdfEmailAction = createServerAction()
       },
     });
 
+    const toEmail =
+      process.env.NODE_ENV === "development" ? process.env.EMAIL_USER : email;
+
     const emailHtml = await render(
       <PdfEmail
         amount={amount}
@@ -39,7 +42,7 @@ export const sendPdfEmailAction = createServerAction()
     const emailOptions = {
       from: process.env.EMAIL_USER,
       // change to email
-      to: process.env.EMAIL_USER,
+      to: toEmail,
       subject: "Donation Receipt PDF",
       html: emailHtml,
     };

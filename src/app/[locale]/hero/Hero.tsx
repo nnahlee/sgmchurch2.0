@@ -1,5 +1,7 @@
 "use client";
 
+// new button management below
+// https://www.paypal.com/ncp/manage
 // live - https://www.paypal.com/donate/buttons/manage?fromLanding=true
 // for sandbox test login using sandbox account from main sgmchurch
 // test - https://sandbox.paypal.com/donate/buttons/manage?fromLanding=true
