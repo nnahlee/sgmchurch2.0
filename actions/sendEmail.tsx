@@ -24,7 +24,7 @@ export const sendEmailAction = createServerAction()
     });
 
     const emailHtml = await render(
-      <ContactEmail name={name} email={email} message={message} />
+      <ContactEmail name={name} email={email} message={message} />,
     );
 
     const emailOptions = {
