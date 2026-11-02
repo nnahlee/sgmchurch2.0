@@ -11,11 +11,10 @@ data transfer token docs below
 https://www.paypal.com/unifiedsettings/webPreferences
 
 
-change to next-safe-action read docs 
+
 prefetch nextjs read docs
-code split, remove console logs
-fix mobile image 
-fix first hero image reduce size
+
+
 remove unused files add more images
 load image faster on gallery single pages
 make footage stay near the sliced image
