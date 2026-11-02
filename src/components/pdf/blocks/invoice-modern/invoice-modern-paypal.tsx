@@ -117,7 +117,7 @@ const PaypalDonationReceiptContent = ({
   const formattedAmount = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: data?.currency?.toUpperCase(),
-  }).format(data.amount ? data.amount / 100 : 0);
+  }).format(data.amount ? data.amount : 0);
 
   console.log(formattedAmount);
 
