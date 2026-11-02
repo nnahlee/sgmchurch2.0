@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { sendPdfEmailAction } from "@/../actions/sendPDF";
+// import { sendPdfEmailAction } from "@/../actions/sendPDF";
+import { sendPDFAction } from "@/../actions/safeactions/SendPDF";
 // edit link for development/production use main sandbox for ipn link
 // https://www.paypal.com/merchantnotification/ipn/preference/edit
 // https://developer.paypal.com/api/nvp-soap/ipn/IPNPDTAnAlternativetoIPN/
@@ -108,15 +109,15 @@ export async function POST(request: Request) {
         }).format(now);
 
         const payload = {
-          amount,
-          email: payer_email,
-          transactionId: txn_id,
+          amount: amount as string,
+          email: payer_email as string,
+          transactionId: txn_id as string,
           receiptUrl,
           donationDate: formattedDate,
         };
 
-        const mailData = await sendPdfEmailAction(payload);
-        console.log(`mail data ${mailData}`);
+        const mailData = await sendPDFAction(payload);
+        console.log(`mail data ${mailData.data}`);
         return NextResponse.json(
           { message: "IPN verified email sent" },
           {

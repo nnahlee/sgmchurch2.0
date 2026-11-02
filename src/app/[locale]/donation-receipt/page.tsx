@@ -1,13 +1,11 @@
 // import DonationReceipt from "./DonationReceipt";
 import { redirect } from "next/navigation";
-import { generateReceiptAction } from "@/../actions/generateReceipt";
-import { inferReturnReceiptData } from "@/../zodtypes/zodTypes";
 import { DonationReceiptPreview } from "./DonationPreview";
-import { type DonationReceiptData } from "@/components/pdf/blocks/invoice-modern/invoice-modern";
-import { sendPdfEmailAction } from "@/../actions/sendPDF";
+import { stripeOrderDetailsAction } from "@/../actions/safeactions/stripeOrderDetails";
+
 type DonationReceiptTypes = {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ session_id?: string }>;
+  searchParams: Promise<{ session_id: string }>;
 };
 
 const DonationReceiptPage = async ({
@@ -16,33 +14,17 @@ const DonationReceiptPage = async ({
 }: DonationReceiptTypes) => {
   const { locale } = await params;
   const { session_id } = await searchParams;
-  if (!session_id) {
-    redirect(`/${locale}`);
-  }
-  const [receiptDataConfirmed, error]: inferReturnReceiptData =
-    await generateReceiptAction({
-      sessionId: session_id,
-    });
-
-  if (error || !receiptDataConfirmed) {
-    redirect(`/${locale}`);
-  }
-
-  const now = new Date();
-  const formattedDate = new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }).format(now);
-
-  const data: DonationReceiptData = {
-    receiptNumber: "SGMC-" + now.getTime(),
-    receiptDate: formattedDate,
-    donationDate: formattedDate,
-    donorName: receiptDataConfirmed.name,
-    amount: receiptDataConfirmed.amount / 100,
-    currency: receiptDataConfirmed.currency,
+  const payload = {
+    params: { locale },
+    searchParams: { session_id },
   };
+
+  const { data, serverError } = await stripeOrderDetailsAction(payload);
+
+  if (serverError || !data) {
+    console.error("Error fetching order details:", serverError);
+    redirect(`/${locale}/donate`);
+  }
 
   return (
     <div>

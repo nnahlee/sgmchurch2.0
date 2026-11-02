@@ -5,6 +5,7 @@ import {
 import { Text } from "@/components/pdf/text/text";
 import { View, StyleSheet, Document, Page } from "@/lib/pdf-primitives";
 import type { PdfcnTheme } from "@/types/pdf-themes";
+import { ReceiptReturnTypes } from "@/../zodtypes/zodTypes";
 
 export type DonationReceiptData = {
   receiptNumber: string;
@@ -24,7 +25,7 @@ const church = {
   ein: "46-0692793",
 };
 
-const DonationReceiptContent = ({ data }: { data: DonationReceiptData }) => {
+const DonationReceiptContent = ({ data }: { data: ReceiptReturnTypes }) => {
   const theme = usePdfcnTheme();
 
   const styles = StyleSheet.create({
@@ -111,8 +112,8 @@ const DonationReceiptContent = ({ data }: { data: DonationReceiptData }) => {
 
   const formattedAmount = new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: data.currency.toUpperCase(),
-  }).format(data.amount);
+    currency: data?.currency?.toUpperCase(),
+  }).format(data.amount ? data.amount / 100 : 0);
 
   console.log(formattedAmount);
 
@@ -155,7 +156,7 @@ const DonationReceiptContent = ({ data }: { data: DonationReceiptData }) => {
 
         <Text style={styles.label}>DONATION RECEIVED FROM</Text>
         <Text style={{ ...styles.value, fontSize: 13, fontWeight: "bold" }}>
-          {data.donorName || "Donor"}
+          {data.name || "Donor"}
         </Text>
 
         <Text style={{ ...styles.label, marginTop: 16 }}>
@@ -219,12 +220,14 @@ const DonationReceiptContent = ({ data }: { data: DonationReceiptData }) => {
   );
 };
 
+// stripe data document
 export const InvoiceModernDocument = ({
   theme,
   data,
 }: {
   theme?: PdfcnTheme;
-  data: DonationReceiptData;
+  // data: DonationReceiptData;
+  data: ReceiptReturnTypes;
 }) => (
   <PdfcnThemeProvider theme={theme}>
     <DonationReceiptContent data={data} />

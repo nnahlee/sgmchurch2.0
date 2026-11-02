@@ -3,6 +3,7 @@
 import { stripe } from "../providers/stripe/stripe";
 import { createServerAction } from "zsa";
 
+// get stripe session for client side stripe checkout
 export const stripeAction = createServerAction().handler(async () => {
   const priceId =
     process.env.NODE_ENV === "production"

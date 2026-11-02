@@ -4,8 +4,11 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { DonationReceiptData } from "@/components/pdf/blocks/invoice-modern/invoice-modern";
+// import { type ReceiptReturnTypes } from "@/../zodtypes/zodTypes";
+
 import takumiWasmUrl from "takumi-pdf/wasm-url";
 import { useSearchParams } from "next/navigation";
+import { InvoiceModernPaypalDocument } from "@/components/pdf/blocks/invoice-modern/invoice-modern-paypal";
 
 type TakumiInitializer = (input: { module_or_path: URL }) => Promise<unknown>;
 
@@ -65,7 +68,7 @@ export function PaypalDonationPreview() {
 
         await initializeTakumi(initialize);
 
-        const document = <InvoiceModernDocument data={data} />;
+        const document = <InvoiceModernPaypalDocument data={data} />;
         const pdfBytes = await render(document);
 
         if (cancelled) return;

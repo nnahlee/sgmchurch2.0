@@ -35,8 +35,28 @@ export const receiptTypeSchema = z.object({
   }),
 });
 
+export const stripeSessionSecretSchema = z.string().nullable();
+export const stripeOrderDetailSchema = z.object({
+  params: z.object({
+    locale: z.string().min(1, {
+      message: "locale is required",
+    }),
+  }),
+  searchParams: z.object({
+    session_id: z.string().min(1, {
+      message: "session_id is required",
+    }),
+  }),
+});
+
+// stripe data return
 export const receiptReturnSchema = z.object({
   // pdf: z.string(),
+  receiptNumber: z.string(),
+  receiptDate: z.string(),
+  donationDate: z.string(),
+  status: z.string(),
+
   verified: z.boolean(),
   amount: z.number().nullable(),
   currency: z.string().nullable(),

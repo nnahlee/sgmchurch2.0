@@ -3,11 +3,12 @@
 // https://github.com/shadcn-labs/pdfcn/blob/main/apps/web/components/pdf-preview.tsx
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import type { DonationReceiptData } from "@/components/pdf/blocks/invoice-modern/invoice-modern";
+// import type { DonationReceiptData } from "@/components/pdf/blocks/invoice-modern/invoice-modern";
+import { type ReceiptReturnTypes } from "@/../zodtypes/zodTypes";
 import takumiWasmUrl from "takumi-pdf/wasm-url";
 
 type Props = {
-  data: DonationReceiptData;
+  data: ReceiptReturnTypes;
 };
 
 type TakumiInitializer = (input: { module_or_path: URL }) => Promise<unknown>;

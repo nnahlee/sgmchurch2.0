@@ -1,15 +1,14 @@
 // import redirect from "next";
 import { redirect } from "next/navigation";
-
-import { stripe } from "../../../../providers/stripe/stripe";
 import DonationSuccess from "@/app/[locale]/donation-success/DonationSuccess";
-import { sendPdfEmailAction } from "@/../actions/sendPDF";
-// https://nextjs.org/docs/app/api-reference/file-conventions/dynamic-routes
 
+import { sendPDFAction } from "@/../actions/safeactions/SendPDF";
+import { stripeOrderDetailsAction } from "@/../actions/safeactions/stripeOrderDetails";
+// https://nextjs.org/docs/app/api-reference/file-conventions/dynamic-routes
 // id session be different for every user on request
 type ReturnPageTypes = {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ session_id?: string }>;
+  searchParams: Promise<{ session_id: string }>;
 };
 
 // This route reads searchParams, but keep it explicitly dynamic so it can
@@ -23,15 +22,17 @@ export default async function ReturnPage({
 }: ReturnPageTypes) {
   const { session_id } = await searchParams;
   const { locale } = await params;
-  if (!session_id) throw new Error("Missing Stripe Checkout session ID.");
 
-  const { status, amount_total, customer_email, payment_intent } =
-    await stripe.checkout.sessions.retrieve(session_id, {
-      expand: ["line_items", "payment_intent"],
-    });
+  const payload = {
+    params: { locale },
+    searchParams: { session_id },
+  };
 
-  if (status === "open" || status === "expired") {
-    return redirect("/donate");
+  const { data } = await stripeOrderDetailsAction(payload);
+
+  if (!data) {
+    console.error("Error fetching order details");
+    return redirect(`/${locale}/donate`);
   }
 
   const receiptUrl =
@@ -39,30 +40,20 @@ export default async function ReturnPage({
       ? `http://localhost:3000/${locale}/donation-receipt?session_id=${session_id}`
       : `https://sgmchurch.com/${locale}/donation-receipt?session_id=${session_id}`;
 
-  const amount = amount_total ? (amount_total / 100).toFixed(2) : "0.00";
-
-  const now = new Date();
-  const formattedDate = new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }).format(now);
-  const transactionId =
-    typeof payment_intent === "string"
-      ? payment_intent
-      : (payment_intent?.id ?? "SGMC-" + now.getTime());
-
   const emailPayload = {
     receiptUrl,
-    amount,
-    donationDate: formattedDate,
-    email: customer_email || "Noemail@gmail.com",
-    transactionId,
+    amount: data.amount ? (data.amount / 100).toFixed(2) : "0.00",
+    donationDate: data.donationDate,
+    email: data.email as string,
+    transactionId: data.receiptNumber,
   };
-  const mailData = await sendPdfEmailAction(emailPayload);
-  console.log(mailData);
+  const { serverError } = await sendPDFAction(emailPayload);
 
-  if (status === "complete") {
+  if (serverError) {
+    console.error("Error sending email:", serverError);
+  }
+
+  if (data.status === "complete") {
     return (
       <section id="success">
         <DonationSuccess />

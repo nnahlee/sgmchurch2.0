@@ -1,5 +1,6 @@
 import StripeDonation from "./StripeDonation";
-import { stripeAction } from "../../../../actions/stripe";
+// import { stripeAction } from "../../../../actions/stripe";
+import { stripeAction } from "@/../actions/safeactions/stripe";
 import type { Metadata } from "next";
 // A Stripe Checkout client_secret is single-use and short-lived.
 // Without this, Next.js statically prerenders this route at build time,
@@ -66,11 +67,19 @@ export async function generateMetadata({
   };
 }
 const StripeDonationPage = async () => {
-  const [data] = await stripeAction();
+  const { data: clientSecret, serverError } = await stripeAction();
+
+  if (!clientSecret || serverError) {
+    return (
+      <div>
+        <h2 className="text-xl font-bold">Failed To Create Stripe Session</h2>
+      </div>
+    );
+  }
 
   return (
     <div>
-      <StripeDonation clientSecret={data} />
+      <StripeDonation clientSecret={clientSecret} />
     </div>
   );
 };
