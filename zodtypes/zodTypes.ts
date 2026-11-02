@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { inferServerActionReturnData, inferServerActionReturnType } from "zsa";
 import { stripeAction } from "../actions/stripe";
-import { generateReceiptAction } from "@/../actions/generateReceipt";
+// import { generateReceiptAction } from "@/../actions/generateReceipt";
 
 export const sendEmailSchema = z.object({
   name: z.string().min(1, {
@@ -82,12 +82,4 @@ export type inferReturnStripeType = inferServerActionReturnData<
 >;
 
 export type ReceiptTypes = z.infer<typeof receiptTypeSchema>;
-
 export type ReceiptReturnTypes = z.infer<typeof receiptReturnSchema>;
-export type inferReturnReceiptType = inferServerActionReturnType<
-  typeof generateReceiptAction
->;
-
-export type inferReturnReceiptData = inferServerActionReturnData<
-  typeof generateReceiptAction
->;
