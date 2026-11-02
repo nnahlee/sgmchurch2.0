@@ -48,7 +48,7 @@ const Gallery = () => {
                       src={src}
                       alt={alt}
                       fill
-                      sizes="(max-width: 399px) 95vw, (max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, 450px"
                       className="rounded-md sm:object-cover object-contain"
                     />
                   </CardContent>

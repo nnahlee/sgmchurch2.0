@@ -67,8 +67,8 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
               fill
               quality={85}
               preload={true}
-              sizes="100vw"
-              className="object-contain"
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              className="object-cover"
             />
 
             {/* Fullscreen */}
