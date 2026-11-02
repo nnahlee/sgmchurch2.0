@@ -25,6 +25,11 @@ import { useTranslations } from "next-intl";
 const Donate = () => {
   const t = useTranslations("Donate");
 
+  const paypalPaymentLink =
+    process.env.NODE_ENV === "development"
+      ? "https://www.sandbox.paypal.com/ncp/payment/XT6GUVFUZQ9DN"
+      : "https://www.paypal.com/ncp/payment/9YX85RCK9BU6J";
+
   const handleCopy = async () => {
     const zelleAddress = "lsoonkeum@gmail.com";
     await navigator.clipboard.writeText(zelleAddress);
@@ -117,8 +122,7 @@ const Donate = () => {
                       <Link
                         aria-label="Donate using PayPal"
                         target="_blank"
-                        rel="noopener noreferrer"
-                        href="https://www.paypal.com/donate/?hosted_button_id=AQRY3P8Z3DFMN"
+                        href={paypalPaymentLink}
                         onClick={() =>
                           sendGTMEvent({
                             event: "paypal-btn-clicked",
