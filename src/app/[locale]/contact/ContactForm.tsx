@@ -2,7 +2,6 @@
 import React from "react";
 import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
 import { sendGTMEvent } from "@next/third-parties/google";
 
@@ -21,52 +20,52 @@ import { toast } from "sonner";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useTranslations } from "next-intl";
 // server action
-import { sendEmailAction } from "../../../../actions/sendEmail";
-import { useServerAction } from "zsa-react";
-import { contactFormSchema, FormTypes } from "../../../../zodtypes/zodTypes";
+import { useHookFormAction } from "@next-safe-action/adapter-react-hook-form/hooks";
+import { sendEmailAction } from "@/../actions/safeactions/SendEmail";
+import { sendEmailSchema } from "@/../zodtypes/zodTypes";
+
 const ContactForm = () => {
   const t = useTranslations("ContactForm");
-  const form = useForm<FormTypes>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    },
-  });
 
   const [capcha, setCapcha] = React.useState(false);
   const recaptchaRef = React.useRef<ReCAPTCHA>(null);
 
-  const { isPending, execute } = useServerAction(sendEmailAction);
+  const { form, action, handleSubmitWithAction, resetFormAndAction } =
+    useHookFormAction(sendEmailAction, zodResolver(sendEmailSchema), {
+      formProps: {
+        defaultValues: {
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        },
+      },
+      actionProps: {
+        onSuccess: ({ data }) => {
+          // console.log(data);
+          toast.success("Email sent successfully");
+          resetFormAndAction();
+        },
+        onError: ({ error }) => {
+          resetRecaptcha();
+          if (error.serverError) {
+            return toast.error(error.serverError);
+          }
+
+          if (error.validationErrors) {
+            return toast.error("Please add required form fields");
+          }
+
+          toast.error("Something went wrong. Please try again.");
+        },
+      },
+    });
 
   // reCAPTCHA tokens are single use and expire after ~2 minutes, so the widget
   // has to be reset after every attempt or the button stays disabled.
   function resetRecaptcha() {
     recaptchaRef.current?.reset();
     setCapcha(false);
-  }
-
-  async function onSubmit(values: FormTypes) {
-    const [, err] = await execute(values);
-
-    if (err) {
-      toast.error(err.message || "Something went wrong. Please try again.");
-      resetRecaptcha();
-      return;
-    }
-
-    toast.success("Email sent successfully");
-
-    form.reset({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
-
-    resetRecaptcha();
   }
 
   function handleRecapcha(value: string | null) {
@@ -83,7 +82,7 @@ const ContactForm = () => {
       />
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(onSubmit)}
+          onSubmit={handleSubmitWithAction}
           className="space-y-8 md:p-0 p-12 flex flex-col items-center justify-center md:min-w-2xl lg:w-1/2 w-full"
         >
           <h1 className="text-white md:text-6xl text-5xl font-bold text-center">
@@ -182,7 +181,7 @@ const ContactForm = () => {
                 formLocation: "contact-form",
               });
             }}
-            disabled={isPending || !capcha}
+            disabled={action.isExecuting || !capcha}
             size="lg"
             className="w-full p-6 font-bold text-lg cursor-pointer"
             type="submit"

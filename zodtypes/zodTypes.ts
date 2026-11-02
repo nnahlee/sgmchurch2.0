@@ -3,6 +3,19 @@ import { inferServerActionReturnData, inferServerActionReturnType } from "zsa";
 import { stripeAction } from "../actions/stripe";
 import { generateReceiptAction } from "@/../actions/generateReceipt";
 
+export const sendEmailSchema = z.object({
+  name: z.string().min(1, {
+    message: "Name is required",
+  }),
+  email: z.email().min(1, {
+    message: "Email is required",
+  }),
+  phone: z.string().optional(),
+  message: z.string().min(1, {
+    message: "Message is required",
+  }),
+});
+
 export const contactFormSchema = z.object({
   name: z.string().min(1, {
     message: "Name is required",
