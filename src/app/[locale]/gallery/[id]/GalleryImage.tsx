@@ -1,5 +1,7 @@
 "use client";
 
+// below on scroll position on route refresh
+// https://nextjs.org/docs/13/app/building-your-application/routing/linking-and-navigating
 import Image from "next/image";
 import { gallerySlides } from "../../../../../types";
 

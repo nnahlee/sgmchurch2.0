@@ -23,6 +23,7 @@ const GalleryPagination = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(gallerySlides.length / IMAGES_PER_PAGE);
+
   //   slice non mutation does not include end item (slice(start, end))
   const lastIndexPageItem = currentPage * IMAGES_PER_PAGE;
   const firstIndexPageItem = lastIndexPageItem - IMAGES_PER_PAGE;
@@ -49,7 +50,7 @@ const GalleryPagination = () => {
   };
 
   const handlePaginationClick = (pageNumber: number) => {
-    if (pageNumber <= 0 || pageNumber > 5) return;
+    if (pageNumber <= 0 || pageNumber > 7) return;
     setCurrentPage(pageNumber);
   };
 
