@@ -7,7 +7,7 @@ import { gallerySlides } from "../../../../../types";
 
 import { Link } from "@/i18n/navigation";
 import { Maximize2, Images } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 
@@ -19,7 +19,28 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
   const t = useTranslations("Gallery");
   const imgSrc = gallerySlides.map((slide) => slide.src)[+id];
 
-  const imageRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement | null>(null);
+  const imageThumbNailRefContainerRef = useRef<HTMLDivElement | null>(null);
+  const activeThumbNailLinkRef = useRef<HTMLAnchorElement | null>(null);
+
+  useEffect(() => {
+    const imgThumbnailContainer = imageThumbNailRefContainerRef.current;
+    const activeThumbNailLink = activeThumbNailLinkRef.current;
+
+    // dont run if null not mounted
+    if (!imgThumbnailContainer || !activeThumbNailLink) return;
+
+    activeThumbNailLink.scrollIntoView({
+      behavior: "smooth",
+      //   // Vertically centers the element
+      block: "center",
+    });
+    // run here
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [id]);
 
   const handleFullscreen = async () => {
     if (!imageRef.current) return;
@@ -85,12 +106,16 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
           </div>
 
           {/* Image thumbnails */}
-          <div className="mt-5 flex gap-3 overflow-x-auto pb-3">
+          <div
+            ref={imageThumbNailRefContainerRef}
+            className="mt-5 flex gap-3 overflow-x-auto pb-3"
+          >
             {gallerySlides.map((item, index) => {
               const isActive = index === +id;
 
               return (
                 <Link
+                  ref={activeThumbNailLinkRef}
                   key={item.src}
                   href={`/gallery/${item.id}`}
                   aria-label={`View image ${item.id}`}
