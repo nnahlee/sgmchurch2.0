@@ -50,13 +50,16 @@ const GalleryPagination = () => {
   };
 
   const handlePaginationClick = (pageNumber: number) => {
-    if (pageNumber <= 0 || pageNumber > 7) return;
+    // change value here for pagination hard coded 7
+    if (pageNumber <= 0 || pageNumber > totalPages) return;
     setCurrentPage(pageNumber);
   };
 
   const pageNumbers = Array(totalPages)
     .fill(0)
     .map((_, idx) => idx + 1);
+
+  console.log(totalPages);
 
   return (
     <div className="w-full px-4 py-8 sm:px-6 md:py-8 lg:px-8">
