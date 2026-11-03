@@ -373,4 +373,139 @@ export const gallerySlides: ImageGalleryTypes[] = [
     src: "/images/compressed/newgal48-compressed-compressed.webp",
     alt: "Gallery image 48",
   },
+  {
+    id: "52",
+    src: "/images/compressed/newgal49-compressed-compressed.webp",
+    alt: "Gallery image 49",
+  },
+  {
+    id: "53",
+    src: "/images/compressed/newgal50-compressed-compressed.webp",
+    alt: "Gallery image 50",
+  },
+  {
+    id: "54",
+    src: "/images/compressed/newgal51-compressed-compressed.webp",
+    alt: "Gallery image 51",
+  },
+  {
+    id: "55",
+    src: "/images/compressed/newgal52-compressed-compressed.webp",
+    alt: "Gallery image 52",
+  },
+  {
+    id: "56",
+    src: "/images/compressed/newgal53-compressed-compressed.webp",
+    alt: "Gallery image 53",
+  },
+  {
+    id: "57",
+    src: "/images/compressed/newgal54-compressed-compressed.webp",
+    alt: "Gallery image 54",
+  },
+  {
+    id: "58",
+    src: "/images/compressed/newgal55-compressed-compressed.webp",
+    alt: "Gallery image 55",
+  },
+  {
+    id: "59",
+    src: "/images/compressed/newgal56-compressed-compressed.webp",
+    alt: "Gallery image 56",
+  },
+  {
+    id: "60",
+    src: "/images/compressed/newgal57-compressed-compressed.webp",
+    alt: "Gallery image 57",
+  },
+  {
+    id: "61",
+    src: "/images/compressed/newgal58-compressed-compressed.webp",
+    alt: "Gallery image 58",
+  },
+  {
+    id: "62",
+    src: "/images/compressed/newgal59-compressed-compressed.webp",
+    alt: "Gallery image 59",
+  },
+  {
+    id: "63",
+    src: "/images/compressed/newgal60-compressed-compressed.webp",
+    alt: "Gallery image 60",
+  },
+  {
+    id: "64",
+    src: "/images/compressed/newgal61-compressed-compressed.webp",
+    alt: "Gallery image 61",
+  },
+  {
+    id: "65",
+    src: "/images/compressed/newgal62-compressed-compressed.webp",
+    alt: "Gallery image 62",
+  },
+  {
+    id: "66",
+    src: "/images/compressed/newgal63-compressed-compressed.webp",
+    alt: "Gallery image 63",
+  },
+  {
+    id: "67",
+    src: "/images/compressed/newgal64-compressed-compressed.webp",
+    alt: "Gallery image 64",
+  },
+  {
+    id: "68",
+    src: "/images/compressed/newgal65-compressed-compressed.webp",
+    alt: "Gallery image 65",
+  },
+  {
+    id: "69",
+    src: "/images/compressed/newgal66-compressed-compressed.webp",
+    alt: "Gallery image 66",
+  },
+  {
+    id: "70",
+    src: "/images/compressed/newgal67-compressed-compressed.webp",
+    alt: "Gallery image 67",
+  },
+  {
+    id: "71",
+    src: "/images/compressed/newgal68-compressed-compressed.webp",
+    alt: "Gallery image 68",
+  },
+  {
+    id: "72",
+    src: "/images/compressed/newgal69-compressed-compressed.webp",
+    alt: "Gallery image 69",
+  },
+  {
+    id: "73",
+    src: "/images/compressed/newgal70-compressed-compressed.webp",
+    alt: "Gallery image 70",
+  },
+  {
+    id: "74",
+    src: "/images/compressed/newgal71-compressed-compressed.webp",
+    alt: "Gallery image 71",
+  },
+  {
+    id: "75",
+    src: "/images/compressed/newgal72-compressed-compressed.webp",
+    alt: "Gallery image 72",
+  },
+  {
+    id: "76",
+    src: "/images/compressed/newgal73-compressed-compressed.webp",
+    alt: "Gallery image 73",
+  },
+  {
+    id: "77",
+    src: "/images/compressed/newgal74-compressed-compressed.webp",
+    alt: "Gallery image 74",
+  },
+  {
+    id: "78",
+    src: "/images/compressed/newgal75-compressed-compressed.webp",
+    alt: "Gallery image 75",
+  },
 ];

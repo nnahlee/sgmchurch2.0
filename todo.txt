@@ -11,11 +11,9 @@ data transfer token docs below
 https://www.paypal.com/unifiedsettings/webPreferences
 
 
-
+robots.txt
 prefetch nextjs read docs
-
-
-remove unused files add more images
+ add more images
 load image faster on gallery single pages
 make footage stay near the sliced image
 
