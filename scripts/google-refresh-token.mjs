@@ -23,10 +23,12 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const ENV_PATH = path.join(ROOT, ".env.local");
 const SCOPES = "https://mail.google.com/"; // required for Gmail SMTP XOAUTH2
 const REDIRECT_URI =
-  process.env.OAUTH_REDIRECT_URI ?? "https://developers.google.com/oauthplayground";
+  process.env.OAUTH_REDIRECT_URI ??
+  "https://developers.google.com/oauthplayground";
 
 function loadEnv() {
-  if (!fs.existsSync(ENV_PATH)) throw new Error(`.env.local not found at ${ENV_PATH}`);
+  if (!fs.existsSync(ENV_PATH))
+    throw new Error(`.env.local not found at ${ENV_PATH}`);
 
   const env = {};
   for (const line of fs.readFileSync(ENV_PATH, "utf8").split(/\r?\n/)) {
@@ -52,7 +54,9 @@ async function postToken(params) {
   });
   const body = await response.json().catch(() => ({}));
   if (!response.ok || body.error) {
-    throw new Error(`${body.error ?? response.status} - ${body.error_description ?? "no description"}`);
+    throw new Error(
+      `${body.error ?? response.status} - ${body.error_description ?? "no description"}`,
+    );
   }
   return body;
 }
@@ -80,7 +84,11 @@ function extractCode(pasted) {
     return null;
   };
 
-  return fromUrl() ?? fromQuery() ?? (text.includes(".") || text.startsWith("4/") ? text : null);
+  return (
+    fromUrl() ??
+    fromQuery() ??
+    (text.includes(".") || text.startsWith("4/") ? text : null)
+  );
 }
 
 function saveRefreshToken(refreshToken) {
@@ -95,9 +103,11 @@ function saveRefreshToken(refreshToken) {
 
 async function main() {
   const env = loadEnv();
-  const missing = ["EMAIL_USER", "GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET"].filter(
-    (key) => !env[key],
-  );
+  const missing = [
+    "EMAIL_USER",
+    "GOOGLE_CLIENT_ID",
+    "GOOGLE_CLIENT_SECRET",
+  ].filter((key) => !env[key]);
   if (missing.length > 0) {
     throw new Error(`Missing in .env.local: ${missing.join(", ")}`);
   }
@@ -111,17 +121,20 @@ async function main() {
   authUrl.searchParams.set("prompt", "consent"); // forces a refresh token on re-consent
   authUrl.searchParams.set("login_hint", env.EMAIL_USER);
 
-  console.log(`
-1. Open this URL and sign in as ${env.EMAIL_USER}:
-`);
-  console.log(authUrl.toString());
-  console.log(`
-2. Approve Gmail access. Google will send you to:
-   ${REDIRECT_URI}/?code=4/0...
-   Copy that whole address (or just the code) from the browser.
-`);
+  //   console.log(`
+  // 1. Open this URL and sign in as ${env.EMAIL_USER}:
+  // `);
+  //   console.log(authUrl.toString());
+  //   console.log(`
+  // 2. Approve Gmail access. Google will send you to:
+  //    ${REDIRECT_URI}/?code=4/0...
+  //    Copy that whole address (or just the code) from the browser.
+  // `);
 
-  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
   const pasted = await rl.question("3. Paste the redirect URL or code here: ");
   rl.close();
 
@@ -157,7 +170,7 @@ async function main() {
 
   // Prove the token works with this exact client before saving it, so a dead token
   // never gets written to .env.local.
-  console.log("Verifying the refresh token against this OAuth client...");
+  // console.log("Verifying the refresh token against this OAuth client...");
   const verified = await postToken({
     client_id: env.GOOGLE_CLIENT_ID,
     client_secret: env.GOOGLE_CLIENT_SECRET,
@@ -166,14 +179,15 @@ async function main() {
   });
 
   saveRefreshToken(tokens.refresh_token);
-  console.log(`\nOK - access token acquired (expires in ${verified.expires_in}s).`);
-  console.log(`Wrote GOOGLE_REFRESH_TOKEN to ${ENV_PATH}`);
-  console.log("Restart the dev server so the new value is picked up.");
+  // console.log(
+  //   `\nOK - access token acquired (expires in ${verified.expires_in}s).`,
+  // );
+  // console.log(`Wrote GOOGLE_REFRESH_TOKEN to ${ENV_PATH}`);
+  // console.log("Restart the dev server so the new value is picked up.");
 }
 
 // exitCode instead of process.exit() so open handles (stdin) close cleanly.
 main().catch((error) => {
-  console.error(`\n${error instanceof Error ? error.message : String(error)}`);
+  // console.error(`\n${error instanceof Error ? error.message : String(error)}`);
   process.exitCode = 1;
 });
-

@@ -41,11 +41,11 @@ const ServeForm = () => {
   const { isPending, execute } = useServerAction(sendEmailAction);
 
   async function onSubmit(values: FormTypes) {
-    console.log("Form submitted:", values);
+    // console.log("Form submitted:", values);
 
     // const emailData = await sendEmailAction(data);
     const [data, err] = await execute(values);
-    console.log(data);
+    // console.log(data);
 
     if (err) {
       return toast.error(`Something Went Wrong`);

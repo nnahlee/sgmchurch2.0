@@ -16,7 +16,7 @@ import { useRouter } from "@/i18n/navigation";
 const DonationSuccess = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  console.log(searchParams);
+  // console.log(searchParams);
 
   const [mount, setMount] = useState(false);
   const { width, height } = useWindowSize();

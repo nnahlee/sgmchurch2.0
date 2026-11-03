@@ -45,11 +45,12 @@ export const sendPDFAction = actionClient
       .sendMail(emailOptions)
       .then((info) => {
         // status 250 sent success
-        console.log(`email sent`, info.response);
+        // console.log(`email sent`, info.response);
         return info.response;
       })
       .catch((error) => {
-        console.log(`error - ${error}`);
+        //  console.log(`error - ${error}`);
+        return error;
       });
 
     return returnData;

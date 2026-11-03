@@ -115,7 +115,7 @@ const DonationReceiptContent = ({ data }: { data: ReceiptReturnTypes }) => {
     currency: data?.currency?.toUpperCase(),
   }).format(data.amount ? data.amount / 100 : 0);
 
-  console.log(formattedAmount);
+  // console.log(formattedAmount);
 
   return (
     <Document title={`Donation Receipt ${data.receiptNumber}`}>

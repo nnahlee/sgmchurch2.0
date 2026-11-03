@@ -5,7 +5,6 @@ import {
 import { Text } from "@/components/pdf/text/text";
 import { View, StyleSheet, Document, Page } from "@/lib/pdf-primitives";
 import type { PdfcnTheme } from "@/types/pdf-themes";
-import { ReceiptReturnTypes } from "@/../zodtypes/zodTypes";
 
 export type DonationReceiptData = {
   receiptNumber: string;
@@ -119,7 +118,7 @@ const PaypalDonationReceiptContent = ({
     currency: data?.currency?.toUpperCase(),
   }).format(data.amount ? data.amount : 0);
 
-  console.log(formattedAmount);
+  // console.log(formattedAmount);
 
   return (
     <Document title={`Donation Receipt ${data.receiptNumber}`}>

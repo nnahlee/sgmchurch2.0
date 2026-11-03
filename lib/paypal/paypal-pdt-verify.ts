@@ -15,7 +15,7 @@ export async function verifyPaypalPdt(
   const identityToken = process.env.PAYPAL_DT_TOKEN;
 
   if (!identityToken || !txToken) {
-    console.log("no id token");
+    // console.log("no id token");
     return null;
   }
 
@@ -37,7 +37,7 @@ export async function verifyPaypalPdt(
     cache: "no-store",
   };
   const response = await fetch(getPaypalPdtUrl(), config);
-  console.log(response);
+  // console.log(response);
 
   try {
     if (!response.ok || response.status !== 200) {

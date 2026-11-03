@@ -18,7 +18,7 @@ import { gallerySlides } from "@/../types";
 
 const GalleryPagination = () => {
   const t = useTranslations("Gallery");
-  console.log("test");
+
   const IMAGES_PER_PAGE = 12;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -58,8 +58,6 @@ const GalleryPagination = () => {
   const pageNumbers = Array(totalPages)
     .fill(0)
     .map((_, idx) => idx + 1);
-
-  console.log(totalPages);
 
   return (
     <div className="w-full px-4 py-8 sm:px-6 md:py-8 lg:px-8">

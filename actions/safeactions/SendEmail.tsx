@@ -63,6 +63,6 @@ export const sendEmailAction = actionClient
       userEmailConfirmation,
     ]);
 
-    console.log("Admin email result:", emailDataRes);
-    console.log("User confirmation result:", userEmailDataRes);
+    // console.log("Admin email result:", emailDataRes);
+    // console.log("User confirmation result:", userEmailDataRes);
   });

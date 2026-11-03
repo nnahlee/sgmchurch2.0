@@ -25,33 +25,10 @@ function getPaypalURI() {
 }
 
 export async function POST(request: Request) {
-  console.log("IPN REQUEST RECEIVED");
+  // console.log("IPN REQUEST RECEIVED");
 
   // paypal sends form-encoded payload for PayPal verification to server.
   const originalEncodedBody = await request.text();
-  // console.log(request);
-  // console.log(`encoded body ${originalEncodedBody}`);
-
-  /*
-  const params = new URLSearchParams(originalEncodedBody);
-  const verificationBody = `cmd=_notify-validate&${originalEncodedBody}`;
-  const options: RequestInit = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: verificationBody.toString(),
-    // do not persist this in browser
-    cache: "no-store",
-  };
-  const verificationResponse = await fetch(getPaypalURI(), options);
-  return NextResponse.json({
-    message: "test",
-    body: originalEncodedBody,
-    paypalRes: verificationResponse,
-  });
-
-  */
 
   if (!originalEncodedBody) {
     return NextResponse.json(
@@ -92,9 +69,9 @@ export async function POST(request: Request) {
     const amount = params.get("mc_gross");
 
     if (verificationFinishedCheck === "VERIFIED") {
-      console.log(
-        `Verified IPN: IPN message for Transaction ID: ${txn_id} is verified.`,
-      );
+      // console.log(
+      //   `Verified IPN: IPN message for Transaction ID: ${txn_id} is verified.`,
+      // );
       if (payment_status === "Completed") {
         const receiptUrl =
           process.env.NODE_ENV === "development"
@@ -117,7 +94,7 @@ export async function POST(request: Request) {
         };
 
         const mailData = await sendPDFAction(payload);
-        console.log(`mail data ${mailData.data}`);
+        // console.log(`mail data ${mailData.data}`);
         return NextResponse.json(
           { message: "IPN verified email sent" },
           {
@@ -132,12 +109,12 @@ export async function POST(request: Request) {
         { status: 200 },
       );
     } else if (verificationFinishedCheck === "INVALID") {
-      console.error(
-        `Invalid IPN: IPN message for Transaction ID: ${txn_id} is invalid.`,
-      );
+      // console.error(
+      //   `Invalid IPN: IPN message for Transaction ID: ${txn_id} is invalid.`,
+      // );
       return NextResponse.json({ error: "Invalid IPN" }, { status: 400 });
     } else {
-      console.error("Unexpected response body.");
+      // console.error("Unexpected response body.");
       return NextResponse.json(
         { error: "Unexpected verification response" },
         { status: 503 },

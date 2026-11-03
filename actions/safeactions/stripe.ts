@@ -28,12 +28,12 @@ export const stripeAction = actionClient
       return_url: `${origin}/return?session_id={CHECKOUT_SESSION_ID}`,
     });
 
-    console.log({
-      id: session.id,
-      status: session.status,
-      livemode: session.livemode,
-      clientSecret: Boolean(session.client_secret),
-    });
+    // console.log({
+    //   id: session.id,
+    //   status: session.status,
+    //   livemode: session.livemode,
+    //   clientSecret: Boolean(session.client_secret),
+    // });
 
     return session.client_secret;
   });
