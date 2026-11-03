@@ -1,5 +1,6 @@
 import { PaypalDonationPreview } from "./PaypalDonationPreview";
 import { redirect } from "next/navigation";
+import type { Metadata } from "next";
 import { verifyPaypalPdt } from "@/../lib/paypal/paypal-pdt-verify";
 // page 20 reference
 // https://www.paypalobjects.com/en_US/DE/pdf/PP_OrderManagement_IntegrationGuide.pdf
@@ -7,8 +8,23 @@ import { verifyPaypalPdt } from "@/../lib/paypal/paypal-pdt-verify";
 // need to use at=identity token value too
 
 type PaypalDonationReceiptTypes = {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ tx?: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: PaypalDonationReceiptTypes): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title:
+      locale === "ko" ? "PayPal 기부 영수증" : "Paypal Donation Successful",
+    robots: {
+      index: false,
+      follow: false,
+    },
+  };
+}
 
 const DonationPaypalReceiptPage = async ({
   searchParams,

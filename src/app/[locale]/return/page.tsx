@@ -1,7 +1,7 @@
 // import redirect from "next";
 import { redirect } from "next/navigation";
 import DonationSuccess from "@/app/[locale]/donation-success/DonationSuccess";
-
+import type { Metadata } from "next";
 import { sendPDFAction } from "@/../actions/safeactions/SendPDF";
 import { stripeOrderDetailsAction } from "@/../actions/safeactions/stripeOrderDetails";
 // https://nextjs.org/docs/app/api-reference/file-conventions/dynamic-routes
@@ -10,6 +10,19 @@ type ReturnPageTypes = {
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ session_id: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: ReturnPageTypes): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: locale === "ko" ? "기부 영수증" : "Donation Successful",
+    robots: {
+      index: false,
+      follow: false,
+    },
+  };
+}
 
 // This route reads searchParams, but keep it explicitly dynamic so it can
 // never be statically cached with a stale checkout status.

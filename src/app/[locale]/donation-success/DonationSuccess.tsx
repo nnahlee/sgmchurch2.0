@@ -47,6 +47,11 @@ const DonationSuccess = () => {
         <h3 className="md:text-4xl text-2xl font-bold text-center">
           Thank you For your Donation
         </h3>
+        <h4 className="text-2xl font-bold text-center my-4">
+          A copy of transaction and donation receipt contribution has been sent
+          to your email. If you cannot find check spam or contact us and we will
+          get back to you.
+        </h4>
         <p className="text-center text-lg font-bold">
           Continue to show support by spreading awareness and sharing with your
           family and friends.

@@ -2,11 +2,24 @@
 import { redirect } from "next/navigation";
 import { DonationReceiptPreview } from "./DonationPreview";
 import { stripeOrderDetailsAction } from "@/../actions/safeactions/stripeOrderDetails";
-
+import type { Metadata } from "next";
 type DonationReceiptTypes = {
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ session_id: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: DonationReceiptTypes): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: locale === "ko" ? "기부 완료" : "Donation Successful",
+    robots: {
+      index: false,
+      follow: false,
+    },
+  };
+}
 
 const DonationReceiptPage = async ({
   params,
