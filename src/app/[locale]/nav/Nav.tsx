@@ -13,15 +13,19 @@ import LocaleSwitcher from "../LocaleSwitcher";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { sendGTMEvent } from "@next/third-parties/google";
+import { useRouter } from "next/navigation";
+import { IoHomeOutline } from "react-icons/io5";
+
 type NavLinkTypes = {
   name: string;
   href: string;
 };
 
 const navLinks: NavLinkTypes[] = [
-  { name: "Home", href: "/" },
+  // { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
+  { name: "Gallery", href: "/gallery" },
   { name: "Donate", href: "/donate" },
 ];
 
@@ -38,6 +42,7 @@ const linkVariants = {
 };
 
 export default function Nav() {
+  const router = useRouter();
   const t = useTranslations("Nav");
   const [isMobile, setIsMobile] = useState(false);
 
@@ -168,7 +173,18 @@ export default function Nav() {
                   )}
                 </motion.div>
               ))}
-
+              <Button
+                type="button"
+                size="lg"
+                className="p-7 bg-teal-500 hover:bg-teal-500 text-white font-bold w-[200px] text-lg cursor-pointer"
+                onClick={() => {
+                  setIsMobile(false);
+                  router.push("/");
+                }}
+              >
+                <IoHomeOutline />
+                Home
+              </Button>
               <WatchNavigationMenuBtn />
               <MoreInfoDropDown />
               <LocaleSwitcher />

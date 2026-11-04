@@ -23,10 +23,7 @@ const MoreInfoDropDown = () => {
       title: "FAQ - Frequently Asked Questions",
       href: "/faq",
     },
-    {
-      title: "Gallery",
-      href: "/gallery",
-    },
+
     {
       title: "Serve - Volunteer",
       href: "/serve-volunteer",

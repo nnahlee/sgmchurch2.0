@@ -32,8 +32,8 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
 
     activeThumbNailLink.scrollIntoView({
       behavior: "smooth",
-      //   // Vertically centers the element
-      block: "center",
+      block: "nearest",
+      inline: "center",
     });
     // run here
     window.scrollTo({
@@ -115,7 +115,7 @@ const GalleryImage = ({ id }: GalleryImageTypes) => {
 
               return (
                 <Link
-                  ref={activeThumbNailLinkRef}
+                  ref={isActive ? activeThumbNailLinkRef : null}
                   key={item.src}
                   href={`/gallery/${item.id}`}
                   aria-label={`View image ${item.id}`}

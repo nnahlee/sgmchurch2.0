@@ -193,13 +193,13 @@
   "Nav": {
     "linkTitles": [
       {
-        "title": "Home"
-      },
-      {
         "title": "About"
       },
       {
         "title": "Contact"
+      },
+      {
+        "title": "Gallery"
       }
     ],
     "donateBtn": "Donate",
@@ -209,9 +209,7 @@
       {
         "title": "FAQ - Frequently Asked Questions"
       },
-      {
-        "title": "Gallery"
-      },
+
       {
         "title": "Serve - Volunteer"
       }
