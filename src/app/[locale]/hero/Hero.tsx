@@ -19,7 +19,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { preconnect } from "react-dom";
 import { useTranslations } from "next-intl";
 import { sendGTMEvent } from "@next/third-parties/google";
 
@@ -74,6 +74,18 @@ const Hero = ({ title, description, btnText, heroImg, section }: HeroTypes) => {
       ? "https://www.sandbox.paypal.com/ncp/payment/XT6GUVFUZQ9DN"
       : "https://www.paypal.com/ncp/payment/9YX85RCK9BU6J";
 
+  const paypalDevOrProduction =
+    process.env.NODE_ENV === "development" ? "sandbox" : "production";
+
+  const paypalOrigin =
+    paypalDevOrProduction === "production"
+      ? "https://www.paypal.com"
+      : "https://www.sandbox.paypal.com";
+
+  // console.log("PayPal origin:", paypalOrigin);
+
+  preconnect(paypalOrigin);
+
   return (
     <div className="relative w-full h-[1000px] sm:h-[600px] lg:h-[700px]">
       <Image
@@ -119,14 +131,13 @@ const Hero = ({ title, description, btnText, heroImg, section }: HeroTypes) => {
               }
               className="w-full md:w-[500px] h-[70px] cursor-pointer rounded-2xl px-12 py-4 z-99 hover:bg-pink-400 bg-teal-500 transition-colors duration-300 ease-in-out text-white text-xl font-bold flex items-center justify-center gap-4"
             >
-              <Link
+              <a
                 aria-label="Donate using paypal"
                 className="w-full"
-                target="_blank"
                 href={paypalPaymentLink}
               >
                 {t(`${section}.btnText`) || btnText}
-              </Link>
+              </a>
             </Button>
           </motion.div>
         </motion.div>

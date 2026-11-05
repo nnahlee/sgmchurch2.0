@@ -2,6 +2,7 @@ import StripeDonation from "./StripeDonation";
 // import { stripeAction } from "../../../../actions/stripe";
 import { stripeAction } from "@/../actions/safeactions/stripe";
 import type { Metadata } from "next";
+import { preconnect } from "react-dom";
 // A Stripe Checkout client_secret is single-use and short-lived.
 // Without this, Next.js statically prerenders this route at build time,
 // baking an expired client_secret into cached HTML for production visitors.
@@ -67,6 +68,11 @@ export async function generateMetadata({
   };
 }
 const StripeDonationPage = async () => {
+  const stripeOrigin = "https://api.stripe.com";
+  preconnect(stripeOrigin);
+  const stripeJsOrigin = "https://js.stripe.com";
+  preconnect(stripeJsOrigin);
+
   const { data: clientSecret, serverError } = await stripeAction();
 
   if (!clientSecret || serverError) {
