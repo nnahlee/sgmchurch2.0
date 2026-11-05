@@ -74,7 +74,7 @@ const Service = () => {
                   aria-label={`Service image for ${service.title}`}
                   className="rounded-xl object-cover"
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1280px"
+                  sizes="250px"
                   quality={85}
                   src={`/images/compressed/${service.imgUrl}`}
                   alt={service.title}
