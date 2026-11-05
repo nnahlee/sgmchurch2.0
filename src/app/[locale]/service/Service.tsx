@@ -44,7 +44,7 @@ const Service = () => {
       title: "San Jose",
       description: "Thursday at 8:00am",
       btnText: "Learn More",
-      imgUrl: "sanjose.webp",
+      imgUrl: "sanjose-compressed.webp",
     },
   ];
 
