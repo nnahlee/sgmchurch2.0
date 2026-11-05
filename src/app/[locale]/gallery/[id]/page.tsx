@@ -17,7 +17,6 @@ type GalleryProps = {
   params: Promise<{ locale: string }>;
 };
 
-// dynamic metadata generation for SEO and social sharing
 export async function generateMetadata({
   params,
 }: GalleryProps): Promise<Metadata> {
