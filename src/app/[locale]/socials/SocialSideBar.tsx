@@ -17,8 +17,10 @@ import {
 export default function SocialSideBar() {
   const [copied, setCopied] = useState(false);
   const [pageUrl, setPageUrl] = useState("https://sgmchurch.com");
+  const [mount, setMount] = useState(false);
 
   useEffect(() => {
+    setMount(true);
     setPageUrl(window.location.href);
   }, []);
 
@@ -86,11 +88,11 @@ export default function SocialSideBar() {
       </div>
     );
   }
-
   return (
-    <aside
-      aria-label="Share this page"
-      className="
+    mount && (
+      <aside
+        aria-label="Share this page"
+        className="
         fixed z-50 flex flex-row items-center
         gap-1 rounded-full border bg-background/95
         p-2 shadow-lg backdrop-blur-md
@@ -102,56 +104,59 @@ export default function SocialSideBar() {
         md:top-1/2 md:-translate-x-0 md:-translate-y-1/2
         md:flex-col md:gap-2
       "
-    >
-      {/* Native Share */}
-      <Button
-        variant="ghost"
-        size="icon"
-        className="size-10 shrink-0 cursor-pointer rounded-full"
-        aria-label="Share this page"
-        onClick={handleShare}
       >
-        <Share2 className="size-5" />
-      </Button>
+        {/* Native Share */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="size-10 shrink-0 cursor-pointer rounded-full"
+          aria-label="Share this page"
+          onClick={handleShare}
+        >
+          <Share2 className="size-5" />
+        </Button>
 
-      <div className="h-6 w-px bg-border md:h-px md:w-6" />
+        <div className="h-6 w-px bg-border md:h-px md:w-6" />
 
-      {/* Social Share Buttons */}
-      {shareLinks.map(({ btn, hashtag, icon, name, quote, body, subject }) => {
-        const ShareButton = btn;
-        const ShareIcon = icon;
+        {/* Social Share Buttons */}
+        {shareLinks.map(
+          ({ btn, hashtag, icon, name, quote, body, subject }) => {
+            const ShareButton = btn;
+            const ShareIcon = icon;
 
-        return (
-          <SocialShareBtn key={name}>
-            <ShareButton
-              url={pageUrl}
-              quote={quote}
-              hashtag={hashtag}
-              body={body}
-              subject={subject}
-            >
-              <ShareIcon size={35} />
-            </ShareButton>
-          </SocialShareBtn>
-        );
-      })}
-
-      <div className="h-6 w-px bg-border md:h-px md:w-6" />
-
-      {/* Copy Link */}
-      <Button
-        variant="ghost"
-        size="icon"
-        className="size-10 shrink-0 cursor-pointer rounded-full"
-        aria-label={copied ? "Link copied" : "Copy page link"}
-        onClick={copyLink}
-      >
-        {copied ? (
-          <Check className="size-5 text-green-600" />
-        ) : (
-          <FaRegCopy className="size-5" />
+            return (
+              <SocialShareBtn key={name}>
+                <ShareButton
+                  url={pageUrl}
+                  quote={quote}
+                  hashtag={hashtag}
+                  body={body}
+                  subject={subject}
+                >
+                  <ShareIcon size={35} />
+                </ShareButton>
+              </SocialShareBtn>
+            );
+          },
         )}
-      </Button>
-    </aside>
+
+        <div className="h-6 w-px bg-border md:h-px md:w-6" />
+
+        {/* Copy Link */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="size-10 shrink-0 cursor-pointer rounded-full"
+          aria-label={copied ? "Link copied" : "Copy page link"}
+          onClick={copyLink}
+        >
+          {copied ? (
+            <Check className="size-5 text-green-600" />
+          ) : (
+            <FaRegCopy className="size-5" />
+          )}
+        </Button>
+      </aside>
+    )
   );
 }
