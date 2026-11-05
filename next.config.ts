@@ -19,8 +19,6 @@ const nextConfig: NextConfig = {
     "profusely-zigzagged-sneak.ngrok-free.dev",
   ],
   reactCompiler: true,
-  cacheComponents: true,
-  partialPrefetching: true,
 };
 
 const withNextIntl = createNextIntlPlugin();
