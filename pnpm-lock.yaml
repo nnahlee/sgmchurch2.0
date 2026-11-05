@@ -19,10 +19,10 @@ importers:
         version: 5.2.1(react-hook-form@7.62.0(react@19.1.0))
       '@next-safe-action/adapter-react-hook-form':
         specifier: ^2.1.0
-        version: 2.1.0(@hookform/resolvers@5.2.1(react-hook-form@7.62.0(react@19.1.0)))(next-safe-action@8.7.3(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-hook-form@7.62.0(react@19.1.0))(react@19.1.0)
+        version: 2.1.0(@hookform/resolvers@5.2.1(react-hook-form@7.62.0(react@19.1.0)))(next-safe-action@8.7.3(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-hook-form@7.62.0(react@19.1.0))(react@19.1.0)
       '@next/third-parties':
         specifier: ^15.5.3
-        version: 15.5.3(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 15.5.3(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       '@paypal/paypal-js':
         specifier: ^8.2.0
         version: 8.2.0
@@ -55,7 +55,7 @@ importers:
         version: 0.5.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@react-email/preview-server':
         specifier: ^4.2.8
-        version: 4.2.8(postcss@8.5.23)
+        version: 4.2.8(babel-plugin-react-compiler@1.0.0)(postcss@8.5.23)
       '@react-pdf/renderer':
         specifier: ^4.9.0
         version: 4.9.0(react@19.1.0)
@@ -94,13 +94,13 @@ importers:
         version: 0.540.0(react@19.1.0)
       next:
         specifier: 16.4.2
-        version: 16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-intl:
         specifier: ^4.14.9
-        version: 4.14.9(@swc/helpers@0.5.23)(@types/react@19.1.10)(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 4.14.9(@swc/helpers@0.5.23)(@types/react@19.1.10)(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       next-safe-action:
         specifier: ^8.7.3
-        version: 8.7.3(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 8.7.3(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-share:
         specifier: ^0.27.0
         version: 0.27.0(react@19.1.0)
@@ -177,6 +177,9 @@ importers:
       '@types/react-google-recaptcha':
         specifier: ^2.1.9
         version: 2.1.9
+      babel-plugin-react-compiler:
+        specifier: ^1.0.0
+        version: 1.0.0
       eslint:
         specifier: ^9
         version: 9.33.0(jiti@2.5.1)
@@ -3882,6 +3885,9 @@ packages:
   axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
     engines: {node: '>= 0.4'}
+
+  babel-plugin-react-compiler@1.0.0:
+    resolution: {integrity: sha512-Ixm8tFfoKKIPYdCCKYTsqv+Fd4IJ0DQqMyEimo+pxUOMUR9cVPlwTrFt9Avu+3cb6Zp3mAzl+t1MrG2fxxKsxw==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -7699,11 +7705,11 @@ snapshots:
       '@tybys/wasm-util': 0.10.0
     optional: true
 
-  '@next-safe-action/adapter-react-hook-form@2.1.0(@hookform/resolvers@5.2.1(react-hook-form@7.62.0(react@19.1.0)))(next-safe-action@8.7.3(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-hook-form@7.62.0(react@19.1.0))(react@19.1.0)':
+  '@next-safe-action/adapter-react-hook-form@2.1.0(@hookform/resolvers@5.2.1(react-hook-form@7.62.0(react@19.1.0)))(next-safe-action@8.7.3(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-hook-form@7.62.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@hookform/resolvers': 5.2.1(react-hook-form@7.62.0(react@19.1.0))
-      next: 16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      next-safe-action: 8.7.3(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next-safe-action: 8.7.3(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
       react-hook-form: 7.62.0(react@19.1.0)
@@ -7764,9 +7770,9 @@ snapshots:
   '@next/swc-win32-x64-msvc@16.4.2':
     optional: true
 
-  '@next/third-parties@15.5.3(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
+  '@next/third-parties@15.5.3(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
     dependencies:
-      next: 16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       third-party-capital: 1.0.20
 
@@ -9364,7 +9370,7 @@ snapshots:
       md-to-react-email: 5.0.5(react@19.1.0)
       react: 19.1.0
 
-  '@react-email/preview-server@4.2.8(postcss@8.5.23)':
+  '@react-email/preview-server@4.2.8(babel-plugin-react-compiler@1.0.0)(postcss@8.5.23)':
     dependencies:
       '@babel/core': 7.26.10
       '@babel/parser': 7.27.0
@@ -9391,7 +9397,7 @@ snapshots:
       json5: 2.2.3
       log-symbols: 4.1.0
       module-punycode: punycode@2.3.1
-      next: 15.4.1(@babel/core@7.26.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      next: 15.4.1(@babel/core@7.26.10)(babel-plugin-react-compiler@1.0.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       node-html-parser: 7.0.1
       ora: 5.4.1
       pretty-bytes: 6.1.1
@@ -10479,6 +10485,10 @@ snapshots:
       - supports-color
 
   axobject-query@4.1.0: {}
+
+  babel-plugin-react-compiler@1.0.0:
+    dependencies:
+      '@babel/types': 7.28.2
 
   balanced-match@1.0.2: {}
 
@@ -12018,7 +12028,7 @@ snapshots:
 
   next-intl-swc-plugin-extractor@4.14.9: {}
 
-  next-intl@4.14.9(@swc/helpers@0.5.23)(@types/react@19.1.10)(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
+  next-intl@4.14.9(@swc/helpers@0.5.23)(@types/react@19.1.10)(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
     dependencies:
       '@eloqnt/config': 0.1.1
       '@eloqnt/format-json': 0.1.0
@@ -12028,7 +12038,7 @@ snapshots:
       '@swc/core': 1.16.18(@swc/helpers@0.5.23)
       icu-minify: 4.14.9
       negotiator: 1.1.0
-      next: 16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-intl-swc-plugin-extractor: 4.14.9
       react: 19.1.0
       use-intl: 4.14.9(@types/react@19.1.10)(react@19.1.0)
@@ -12037,9 +12047,9 @@ snapshots:
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  next-safe-action@8.7.3(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  next-safe-action@8.7.3(next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      next: 16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
@@ -12055,7 +12065,7 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  next@15.4.1(@babel/core@7.26.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  next@15.4.1(@babel/core@7.26.10)(babel-plugin-react-compiler@1.0.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       '@next/env': 15.4.1
       '@swc/helpers': 0.5.15
@@ -12073,12 +12083,13 @@ snapshots:
       '@next/swc-linux-x64-musl': 15.4.1
       '@next/swc-win32-arm64-msvc': 15.4.1
       '@next/swc-win32-x64-msvc': 15.4.1
+      babel-plugin-react-compiler: 1.0.0
       sharp: 0.34.3
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
 
-  next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  next@16.4.2(@babel/core@7.26.10)(@types/node@20.19.11)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@next/env': 16.4.2
       '@swc/helpers': 0.5.23
@@ -12097,6 +12108,7 @@ snapshots:
       '@next/swc-linux-x64-musl': 16.4.2
       '@next/swc-win32-arm64-msvc': 16.4.2
       '@next/swc-win32-x64-msvc': 16.4.2
+      babel-plugin-react-compiler: 1.0.0
       sharp: 0.35.5(@types/node@20.19.11)
     transitivePeerDependencies:
       - '@babel/core'

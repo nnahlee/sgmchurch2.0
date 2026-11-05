@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
     "localhost",
     "profusely-zigzagged-sneak.ngrok-free.dev",
   ],
+  reactCompiler: true,
 };
 
 const withNextIntl = createNextIntlPlugin();
