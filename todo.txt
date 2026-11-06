@@ -11,11 +11,12 @@ data transfer token docs below
 https://www.paypal.com/unifiedsettings/webPreferences
 
 
-robots.txt
-prefetch nextjs read docs
- add more images
-load image faster on gallery single pages
-make footage stay near the sliced image
+
+
+https://dev.to/hijazi313/nextjs-15-scroll-behavior-a-comprehensive-guide-387j
+
+email gmail hosting setup
+
 
 
 
