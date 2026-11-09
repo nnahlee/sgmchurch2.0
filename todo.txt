@@ -12,10 +12,70 @@ https://www.paypal.com/unifiedsettings/webPreferences
 
 
 
+https://trigger.dev/docs/how-it-works
+cron jobs
 
-https://dev.to/hijazi313/nextjs-15-scroll-behavior-a-comprehensive-guide-387j
+  Success       Failed
+              |           |
+           Log         Log Failure
+                          |
+                          |
+                 RECEIPT RECOVERY
+                    CRON JOB
+                   Every 30 min
+   |                    
+   donations
+                 Query Stripe API 
+                 Query PayPal API
+                  Check Receipt
+                  Email Status
+                    Send Missing
 
-email gmail hosting setup
+# add security headers config
+
+#add one canonical domain and redirect to it
+
+#add stripe-paypal metadata custom like sgmc date gen and receipt status 
+
+example stripe
+after successfully sending a receipt update the Checkout Session or PaymentIntent metadata:
+
+await stripe.paymentIntents.update(paymentIntentId, {
+  metadata: {
+    receipt_email_status: "sent",
+    receipt_sent_at: new Date().toISOString(),
+  },
+});
+
+3. How the cron job would work
+Every 60 minutes /1hr:
+
+Step 1: Retrieve recent Stripe donations
+
+Use the Stripe API to retrieve successful PaymentIntents.
+Step 2: Check receipt status
+
+Look for transactions where somethign like:
+metadata.receipt_email_status !== "sent"
+Reuse your existing:
+- PDF generation.
+- Nodemailer email template.
+Step 4: Update Stripe metadata
+After Nodemailer successfully sends the email: change email_status sent
+
+
+similar steps but for paypal
+may need a separate lightweight persistent store for PayPal.
+use txn_id as the unique identifier for receipt tracking
+
+
+google admin console for emails
+https://knowledge.workspace.google.com/admin/domains/set-up-mx-records-for-google-workspace
+https://admin.google.com
+
+
+
+
 
 
 

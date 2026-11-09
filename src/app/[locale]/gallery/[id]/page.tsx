@@ -76,6 +76,14 @@ export async function generateMetadata({
         },
       ],
     },
+    robots: {
+      /*
+      index: false — Tells Google not to include the individual image page in search results
+      follow: true — Allows Google to follow other links found on that page.
+      */
+      index: false,
+      follow: false,
+    },
   };
 }
 

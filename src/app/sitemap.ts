@@ -6,12 +6,11 @@ const baseHost = "https://www.sgmchurch.com";
 const urlPaths = [
   "/",
   "/about",
-  "/services",
-  "/volunteer",
+  "/serve-volunteer",
   "/donate",
   "/faq",
   "/gallery",
-  "/serve-volunteer",
+  "/contact",
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
