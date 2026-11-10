@@ -51,6 +51,7 @@ const MoreInfoDropDown = () => {
                   <NavigationMenuLink
                     aria-label={`Visit ${title}`}
                     key={title}
+                    target={title === "Watch Online" ? "_blank" : "_self"}
                     className="flex flex-row items-center justify-center gap-2"
                     href={href}
                   >
