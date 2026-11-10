@@ -11,8 +11,6 @@ export function generateStaticParams() {
   return gallerySlides.map(({ id }) => ({ id }));
 }
 
-const siteUrl = "https://www.sgmchurch.com";
-
 type GalleryProps = {
   params: Promise<{ locale: string }>;
 };
@@ -20,6 +18,7 @@ type GalleryProps = {
 export async function generateMetadata({
   params,
 }: GalleryProps): Promise<Metadata> {
+  const siteUrl = "https://www.sgmchurch.com";
   const { locale } = await params;
   const isKorean = locale === "ko";
 
@@ -82,7 +81,7 @@ export async function generateMetadata({
       follow: true — Allows Google to follow other links found on that page.
       */
       index: false,
-      follow: false,
+      follow: true,
     },
   };
 }

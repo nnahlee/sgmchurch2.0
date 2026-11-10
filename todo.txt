@@ -31,9 +31,9 @@ cron jobs
                   Email Status
                     Send Missing
 
-# add security headers config
 
-#add one canonical domain and redirect to it
+
+
 
 #add stripe-paypal metadata custom like sgmc date gen and receipt status 
 
@@ -72,6 +72,16 @@ use txn_id as the unique identifier for receipt tracking
 google admin console for emails
 https://knowledge.workspace.google.com/admin/domains/set-up-mx-records-for-google-workspace
 https://admin.google.com
+
+
+
+# add security headers config
+events page 
+https://www.menlo.church/upcoming-events
+single events page
+https://www.myredemption.cc/event/lxp-2027/
+
+sermons live youtube page with pocket 4
 
 
 

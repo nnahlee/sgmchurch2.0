@@ -1,8 +1,18 @@
 import type { MetadataRoute } from "next";
 // https://next-intl.dev/docs/routing/navigation#getpathname
 import { getPathname } from "@/i18n/navigation";
+import slugify from "slugify";
+import { eventInfos } from "@/../types";
 
 const baseHost = "https://www.sgmchurch.com";
+
+const slugEventPaths = eventInfos.map(({ title }) => {
+  return `/events/${slugify(title, {
+    lower: true,
+    strict: true,
+  })}`;
+});
+
 const urlPaths = [
   "/",
   "/about",
@@ -11,11 +21,14 @@ const urlPaths = [
   "/faq",
   "/gallery",
   "/contact",
+  "/events",
 ];
+
+const allPaths = [...slugEventPaths, ...urlPaths];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries = await Promise.all(
-    urlPaths.map(async (path) => {
+    allPaths.map(async (path) => {
       const [enPath, koPath] = await Promise.all([
         // returns /[en or ko]/path in loopreturns all paths
         getPathname({ locale: "en", href: path }),

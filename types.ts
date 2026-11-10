@@ -19,9 +19,16 @@ export type ImageGalleryTypes = {
   src: string;
   alt: string;
   id: string;
-  // width: number;
-  // height: number;
 };
+
+export interface Events {
+  title: string;
+  imgSrc: string;
+  btnText: string;
+  date: string;
+  badgeText: string;
+  description: string;
+}
 
 export type DonatePaymentTypes = InfoTypes;
 export type SlideInfoTypes = InfoTypes;
@@ -109,6 +116,45 @@ export const slideInfos: SlideInfoTypes[] = [
     title: "Making a Difference",
     description: `focus on community outreach and gospel-centered worship, they are a shining example of what it means to live out the love of Christ in the world.`,
     src: "/images/compressed/slide3-compressed.webp",
+  },
+];
+
+export const eventInfos: Events[] = [
+  {
+    title: "Thanksgiving Event helping homeless",
+    imgSrc: "/images/compressed/thanksgivingtwo.webp",
+    date: "Nov 22 7AM Sunday",
+    btnText: "Learn More",
+    badgeText: "San Francisco",
+    description:
+      "Join us this Thanksgiving as we serve those experiencing homelessness. We will be giving out hoodies, blankets, food, and care packages. If you would like to donate or volunteer, please contact us to get involved. Every little bit helps, and together we can make someone's Thanksgiving a little brighter.",
+  },
+  {
+    title: "Christmas Eve Event providing for homeless",
+    imgSrc: "/images/compressed/christmas.webp",
+    date: "Dec 24 Thursday",
+    btnText: "Learn More",
+    badgeText: "San Jose",
+    description:
+      "Spend Christmas Eve sharing warmth and kindness with those in need. We will be handing out blankets, sleeping bags, and care packages to help those experiencing homelessness. Contact us if you would like to donate or volunteer. Let's share the joy of Christmas with those who need it most.",
+  },
+  {
+    title: "New Year's Eve Event for homeless",
+    imgSrc: "/images/compressed/newyear.webp",
+    date: "DEC 31 Thursday",
+    btnText: "Learn More",
+    badgeText: "San Jose",
+    description:
+      "Join us as we close out the year by helping those experiencing homelessness. We will be providing food, clothing, blankets, and care packages. We welcome anyone who wants to donate or volunteer. Let's start the new year by showing kindness and caring for our community.",
+  },
+  {
+    title: "Advent Season Giving Event for homeless",
+    imgSrc: "/images/compressed/advent.webp",
+    date: "November 29 7AM",
+    btnText: "Learn More",
+    badgeText: "San Francisco",
+    description:
+      "Join us during the Advent season as we share God's love with those in need. We will be distributing food, warm clothing, and care packages to people experiencing homelessness. If you would like to help, we welcome donations and volunteers. Let's make this season a little brighter for someone in our community.",
   },
 ];
 
