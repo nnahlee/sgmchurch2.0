@@ -200,6 +200,9 @@
       },
       {
         "title": "Gallery"
+      },
+      {
+        "title": "Events"
       }
     ],
     "donateBtn": "Donate",
@@ -208,6 +211,9 @@
     "moreInfos": [
       {
         "title": "FAQ - Frequently Asked Questions"
+      },
+      {
+        "title": "Watch Online"
       },
 
       {

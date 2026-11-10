@@ -29,7 +29,7 @@ const WatchNavigationMenuBtn = () => {
     },
   ];
   return (
-    <div>
+    <div className="">
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>

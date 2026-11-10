@@ -25,6 +25,10 @@ const MoreInfoDropDown = () => {
     },
 
     {
+      title: "Watch Online",
+      href: "https://www.youtube.com/@eternalkingdomofgod4438",
+    },
+    {
       title: "Serve - Volunteer",
       href: "/serve-volunteer",
     },
@@ -34,7 +38,7 @@ const MoreInfoDropDown = () => {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className=" rounded-md py-6 min-w-[160px] cursor-pointer bg-gray-900   text-white font-bold text-base">
+            <NavigationMenuTrigger className=" rounded-md py-7 min-w-[200px] cursor-pointer bg-gray-900   text-white font-bold text-base">
               <div className="flex justify-center items-center gap-2">
                 <IoSearch size={20} />
                 {t("moreInfoBtn")}

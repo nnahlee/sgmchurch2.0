@@ -26,6 +26,7 @@ const navLinks: NavLinkTypes[] = [
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
   { name: "Gallery", href: "/gallery" },
+  { name: "Events", href: "/events" },
   { name: "Donate", href: "/donate" },
 ];
 
@@ -63,7 +64,7 @@ export default function Nav() {
       </Link>
 
       {/* Desktop Nav */}
-      <ul className="2xl:flex hidden items-center gap-14 text-xl">
+      <ul className="2xl:flex hidden items-center gap-12 text-xl">
         {navLinks.map(({ name, href }, idx) => (
           <li key={name}>
             {name === "Donate" ? (
@@ -94,7 +95,6 @@ export default function Nav() {
           </li>
         ))}
 
-        <WatchNavigationMenuBtn />
         <MoreInfoDropDown />
         <LocaleSwitcher />
       </ul>
@@ -135,6 +135,7 @@ export default function Nav() {
               >
                 <IoMdClose size={30} />
               </div>
+              <LocaleSwitcher />
 
               {navLinks.map(({ name, href }, index) => (
                 <motion.div
@@ -185,9 +186,8 @@ export default function Nav() {
                 <IoHomeOutline />
                 Home
               </Button>
-              <WatchNavigationMenuBtn />
+              {/* <WatchNavigationMenuBtn /> */}
               <MoreInfoDropDown />
-              <LocaleSwitcher />
             </motion.div>
           </>
         )}
