@@ -35,7 +35,7 @@ const MoreInfoDropDown = () => {
   ];
   return (
     <div className="relative">
-      <NavigationMenu>
+      <NavigationMenu viewport={false} className="relative">
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger className=" rounded-md py-7 min-w-[200px] cursor-pointer bg-gray-900   text-white font-bold text-base">
@@ -45,14 +45,31 @@ const MoreInfoDropDown = () => {
               </div>
             </NavigationMenuTrigger>
 
-            <NavigationMenuContent className="min-w-[200px] z-50 p-4 text-center">
+            <NavigationMenuContent
+              className="
+    absolute
+    left-1/2
+    -translate-x-1/2
+    top-full
+    w-[calc(100vw-2rem)]
+    max-w-[320px]
+    min-w-0
+    z-[60]
+    p-3
+    text-center
+  "
+            >
               {navigationLinks.map(({ href, title }, idx) => {
                 return (
                   <NavigationMenuLink
                     aria-label={`Visit ${title}`}
                     key={title}
                     target={title === "Watch Online" ? "_blank" : "_self"}
-                    className="flex flex-row items-center justify-center gap-2"
+                    className="
+  flex flex-row items-center justify-center
+  gap-2 whitespace-normal
+  py-3 text-sm
+"
                     href={href}
                   >
                     <Image

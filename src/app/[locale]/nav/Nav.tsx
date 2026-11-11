@@ -95,7 +95,6 @@ export default function Nav() {
         ))}
 
         <MoreInfoDropDown />
-        <LocaleSwitcher />
       </ul>
 
       {/* Mobile Menu Button */}
@@ -112,7 +111,15 @@ export default function Nav() {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 bg-black/50 z-40"
+              className="
+  fixed inset-0 z-50
+  flex flex-col items-center
+  justify-start gap-6
+  overflow-y-auto overscroll-contain
+  bg-background shadow-2xl
+  px-4 pt-20 pb-10
+  text-2xl
+"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -134,7 +141,6 @@ export default function Nav() {
               >
                 <IoMdClose size={30} />
               </div>
-              <LocaleSwitcher />
 
               {navLinks.map(({ name, href }, index) => (
                 <motion.div
@@ -185,7 +191,7 @@ export default function Nav() {
                 <IoHomeOutline />
                 Home
               </Button>
-
+              <LocaleSwitcher />
               <MoreInfoDropDown />
             </motion.div>
           </>
