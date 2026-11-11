@@ -12,7 +12,16 @@ import {
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import type { EventInfo } from "./page";
+
+type EventInfo = {
+  id: number;
+  title: string;
+  imgSrc: string;
+  date: string;
+  btnText: string;
+  badgeText: string;
+  description: string;
+};
 
 type EventTypes = {
   title: string;
