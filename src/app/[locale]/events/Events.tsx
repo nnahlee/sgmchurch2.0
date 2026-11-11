@@ -8,7 +8,16 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import slugify from "slugify";
 import { useTranslations } from "next-intl";
-import type { EventInfo } from "./[title]/page";
+
+type EventInfo = {
+  id: number;
+  title: string;
+  imgSrc: string;
+  date: string;
+  btnText: string;
+  badgeText: string;
+  description: string;
+};
 
 const Events = () => {
   const t = useTranslations("Events");

@@ -9,7 +9,7 @@ type ParamTypes = {
   params: Promise<{ locale: string; title: string }>;
 };
 
-export type EventInfo = {
+type EventInfo = {
   id: number;
   title: string;
   imgSrc: string;
