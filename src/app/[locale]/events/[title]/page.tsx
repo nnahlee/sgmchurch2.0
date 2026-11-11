@@ -6,7 +6,7 @@ import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 type ParamTypes = {
-  params: { locale: string; title: string };
+  params: Promise<{ locale: string; title: string }>;
 };
 
 type EventInfo = {
@@ -82,6 +82,7 @@ export async function generateMetadata({
   };
 }
 
+/*
 export async function generateStaticParams({ params }: ParamTypes) {
   const { locale } = await params;
 
@@ -99,9 +100,35 @@ export async function generateStaticParams({ params }: ParamTypes) {
     }),
   }));
 }
+  */
+
+export async function generateStaticParams() {
+  const locales = ["en", "ko"];
+
+  const allParams = await Promise.all(
+    locales.map(async (locale) => {
+      const t = await getTranslations({
+        locale,
+        namespace: "Events",
+      });
+
+      const events = t.raw("items") as EventInfo[];
+
+      return events.map(({ title }) => ({
+        locale,
+        title: slugify(title, {
+          lower: true,
+          strict: true,
+        }),
+      }));
+    }),
+  );
+
+  return allParams.flat();
+}
 
 export default async function EventPage({ params }: ParamTypes) {
-  const { locale, title } = params;
+  const { locale, title } = await params;
   const translatedEvent = await getEvent(locale, title);
 
   if (!translatedEvent) {
