@@ -111,15 +111,7 @@ export default function Nav() {
           <>
             {/* Backdrop */}
             <motion.div
-              className="
-  fixed inset-0 z-50
-  flex flex-col items-center
-  justify-start gap-6
-  overflow-y-auto overscroll-contain
-  bg-background shadow-2xl
-  px-4 pt-20 pb-10
-  text-2xl
-"
+              className="fixed inset-0 z-40 bg-black/50"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -132,7 +124,15 @@ export default function Nav() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-background shadow-2xl flex flex-col items-center justify-center gap-8 text-2xl z-50"
+              className="
+    fixed inset-0 z-50
+    flex flex-col items-center justify-start
+    gap-6
+    overflow-y-auto overscroll-contain
+    bg-background shadow-2xl
+    px-4 pt-24 pb-10
+    text-2xl
+  "
             >
               {/* Close Button */}
               <div

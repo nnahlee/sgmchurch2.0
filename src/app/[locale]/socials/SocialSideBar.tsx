@@ -93,7 +93,7 @@ export default function SocialSideBar() {
       <aside
         aria-label="Share this page"
         className="
-        fixed z-50 flex flex-row items-center
+        fixed z-40 flex flex-row items-center
         gap-1 rounded-full border bg-background/95
         p-2 shadow-lg backdrop-blur-md
 
