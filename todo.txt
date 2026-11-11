@@ -75,11 +75,7 @@ https://admin.google.com
 
 
 
-# add security headers config
-events page 
-https://www.menlo.church/upcoming-events
-single events page
-https://www.myredemption.cc/event/lxp-2027/
+
 
 sermons live youtube page with pocket 4
 

@@ -1,6 +1,5 @@
 "use client";
 
-import { eventInfos } from "@/../types";
 import {
   Mail,
   Phone,
@@ -9,43 +8,19 @@ import {
   CalendarDays,
   MapPin,
 } from "lucide-react";
-import slugify from "slugify";
+
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
+import type { EventInfo } from "./page";
 
 type EventTypes = {
   title: string;
+  translatedEvent: EventInfo;
 };
 
-const Event = ({ title }: EventTypes) => {
-  // Normalize the URL slug
-  const parsedTitle = slugify(title, {
-    lower: true,
-    strict: true,
-  });
-
-  // Find the matching event
-  const event = eventInfos.find(
-    (e) =>
-      slugify(e.title, {
-        lower: true,
-        strict: true,
-      }) === parsedTitle,
-  );
-
-  if (!event) {
-    return (
-      <div className="mx-auto flex gap-6 justify-center items-center flex-col min-h-[70vh] max-w-6xl px-6 py-20 text-center">
-        <h1 className="text-4xl font-semibold">Event Not Found</h1>
-        <Link href="/events" className="mt-4 inline-block underline">
-          <Button size="lg" className="cursor-pointer py-6">
-            Return to Events
-          </Button>
-        </Link>
-      </div>
-    );
-  }
+const Event = ({ translatedEvent }: EventTypes) => {
+  const t = useTranslations("Events");
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-12 lg:py-20">
@@ -54,27 +29,28 @@ const Event = ({ title }: EventTypes) => {
         {/* Left: Event Information */}
         <div className="flex flex-col items-start gap-6">
           <span className="rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-            {event.badgeText}
+            {translatedEvent.badgeText}
+            {/* {t(`items.${translatedEvent.id}.badgeText`)} */}
           </span>
 
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            {event.title}
+            {translatedEvent.title}
           </h1>
 
           <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <CalendarDays className="h-5 w-5 text-primary" />
-              {event.date}
+              {translatedEvent.date}
             </div>
 
             <div className="flex items-center gap-2">
               <MapPin className="h-5 w-5 text-primary" />
-              {event.badgeText}
+              {translatedEvent.badgeText}
             </div>
           </div>
 
           <p className="text-base leading-8 text-muted-foreground sm:text-lg">
-            {event.description}
+            {translatedEvent.description}
           </p>
 
           <Link
@@ -82,15 +58,15 @@ const Event = ({ title }: EventTypes) => {
             className="inline-flex text-center items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3 font-medium text-primary-foreground transition hover:opacity-90"
           >
             <HandHeart className="md:h-5 md:w-5 w-0 h-0" />
-            Sign Up to Volunteer
+            {t(`contactTitle`)}
           </Link>
         </div>
 
-        {/* Right: Event Image */}
+        {/* Right: translatedEvent Image */}
         <div className="relative aspect-[4/2] w-full overflow-hidden rounded-2xl shadow-lg">
           <Image
-            src={event.imgSrc}
-            alt={event.title}
+            src={translatedEvent.imgSrc}
+            alt={translatedEvent.title}
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -106,27 +82,19 @@ const Event = ({ title }: EventTypes) => {
           <Heart className="h-7 w-7 text-primary" />
 
           <h2 className="text-2xl text-center font-semibold">
-            Donate or Volunteer
+            {t(`donateTitle`)}
           </h2>
 
           <p className="leading-7 text-muted-foreground">
-            Your generosity and willingness to serve can make a meaningful
-            difference in someone's life. We welcome donations of supplies and
-            volunteers who want to help make this event possible.
+            {t(`donateDescription`)}
           </p>
-
-          <ul className="space-y-2 text-muted-foreground">
-            <li>• Donate essential supplies for this event.</li>
-            <li>• Volunteer to help distribute donations.</li>
-            <li>• Help bring hope and encouragement to others.</li>
-          </ul>
 
           <Link
             href="/donate"
             className="mt-auto inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-primary-foreground transition hover:opacity-90"
           >
             <HandHeart className="sm:h-5 sm:w-5 h-0 w-0" />
-            Donate
+            {t(`donateTitle`)}
           </Link>
         </div>
 
@@ -135,12 +103,11 @@ const Event = ({ title }: EventTypes) => {
           <Mail className="h-7 w-7 text-primary" />
 
           <h2 className="text-2xl text-center font-semibold">
-            Contact & Sign Up
+            {t(`contactTitle`)}
           </h2>
 
           <p className="leading-7 sm:text-left text-center  text-muted-foreground">
-            Interested in participating, donating, or volunteering? Contact us
-            to sign up and learn more about how you can help.
+            {t(`contactDescription`)}
           </p>
 
           <div className="mt-2 flex items-center flex-col gap-4">
@@ -168,13 +135,11 @@ const Event = ({ title }: EventTypes) => {
         <Heart className="mx-auto  mb-4 h-8 w-8 text-red-500" />
 
         <h2 className="text-2xl font-semibold sm:text-3xl">
-          Together, We Can Make a Difference
+          {t(`secondaryTitle`)}
         </h2>
 
         <p className="mx-auto mt-4 max-w-2xl leading-8 text-muted-foreground">
-          Every act of kindness, every donation, and every helping hand can
-          bring hope to someone in need. Thank you for sharing your time,
-          generosity, and love with our community.
+          {t(`secondaryDescription`)}
         </p>
       </section>
     </main>

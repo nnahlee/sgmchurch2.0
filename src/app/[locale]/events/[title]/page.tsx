@@ -1,21 +1,45 @@
 import Event from "./Event";
-import { eventInfos } from "@/../types";
+
 import { Metadata } from "next";
 import slugify from "slugify";
+import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 type ParamTypes = {
   params: Promise<{ locale: string; title: string }>;
 };
 
-export async function generateMetaData({
+export type EventInfo = {
+  id: number;
+  title: string;
+  imgSrc: string;
+  date: string;
+  btnText: string;
+  badgeText: string;
+  description: string;
+};
+
+async function getEvent(
+  locale: string,
+  slug: string,
+): Promise<EventInfo | undefined> {
+  const t = await getTranslations({ locale, namespace: "Events" });
+  const translatedEvents = t.raw("items") as EventInfo[];
+  return translatedEvents.find(
+    (e) => slugify(e.title, { lower: true, strict: true }) === slug,
+  );
+}
+
+export async function generateMetadata({
   params,
 }: ParamTypes): Promise<Metadata> {
-  const siteUrl = "https://www.sgmchurch.com";
-  const { locale, title: metaTitle } = await params;
+  const siteUrl = "https:www.sgmchurch.com";
+  const { locale, title: slugTitle } = await params;
+
   const isKorean = locale === "ko";
   const title = isKorean
-    ? `이벤트 - ${metaTitle} - Street Gospel Mission Church`
-    : `Event - ${metaTitle} - Street Gospel Mission Church`;
+    ? `이벤트 - ${slugTitle} - Street Gospel Mission Church`
+    : `Event - ${slugTitle} - Street Gospel Mission Church`;
 
   const description = isKorean
     ? "Street Gospel Mission Church의 이벤트를 확인하세요."
@@ -58,8 +82,17 @@ export async function generateMetaData({
   };
 }
 
-export async function generateStaticParams() {
-  return eventInfos.map(({ title }) => ({
+export async function generateStaticParams({ params }: ParamTypes) {
+  const { locale } = await params;
+
+  const t = await getTranslations({
+    locale: locale,
+    namespace: "Events",
+  });
+
+  const events = t.raw("items") as EventInfo[];
+
+  return events.map(({ title }) => ({
     title: slugify(title, {
       lower: true,
       strict: true,
@@ -68,11 +101,16 @@ export async function generateStaticParams() {
 }
 
 export default async function EventPage({ params }: ParamTypes) {
-  const { title } = await params;
+  const { locale, title } = await params;
+  const translatedEvent = await getEvent(locale, title);
+
+  if (!translatedEvent) {
+    return notFound();
+  }
 
   return (
     <div>
-      <Event title={title} />
+      <Event title={title} translatedEvent={translatedEvent} />
     </div>
   );
 }

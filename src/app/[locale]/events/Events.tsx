@@ -1,20 +1,19 @@
 "use client";
 
-import {
-  Card,
-  CardDescription,
-  CardTitle,
-  CardHeader,
-  CardFooter,
-} from "@/components/ui/card";
+import { Card, CardTitle, CardHeader, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { eventInfos } from "@/../types";
+// import { eventInfos } from "@/../types";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import slugify from "slugify";
+import { useTranslations } from "next-intl";
+import type { EventInfo } from "./[title]/page";
 
 const Events = () => {
+  const t = useTranslations("Events");
+  const eventInfos = t.raw("items") as EventInfo[];
+
   return (
     <section className="px-4 py-16 sm:px-6 md:py-24 lg:px-12">
       <div className="mx-auto max-w-7xl">
@@ -38,7 +37,7 @@ const Events = () => {
 
         {/* Events Grid */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          {eventInfos.map(({ title, badgeText, btnText, imgSrc, date }) => (
+          {eventInfos.map(({ title, imgSrc }, idx) => (
             <Link
               key={title}
               href={`/events/${slugify(title, {
@@ -63,19 +62,19 @@ const Events = () => {
                 <CardHeader className="flex-1 space-y-3">
                   <div>
                     <Badge className="px-4 py-3" variant="outline">
-                      {badgeText}
+                      {t(`items.${idx}.badgeText`)}
                     </Badge>
                   </div>
 
-                  <CardTitle className="text-xl">{title}</CardTitle>
-
-                  <CardDescription>{date}</CardDescription>
+                  <CardTitle className="text-xl">
+                    {t(`items.${idx}.title`)}
+                  </CardTitle>
                 </CardHeader>
 
                 {/* Event Button */}
                 <CardFooter className="mt-auto">
                   <Button size="lg" className="mt-2 cursor-pointer">
-                    {btnText}
+                    {t(`items.${idx}.btnText`)}
                   </Button>
                 </CardFooter>
               </Card>
