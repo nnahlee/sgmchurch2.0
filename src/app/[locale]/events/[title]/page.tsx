@@ -3,7 +3,6 @@ import Event from "./Event";
 import { Metadata } from "next";
 import slugify from "slugify";
 import { getTranslations } from "next-intl/server";
-import { notFound } from "next/navigation";
 
 type ParamTypes = {
   params: Promise<{ locale: string; title: string }>;
@@ -105,7 +104,7 @@ export default async function EventPage({ params }: ParamTypes) {
   const translatedEvent = await getEvent(locale, title);
 
   if (!translatedEvent) {
-    return notFound();
+    return <div>no event</div>;
   }
 
   return (
