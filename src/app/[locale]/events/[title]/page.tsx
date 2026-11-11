@@ -3,6 +3,7 @@ import Event from "./Event";
 import { Metadata } from "next";
 import slugify from "slugify";
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 type ParamTypes = {
   params: { locale: string; title: string };
@@ -100,11 +101,11 @@ export async function generateStaticParams({ params }: ParamTypes) {
 }
 
 export default async function EventPage({ params }: ParamTypes) {
-  const { locale, title } = await params;
+  const { locale, title } = params;
   const translatedEvent = await getEvent(locale, title);
 
   if (!translatedEvent) {
-    return <div>no event</div>;
+    return notFound();
   }
 
   return (
