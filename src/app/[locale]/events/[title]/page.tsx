@@ -5,7 +5,7 @@ import slugify from "slugify";
 import { getTranslations } from "next-intl/server";
 
 type ParamTypes = {
-  params: Promise<{ locale: string; title: string }>;
+  params: { locale: string; title: string };
 };
 
 type EventInfo = {
