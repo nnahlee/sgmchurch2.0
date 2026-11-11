@@ -97,7 +97,7 @@ export default function SocialSideBar() {
         gap-1 rounded-full border bg-background/95
         p-2 shadow-lg backdrop-blur-md
 
-        bottom-[calc(env(safe-area-inset-bottom)+1rem)]
+        top-[calc(env(safe-area-inset-top)+6rem)]
         left-1/2 -translate-x-1/2
 
         md:bottom-auto md:left-auto md:right-4

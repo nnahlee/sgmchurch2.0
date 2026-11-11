@@ -34,7 +34,7 @@ const MoreInfoDropDown = () => {
     },
   ];
   return (
-    <div>
+    <div className="relative">
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
@@ -45,7 +45,7 @@ const MoreInfoDropDown = () => {
               </div>
             </NavigationMenuTrigger>
 
-            <NavigationMenuContent className="min-w-[200px] p-4 text-center">
+            <NavigationMenuContent className="min-w-[200px] z-50 p-4 text-center">
               {navigationLinks.map(({ href, title }, idx) => {
                 return (
                   <NavigationMenuLink

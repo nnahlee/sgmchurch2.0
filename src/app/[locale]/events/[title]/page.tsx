@@ -82,31 +82,12 @@ export async function generateMetadata({
   };
 }
 
-/*
-export async function generateStaticParams({ params }: ParamTypes) {
-  const { locale } = await params;
-
-  const t = await getTranslations({
-    locale: locale,
-    namespace: "Events",
-  });
-
-  const events = t.raw("items") as EventInfo[];
-
-  return events.map(({ title }) => ({
-    title: slugify(title, {
-      lower: true,
-      strict: true,
-    }),
-  }));
-}
-  */
-
 export async function generateStaticParams() {
   const locales = ["en", "ko"];
 
   const allParams = await Promise.all(
     locales.map(async (locale) => {
+      // runs 2x for en and ko loop
       const t = await getTranslations({
         locale,
         namespace: "Events",
@@ -123,6 +104,8 @@ export async function generateStaticParams() {
       }));
     }),
   );
+
+  // console.log(allParams.flat());
 
   return allParams.flat();
 }

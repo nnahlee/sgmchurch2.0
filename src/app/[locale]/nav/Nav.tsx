@@ -7,7 +7,6 @@ import { HeartIcon } from "lucide-react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
-import WatchNavigationMenuBtn from "./WatchNavigationMenuBtn";
 import MoreInfoDropDown from "./MoreInfoDropDown";
 import LocaleSwitcher from "../LocaleSwitcher";
 import { useTranslations } from "next-intl";
@@ -186,7 +185,7 @@ export default function Nav() {
                 <IoHomeOutline />
                 Home
               </Button>
-              {/* <WatchNavigationMenuBtn /> */}
+
               <MoreInfoDropDown />
             </motion.div>
           </>
