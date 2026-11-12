@@ -554,4 +554,45 @@ export const gallerySlides: ImageGalleryTypes[] = [
     src: "/images/compressed/newgal75-compressed-compressed.webp",
     alt: "Gallery image 75",
   },
+  {
+    id: "79",
+    src: "/images/compressed/newgal76-compressed.webp",
+    alt: "Gallery image 76",
+  },
+  {
+    id: "80",
+    src: "/images/compressed/newgal77-compressed.webp",
+    alt: "Gallery image 77",
+  },
+  {
+    id: "81",
+    src: "/images/compressed/newgal78-compressed.webp",
+    alt: "Gallery image 78",
+  },
+  {
+    id: "82",
+    src: "/images/compressed/newgal79-compressed.webp",
+    alt: "Gallery image 79",
+  },
+  {
+    id: "83",
+    src: "/images/compressed/newgal80-compressed.webp",
+    alt: "Gallery image 80",
+  },
+  {
+    id: "84",
+    src: "/images/compressed/newgal81-compressed.webp",
+    alt: "Gallery image 81",
+  },
+
+  {
+    id: "85",
+    src: "/images/compressed/newgal84-compressed.webp",
+    alt: "Gallery image 82",
+  },
+  {
+    id: "86",
+    src: "/images/compressed/newgal85-compressed.webp",
+    alt: "Gallery image 83",
+  },
 ];
