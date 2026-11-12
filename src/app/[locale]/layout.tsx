@@ -3,11 +3,13 @@ import { NextIntlClientProvider } from "next-intl";
 import { GoogleTagManager } from "@next/third-parties/google";
 import SocialSideBar from "@/app/[locale]/socials/SocialSideBar";
 import Script from "next/script";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import "../globals.css";
 
 import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { routing } from "@/i18n/routing";
+import { AIChatWidget } from "@/components/ai-chat/AiChatWidget";
 
 // Components
 import Nav from "./nav/Nav";
@@ -68,8 +70,10 @@ export default async function RootLayout({
         <NextIntlClientProvider>
           <Nav />
           <main>
-            {children}
+            <TooltipProvider>{children}</TooltipProvider>
+
             <SocialSideBar />
+            <AIChatWidget />
           </main>
           <Toaster richColors />
           <Footer />
