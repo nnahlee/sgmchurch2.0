@@ -51,7 +51,7 @@ export const Context = ({
 }: ContextProps) => {
   const contextValue = useMemo(
     () => ({ maxTokens, modelId, usage, usedTokens }),
-    [maxTokens, modelId, usage, usedTokens]
+    [maxTokens, modelId, usage, usedTokens],
   );
 
   return (
@@ -215,7 +215,7 @@ export const ContextContentFooter = ({
     <div
       className={cn(
         "flex w-full items-center justify-between gap-3 bg-secondary p-3 text-xs",
-        className
+        className,
       )}
       {...props}
     >
@@ -336,7 +336,9 @@ export const ContextReasoningUsage = ({
   ...props
 }: ContextReasoningUsageProps) => {
   const { usage, modelId } = useContextValue();
-  const reasoningTokens = usage?.reasoningTokens ?? 0;
+
+  // AI SDK 7: reasoning tokens are nested under outputTokenDetails.
+  const reasoningTokens = usage?.outputTokenDetails?.reasoningTokens ?? 0;
 
   if (children) {
     return children;
@@ -376,7 +378,9 @@ export const ContextCacheUsage = ({
   ...props
 }: ContextCacheUsageProps) => {
   const { usage, modelId } = useContextValue();
-  const cacheTokens = usage?.cachedInputTokens ?? 0;
+
+  // AI SDK 7: cached input tokens are nested under inputTokenDetails.
+  const cacheTokens = usage?.inputTokenDetails?.cacheReadTokens ?? 0;
 
   if (children) {
     return children;

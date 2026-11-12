@@ -8,6 +8,7 @@ export type SitePage = {
 
 /*
 ACCESS
+using admin@sgmchurch.com
 const englishPages = siteKnowledge.en;
 const koreanPages = siteKnowledge.ko;
 const allPages = [

@@ -34,7 +34,7 @@ export const AgentHeader = memo(
     <div
       className={cn(
         "flex w-full items-center justify-between gap-4 p-3",
-        className
+        className,
       )}
       {...props}
     >
@@ -48,7 +48,7 @@ export const AgentHeader = memo(
         )}
       </div>
     </div>
-  )
+  ),
 );
 
 export type AgentContentProps = ComponentProps<"div">;
@@ -56,7 +56,7 @@ export type AgentContentProps = ComponentProps<"div">;
 export const AgentContent = memo(
   ({ className, ...props }: AgentContentProps) => (
     <div className={cn("space-y-4 p-4 pt-0", className)} {...props} />
-  )
+  ),
 );
 
 export type AgentInstructionsProps = ComponentProps<"div"> & {
@@ -73,7 +73,7 @@ export const AgentInstructions = memo(
         <p>{children}</p>
       </div>
     </div>
-  )
+  ),
 );
 
 export type AgentToolsProps = ComponentProps<typeof Accordion>;
@@ -96,6 +96,16 @@ export const AgentTool = memo(
         ? tool.jsonSchema
         : tool.inputSchema;
 
+    // AI SDK 7 supports string and function-based descriptions.
+    // Function-based descriptions require runtime context, so display
+    // a fallback instead of trying to render the function itself.
+    const description =
+      typeof tool.description === "string"
+        ? tool.description
+        : typeof tool.description === "function"
+          ? "Dynamic tool description"
+          : "No description";
+
     return (
       <AccordionItem
         className={cn("border-b last:border-b-0", className)}
@@ -103,7 +113,7 @@ export const AgentTool = memo(
         {...props}
       >
         <AccordionTrigger className="px-3 py-2 text-sm hover:no-underline">
-          {tool.description ?? "No description"}
+          {description}
         </AccordionTrigger>
         <AccordionContent className="px-3 pb-3">
           <div className="rounded-md bg-muted/50">
@@ -112,7 +122,7 @@ export const AgentTool = memo(
         </AccordionContent>
       </AccordionItem>
     );
-  }
+  },
 );
 
 export type AgentOutputProps = ComponentProps<"div"> & {
@@ -129,7 +139,7 @@ export const AgentOutput = memo(
         <CodeBlock code={schema} language="typescript" />
       </div>
     </div>
-  )
+  ),
 );
 
 Agent.displayName = "Agent";
